@@ -1,72 +1,42 @@
-const { lc_predio } = require('../models');
+const express = require('express');
+const router = express.Router();
 
-// Obtener todos los predios
-exports.getAllPredios = async (req, res) => {
-    try {
-        const predios = await lc_predio.findAll();
-        return res.json(predios);
-    } catch (error) {
-        console.error('Error al obtener predios:', error);
-        return res.status(500).json({ message: 'Error al obtener predios' });
+function authMiddleware(req, res, next) {
+    // Verificar la autenticación del usuario
+    // Si el usuario está autenticado, llama a next()
+    // Si el usuario no está autenticado, devuelve un error 401 Unauthorized
+    if (req.isAuthenticated()) {
+        return next();
+    } else {
+        return res.status(401).json({ message: 'Unauthorized' });
     }
-};
+}
 
-// Obtener un predio por ID
-exports.getPredioById = async (req, res) => {
-    const { id } = req.params;
-    try {
-        const predio = await lc_predio.findByPk(id);
-        if (!predio) {
-            return res.status(404).json({ message: 'Predio no encontrado' });
-        }
-        return res.json(predio);
-    } catch (error) {
-        console.error('Error al obtener predio por ID:', error);
-        return res.status(500).json({ message: 'Error al obtener predio por ID' });
-    }
-};
 
-// Crear un nuevo predio
-exports.createPredio = async (req, res) => {
-    const { body } = req;
-    try {
-        const nuevoPredio = await lc_predio.create(body);
-        return res.json(nuevoPredio);
-    } catch (error) {
-        console.error('Error al crear predio:', error);
-        return res.status(500).json({ message: 'Error al crear predio' });
-    }
-};
+// Importar controladores
+const predioController = require('../controllers/lc_predioController/lc_prediocontroller');
+const unidadConstruccionController = require('../controllers/lc_unidadconstruccionController/lc_unidadconstruccionController');
+const calificacionConvencionalController = require('../controllers/lc_calificacionconvecionalController/lc_calificacionconvecionalController');
+const calificacionNoConvencionalController = require('../controllers/lc_calificacionnoconvencionalController/lc_calificacionnoconvencionalController');
+const caracteristicaUnidadConstruccionController = require('../controllers/lc_caracteristicaunidadconstruccionController/lc_caracteristicaunidadconstruccionController');
+const construccionPlantaTipoController = require('../controllers/lc_construccionplantatipoController/lc_construccionplantatipoController');
+const dominioConstruccionTipoController = require('../controllers/lc_dominioconstrucciontipoController/lc_dominioconstrucciontipoController');
+const tipologiaConstruccionController = require('../controllers/lc_tipologiaconstruccionController/lc_tipologiaconstruccionController');
+const unidadConstruccionTipoController = require('../controllers/lc_unidadconstrucciontipoController/lc_unidadconstrucciontipoController');
+const construccionTipoController = require('../controllers/lc_construcciontipoController/lc_construcciontipoController');
+const usoConstruccionTipoController = require('../controllers/lc_usouconstipoController/lc_usouconstipoController');
 
-// Actualizar un predio por ID
-exports.updatePredio = async (req, res) => {
-    const { id } = req.params;
-    const { body } = req;
-    try {
-        const predio = await lc_predio.findByPk(id);
-        if (!predio) {
-            return res.status(404).json({ message: 'Predio no encontrado' });
-        }
-        await predio.update(body);
-        return res.json(predio);
-    } catch (error) {
-        console.error('Error al actualizar predio:', error);
-        return res.status(500).json({ message: 'Error al actualizar predio' });
-    }
-};
+// Definir rutas
+router.use('/predios', predioController);
+router.use('/unidad-construccion', unidadConstruccionController);
+router.use('/calificacion-convencional', calificacionConvencionalController);
+router.use('/calificacion-no-convencional', calificacionNoConvencionalController);
+router.use('/caracteristica-unidad-construccion', caracteristicaUnidadConstruccionController);
+router.use('/construccion-planta-tipo', construccionPlantaTipoController);
+router.use('/dominio-construccion-tipo', dominioConstruccionTipoController);
+router.use('/tipologia-construccion', tipologiaConstruccionController);
+router.use('/unidad-construccion-tipo', unidadConstruccionTipoController);
+router.use('/construccion-tipo', construccionTipoController);
+router.use('/uso-construccion-tipo', usoConstruccionTipoController);
 
-// Eliminar un predio por ID
-exports.deletePredio = async (req, res) => {
-    const { id } = req.params;
-    try {
-        const predio = await lc_predio.findByPk(id);
-        if (!predio) {
-            return res.status(404).json({ message: 'Predio no encontrado' });
-        }
-        await predio.destroy();
-        return res.json({ message: 'Predio eliminado correctamente' });
-    } catch (error) {
-        console.error('Error al eliminar predio:', error);
-        return res.status(500).json({ message: 'Error al eliminar predio' });
-    }
-};
+module.exports = router;
