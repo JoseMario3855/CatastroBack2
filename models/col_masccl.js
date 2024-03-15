@@ -1,26 +1,44 @@
-'use strict';
-const {
-  Model
-} = require('sequelize');
+const { Model, DataTypes } = require('sequelize');
+
 module.exports = (sequelize, DataTypes) => {
   class col_masccl extends Model {
-    /**
-     * Helper method for defining associations.
-     * This method is not a part of Sequelize lifecycle.
-     * The `models/index` file will call this method automatically.
-     */
+   
     static associate(models) {
-      // define association here
+      col_masccl.belongsTo(models.lc_unidadconstruccion,{foreignKey:'ue_mas_lc_unidadconstruccion',targetKey:'ue_mas_lc_unidadconstruccion'});
+
     }
   }
   col_masccl.init({
-    t_id: DataTypes.INTEGER,
-    t_ili_tid: DataTypes.STRING,
-    ccl_mas: DataTypes.INTEGER,
-    ue_mas_lc_terreno: DataTypes.INTEGER,
-    ue_mas_lc_construccion: DataTypes.INTEGER,
-    ue_mas_lc_unidadconstruccion: DataTypes.INTEGER,
-    ue_mas_lc_servidumbretransito: DataTypes.INTEGER
+    t_id: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      primaryKey: true,
+      autoIncrement: true
+    },
+    t_ili_tid: {
+      type: DataTypes.UUID,
+      allowNull: true
+    },
+    ccl_mas: {
+      type: DataTypes.INTEGER,
+      allowNull: true
+    },
+    ue_mas_lc_terreno: {
+      type: DataTypes.INTEGER,
+      allowNull: true
+    },
+    ue_mas_lc_construccion: {
+      type: DataTypes.INTEGER,
+      allowNull: true
+    },
+    ue_mas_lc_unidadconstruccion: {
+      type: DataTypes.INTEGER,
+      allowNull: true
+    },
+    ue_mas_lc_servidumbretransito: {
+      type: DataTypes.INTEGER,
+      allowNull: true
+    },
   }, {
     sequelize,
     modelName: 'col_masccl',

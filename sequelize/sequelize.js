@@ -31,6 +31,14 @@ const lc_interesadocontacto = require ('.models/lc_interesadocontacto');
 const lc_interesadodocumentotipo = require ('.models/lc_interesadodocumentotipo');
 const lc_interesadotipo = require ('.models/lc_interesadotipo');
 const lc_ofertasmercadoinmobiliario = require ('.models/lc_ofertasmercadoinmobiliario');
+const lc_usouconstipo = require('../models/lc_usouconstipo');
+const lc_unidadconstrucciontipo =require('../models/lc_unidadconstrucciontipo');
+const lc_unidadconstruccion=require ('../models/lc_unidadconstruccion');
+const lc_tipologiaconstruccion =require ('../models/lc_tipologiaconstruccion');
+const lc_sexotipo =require ('../models/lc_sexotipo');
+const lc_restriccion = require ('../models/lc_restriccion');
+const lc_prediotipo = require ('../models/lc_prediotipo');
+
 
 //Se inicializa los modelos 
 
@@ -38,6 +46,7 @@ lc_predio.init(sequelize);
 col_areavalor.init(sequelize);
 col_baunitcomointeresado.init(sequelize);
 col_baunitfuente.init(sequelize);
+col_masccl.init(sequelize);
 col_miembros.init(sequelize);
 col_responsablefuente.init(sequelize);
 col_topografofuente.init(sequelize);
@@ -56,6 +65,13 @@ lc_interesado.init (sequelize);
 lc_interesadocontacto.init (sequelize);
 lc_interesadodocumentotipo.init (sequelize);
 lc_interesadotipo.init (sequelize);
-lc_interesadotipo.init (sequelize);
+lc_ofertasmercadoinmobiliario.init(sequelize);
+lc_usouconstipo.init(sequelize);
+lc_unidadconstrucciontipo.init(sequelize);
+lc_unidadconstruccion.init(sequelize);
+lc_tipologiaconstruccion.init(sequelize);
+lc_sexotipo.init(sequelize);
+lc_restriccion.init(sequelize);
+lc_prediotipo.init(sequelize);
 
 module.exports = sequelize;

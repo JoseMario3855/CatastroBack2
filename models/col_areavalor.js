@@ -1,28 +1,52 @@
-'use strict';
-const {
-  Model
-} = require('sequelize');
+const { Model, DataTypes } = require('sequelize');
+
 module.exports = (sequelize, DataTypes) => {
   class col_areavalor extends Model {
-    /**
-     * Helper method for defining associations.
-     * This method is not a part of Sequelize lifecycle.
-     * The `models/index` file will call this method automatically.
-     */
+   
     static associate(models) {
-      // define association here
+      col_areavalor.belongsTo(models.lc_construccion,{foreignKey:'lc_construccion_area',targetKey:'lc_construccion_area'});
+      col_areavalor.belongsTo(models.lc_unidadconstruccion,{foreignKey:'lc_unidadconstruccion_area',targetKey:'lc_unidadconstruccion_area'});
     }
   }
   col_areavalor.init({
-    t_id: DataTypes.INTEGER,
-    t_seq: DataTypes.INTEGER,
-    tipo: DataTypes.INTEGER,
-    area: DataTypes.INTEGER,
-    datos_proyeccion: DataTypes.STRING,
-    lc_construccion_area: DataTypes.INTEGER,
-    lc_terreno_area: DataTypes.INTEGER,
-    lc_servidumbretransito_area: DataTypes.INTEGER,
-    lc_unidadconstruccion_area: DataTypes.INTEGER
+    t_id: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      primaryKey: true,
+      autoIncrement: true
+    },
+    t_seq: {
+      type: DataTypes.INTEGER,
+      allowNull: false
+    },
+    tipo:{
+      type: DataTypes.INTEGER,
+      allowNull: false
+    },
+    area: {
+      type: DataTypes.INTEGER,
+      allowNull: false
+    },
+    datos_proyeccion:{
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    lc_construccion_area:{
+      type: DataTypes.INTEGER,
+      allowNull: false
+    },
+    lc_terreno_area: {
+      type: DataTypes.INTEGER,
+      allowNull: false
+    },
+    lc_servidumbretransito_area: {
+      type: DataTypes.INTEGER,
+      allowNull: false
+    },
+    lc_unidadconstruccion_area: {
+      type: DataTypes.INTEGER,
+      allowNull: false
+    },
   }, {
     sequelize,
     modelName: 'col_areavalor',

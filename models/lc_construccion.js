@@ -1,7 +1,6 @@
 'use strict';
-const {
-  Model
-} = require('sequelize');
+const { Model, DataTypes } = require('sequelize');
+
 module.exports = (sequelize, DataTypes) => {
   class lc_construccion extends Model {
     /**
@@ -14,27 +13,79 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   lc_construccion.init({
-    t_id: DataTypes.INTEGER,
-    t_ili_tid: DataTypes.STRING,
-    identificador: DataTypes.STRING,
-    tipo_construccion: DataTypes.INTEGER,
-    tipo_dominio: DataTypes.INTEGER,
-    numero_pisos: DataTypes.INTEGER,
-    numero_sotanos: DataTypes.INTEGER,
-    numero_mezanines: DataTypes.INTEGER,
-    numero_semisotanos: DataTypes.INTEGER,
-    anio_construccion: DataTypes.INTEGER,
-    avaluo_construccion: DataTypes.INTEGER,
-    area_construccion: DataTypes.INTEGER,
-    altura: DataTypes.INTEGER,
+    t_id: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      primaryKey: true,
+      autoIncrement: true
+    },
+    t_ili_tid:  {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    identificador:  {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    tipo_construccion: {
+      type: DataTypes.INTEGER,
+      allowNull: true
+    },
+    tipo_dominio: {
+      type: DataTypes.INTEGER,
+      allowNull: true
+    },
+    numero_pisos: {
+      type: DataTypes.INTEGER,
+      allowNull: true
+    },
+    numero_sotanos: {
+      type: DataTypes.INTEGER,
+      allowNull: true
+    },
+    numero_mezanines: {
+      type: DataTypes.INTEGER,
+      allowNull: true
+    },
+    numero_semisotanos: {
+      type: DataTypes.INTEGER,
+      allowNull: true
+    },
+    anio_construccion: {
+      type: DataTypes.INTEGER,
+      allowNull: true
+    },
+    avaluo_construccion: {
+      type: DataTypes.INTEGER,
+      allowNull: true
+    },
+    area_construccion: {
+      type: DataTypes.INTEGER,
+      allowNull: true
+    },
     observaciones: DataTypes.STRING,
     dimension: DataTypes.INTEGER,
-    etiqueta: DataTypes.STRING,
-    relacion_superficie: DataTypes.INTEGER,
-    comienzo_vida_util_version: DataTypes.DATE,
-    fin_vida_util_version: DataTypes.DATE,
-    espacio_de_nombres: DataTypes.STRING,
-    local_id: DataTypes.STRING
+    etiqueta:  {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    relacion_superficie:{
+      type: DataTypes.INTEGER,
+      allowNull: true
+    },
+    comienzo_vida_util_version:{ 
+    type:DataTypes.DATE,
+    allowNull:true
+  },
+    fin_vida_util_version: { 
+      type:DataTypes.DATE,
+      allowNull:true
+    },
+      
+    local_id:{
+    type: DataTypes.STRING,
+    allowNull: fals
+    },
   }, {
     sequelize,
     modelName: 'lc_construccion',

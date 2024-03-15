@@ -8,15 +8,15 @@ const lc_calificacionconvecionalController = require('../controllers/lc_califica
 router.get('/calificacionconvecional', lc_calificacionconvecionalController.getAllcalificacionconvecional);
 
 // Ruta para obtener todas las Calificaciones convecionales por ID
-router.get('/calificacionconvecional/:id', lc_calificacionconvecionalController.getcalificacionconvecionalById);
+router.get('/calificacionconvecional/:id', lc_calificacionconvecionalController.calificacionconvecionalgetById);
 
 // Ruta para crear una todas las Calificaciones convecionales
 router.post('/calificacionconvecional', lc_calificacionconvecionalController.createcalificacionconvecional);
 
 // Ruta para actualizar una Calificacion convecional por ID
-router.put('/calificacionconvecional/:id', lc_calificacionconvecionalController.updatecalificacionconvecional);
+router.put('/calificacionconvecional/:id', lc_calificacionconvecionalController.calificacionconvecionalupdateById);
 
 // Ruta para eliminar una Calificacion convecional por ID
-router.delete('/calificacionconvecional/:id', lc_calificacionconvecionalController.deletecalificacionconvecional);
+router.delete('/calificacionconvecional/:id', lc_calificacionconvecionalController.calificacionconvecionaldeleteById);
 
 module.exports = router;

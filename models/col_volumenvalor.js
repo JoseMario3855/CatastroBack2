@@ -1,27 +1,47 @@
-'use strict';
-const {
-  Model
-} = require('sequelize');
+const { Model, DataTypes } = require('sequelize');
+
 module.exports = (sequelize, DataTypes) => {
   class col_volumenvalor extends Model {
-    /**
-     * Helper method for defining associations.
-     * This method is not a part of Sequelize lifecycle.
-     * The `models/index` file will call this method automatically.
-     */
+    
     static associate(models) {
-      // define association here
+      
     }
   }
   col_volumenvalor.init({
-    t_id: DataTypes.INTEGER,
-    t_seq: DataTypes.INTEGER,
-    volumen_medicion: DataTypes.INTEGER,
-    tipo: DataTypes.INTEGER,
-    lc_construccion_volumen: DataTypes.INTEGER,
-    lc_terreno_volumen: DataTypes.INTEGER,
-    lc_servidumbretransito_volumen: DataTypes.INTEGER,
-    lc_unidadconstruccion_volumen: DataTypes.INTEGER
+    t_id: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      primaryKey: true,
+      autoIncrement: true
+    },
+    t_seq: {
+      type: DataTypes.INTEGER,
+      allowNull: true
+    },
+    volumen_medicion: {
+      type: DataTypes.INTEGER,
+      allowNull: true
+    },
+    tipo: {
+      type: DataTypes.INTEGER,
+      allowNull: true
+    },
+    lc_construccion_volumen: {
+      type: DataTypes.INTEGER,
+      allowNull: true
+    },
+    lc_terreno_volumen: {
+      type: DataTypes.INTEGER,
+      allowNull: true
+    },
+    lc_servidumbretransito_volumen: {
+      type: DataTypes.INTEGER,
+      allowNull: true
+    },
+    lc_unidadconstruccion_volumen: {
+      type: DataTypes.INTEGER,
+      allowNull: true
+    }
   }, {
     sequelize,
     modelName: 'col_volumenvalor',

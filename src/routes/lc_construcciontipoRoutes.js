@@ -1,13 +1,13 @@
 // routes/lc_construcciontipoController.js
 const express = require('express');
 const router = express.Router();
-const lc_construcciontipoController = require('../controllers/lc_construcciontipoController');
+const lc_construcciontipoController = require('../controllers/lc_construcciontipoController/lc_construcciontipoController');
 
 // Ruta para obtener tipo de construccion
 router.get('/construcciontipo', lc_construcciontipoController.getAllconstrucciontipo);
 
 // Ruta para obtener los tipos de construccion por ID
-router.get('/construcciontipo/:id', lc_construcciontipoController.getconstrucciontipoById);
+router.get('/construcciontipo/:id', lc_construcciontipoController.getconstrucciontipoyId);
 
 // Ruta para crear tipos de construccion
 router.post('/construcciontipo', lc_construcciontipoController.createconstrucciontipo);

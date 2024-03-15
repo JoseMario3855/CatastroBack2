@@ -1,23 +1,32 @@
 'use strict';
-const {
-  Model
-} = require('sequelize');
+const { Model, DataTypes } = require('sequelize');
+
 module.exports = (sequelize, DataTypes) => {
   class col_baunitcomointeresado extends Model {
-    /**
-     * Helper method for defining associations.
-     * This method is not a part of Sequelize lifecycle.
-     * The `models/index` file will call this method automatically.
-     */
+   
     static associate(models) {
-      // define association here
+      col_baunitcomointeresado.belongsto(models.lc_interesado,{foreignkey:'interesado_lc_interesado',targetKey:'interesado_lc_interesado'});
     }
   }
   col_baunitcomointeresado.init({
-    t_id: DataTypes.INTEGER,
-    t_ili_tid: DataTypes.STRING,
-    interesado_lc_interesado: DataTypes.INTEGER,
-    unidad: DataTypes.INTEGER
+    t_id: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      primaryKey: true,
+      autoIncrement: true
+    },
+    t_ili_tid: {
+    type: DataTypes.STRING,
+    allowNull: true
+  },
+    interesado_lc_interesado:{
+      type: DataTypes.INTEGER,
+      allowNull: true
+    },
+    unidad:{
+      type:DataTypes.INTEGER,
+      allowNull:true
+    }
   }, {
     sequelize,
     modelName: 'col_baunitcomointeresado',

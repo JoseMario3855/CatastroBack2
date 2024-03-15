@@ -1,38 +1,126 @@
 'use strict';
-const {
-  Model
-} = require('sequelize');
-module.exports = (sequelize, DataTypes) => {
+const { Model, DataTypes } = require('sequelize');
+
+
+module.exports = (sequelize) => {
   class lc_predio extends Model {
-    /**
-     * Helper method for defining associations.
-     * This method is not a part of Sequelize lifecycle.
-     * The `models/index` file will call this method automatically.
-     */
     static associate(models) {
-      // define association here
+      lc_predio.belongsTo(models.lc_categoriasuelotipo, { foreignKey: 't_id' });
+      lc_predio.belongsTo(models.lc_destinacioneconomicatipo,{foreignKey:'t_id'});
+      lc_predio.belongsTo(models.lc_clasesuelotipo,{foreignKey: 't_id'});
+
     }
   }
+  
   lc_predio.init({
-    t_id: DataTypes.INTEGER,
-    t_ili_tid: DataTypes.UUID,
-    departamento: DataTypes.STRING,
-    municipio: DataTypes.STRING,
-    id_operacion: DataTypes.STRING,
-    tiene_fmi: DataTypes.BOOLEAN,
-    numero_predial: DataTypes.STRING,
-    numero_predial_anterior: DataTypes.STRING,
-    nupre: DataTypes.STRING,
-    avaluo_catastral: DataTypes.DECIMAL,
-    tipo: DataTypes.INTEGER,
-    condicion_predio: DataTypes.INTEGER,
-    nombre: DataTypes.STRING,
-    comienzo_vida_util_version: DataTypes.DATE,
-    espacio_de_nombres: DataTypes.STRING,
-    local_id: DataTypes.STRING
+    t_id: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      primaryKey: true,
+      autoIncrement: true
+    },
+    t_ili_tid: {
+      type: DataTypes.UUID,
+      allowNull: true
+    },
+    departamento: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    municipio: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    id_operacion: {
+      type: DataTypes.STRING,
+      allowNull: true
+    },
+    tiene_fmi: {
+      type: DataTypes.BOOLEAN,
+      allowNull: true
+    },
+    codigo_orip:{
+      type: DataTypes.STRING,
+      allowNull: false
+
+    },
+    matricula_inmobiliaria:{
+      type: DataTypes.STRING,
+      allowNull: false
+
+    },
+    numero_predial: {
+      type: DataTypes.STRING,
+      allowNull: true
+    },
+    numero_predial_anterior: {
+      type: DataTypes.STRING,
+      allowNull: true
+    },
+    codigo_homologado:{
+      type: DataTypes.STRING,
+      allowNull: false
+
+    },
+    interrelacionado:{
+      type: DataTypes.BOOLEAN,
+      allowNull: false
+
+    },
+    codigo_homologado_fmi:{
+      type: DataTypes.BOOLEAN,
+      allowNull: false
+
+    },
+    nupre: {
+      type: DataTypes.STRING,
+      allowNull: true
+    },
+    avaluo_catastral: {
+      type: DataTypes.DECIMAL,
+      allowNull: true
+    },
+    valor_referencia: {
+      type: DataTypes.DECIMAL,
+      allowNull: true
+    },
+    tipo: {
+      type: DataTypes.INTEGER,
+      allowNull: true
+    },
+    condicion_predio: {
+      type: DataTypes.INTEGER,
+      allowNull: true
+    },
+    destinacion_economica:{
+      type: DataTypes.INTEGER,
+      allowNull:true
+    },
+    clase_suelo:{
+      type: DataTypes.INTEGER,
+      allowNull:true
+    },
+
+    nombre: {
+      type: DataTypes.STRING,
+      allowNull: true
+    },
+    comienzo_vida_util_version: {
+      type: DataTypes.DATE,
+      allowNull: true
+    },
+    espacio_de_nombres: {
+      type: DataTypes.STRING,
+      allowNull: true
+    },
+    local_id: {
+      type: DataTypes.STRING,
+      allowNull: true
+    }
   }, {
     sequelize,
     modelName: 'lc_predio',
   });
+
   return lc_predio;
 };

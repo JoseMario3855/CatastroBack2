@@ -1,6 +1,6 @@
-// controladores/lc_predioController.js
-const db = require('../../../models/lc_predio');
-const lc_predio = db.lc_predio;
+const db = require('../../../models'); // Importa la instancia de Sequelize y todos los modelos
+const lc_predio = db.lc_predio; // Aquí obtén el modelo de predio desde el objeto db
+
 
 // Obtener todos los predios
 exports.getAllPredios = async (req, res) => {

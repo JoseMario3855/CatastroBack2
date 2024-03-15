@@ -1,11 +1,11 @@
-// controllers/lc_calificacionconvecionalController.js
-const db = require('../../../models/lc_calificacionconvencional');
-const lc_calificacionconvecional = db.lc_calificacionconvecional;
+// controllers/extdireccionController.js
+const db = require('../../../models/extdireccion');
+const extdireccion = db.extdireccion;
 
-// Obtener todos los registros de lc_calificacionconvecional
-exports.getAllcalificacionconvecional = async (req, res) => {
+// Obtener todos los registros de extdireccion
+exports.getAllextdireccion = async (req, res) => {
     try {
-        const data = await lc_calificacionconvecional.findAll();
+        const data = await extdireccion.findAll();
         res.json(data);
     } catch (error) {
         console.error('Error al obtener los registros:', error);
@@ -13,10 +13,10 @@ exports.getAllcalificacionconvecional = async (req, res) => {
     }
 };
 
-// Crear un nuevo registro en lc_calificacionconvecional
-exports.createcalificacionconvecional = async (req, res) => {
+// Crear un nuevo registro en extdireccion
+exports.createextdireccion = async (req, res) => {
     try {
-        const nuevoRegistro = await lc_calificacionconvecional.create(req.body);
+        const nuevoRegistro = await extdireccion.create(req.body);
         return res.json(nuevoRegistro);
     } catch (error) {
         console.error('Error al crear un nuevo registro:', error);
@@ -24,11 +24,11 @@ exports.createcalificacionconvecional = async (req, res) => {
     }
 };
 
-// Obtener un registro de lc_calificacionconvecional por ID
-exports.calificacionconvecionalgetById = async (req, res) => {
+// Obtener un registro de extdireccion por ID
+exports.extdirecciongetById = async (req, res) => {
     const { id } = req.params;
     try {
-        const registro = await lc_calificacionconvecional.findByPk(id);
+        const registro = await extdireccion.findByPk(id);
         if (!registro) {
             return res.status(404).json({ message: 'Registro no encontrado' });
         }
@@ -39,12 +39,12 @@ exports.calificacionconvecionalgetById = async (req, res) => {
     }
 };
 
-// Actualizar un registro de lc_calificacionconvecional por ID
-exports.calificacionconvecionalupdateById = async (req, res) => {
+// Actualizar un registro de extdireccion por ID
+exports.extdireccionupdateById = async (req, res) => {
     const { id } = req.params;
     const { body } = req;
     try {
-        const registro = await lc_calificacionconvecional.findByPk(id);
+        const registro = await extdireccion.findByPk(id);
         if (!registro) {
             return res.status(404).json({ message: 'Registro no encontrado' });
         }
@@ -56,11 +56,11 @@ exports.calificacionconvecionalupdateById = async (req, res) => {
     }
 };
 
-// Eliminar un registro de lc_calificacionconvecional por ID
-exports.calificacionconvecionaldeleteById = async (req, res) => {
+// Eliminar un registro de extdireccion por ID
+exports.extdireccionldeleteById = async (req, res) => {
     const { id } = req.params;
     try {
-        const registro = await lc_calificacionconvecional.findByPk(id);
+        const registro = await extdireccion.findByPk(id);
         if (!registro) {
             return res.status(404).json({ message: 'Registro no encontrado' });
         }

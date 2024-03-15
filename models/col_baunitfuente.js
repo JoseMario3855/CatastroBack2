@@ -1,23 +1,32 @@
-'use strict';
-const {
-  Model
-} = require('sequelize');
+const { Model, DataTypes } = require('sequelize');
+
+const lc_predio = require('./lc_predio');
 module.exports = (sequelize, DataTypes) => {
   class col_baunitfuente extends Model {
-    /**
-     * Helper method for defining associations.
-     * This method is not a part of Sequelize lifecycle.
-     * The `models/index` file will call this method automatically.
-     */
+    
     static associate(models) {
-      // define association here
+      col_baunitfuente.belongsTo(models.lc_predio,{foreignKey:'unidad',targetKey:'unidad'});
     }
   }
   col_baunitfuente.init({
-    t_id: DataTypes.INTEGER,
-    t_ili_tid: DataTypes.STRING,
-    fuente_especial: DataTypes.INTEGER,
-    unidad: DataTypes.INTEGER
+    t_id: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      primaryKey: true,
+      autoIncrement: true
+    },
+    t_ili_tid: {
+      type: DataTypes.STRING,
+      allowNull: true
+    },
+    fuente_especial: {
+      type: DataTypes.INTEGER,
+      allowNull: true
+    },
+    unidad: {
+      type: DataTypes.INTEGER,
+      allowNull: true
+    },
   }, {
     sequelize,
     modelName: 'col_baunitfuente',
