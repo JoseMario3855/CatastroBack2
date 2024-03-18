@@ -14,15 +14,44 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   lc_unidadconstrucciontipo.init({
-    t_id: DataTypes.INTEGER,
-    thisclass: DataTypes.STRING,
-    baseclass: DataTypes.STRING,
-    itfcode: DataTypes.INTEGER,
-    ilicode: DataTypes.STRING,
-    seq: DataTypes.INTEGER,
-    inactive: DataTypes.BOOLEAN,
-    dispname: DataTypes.STRING,
-    description: DataTypes.STRING
+    t_id: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      primaryKey: true,
+      autoIncrement: true
+    },
+    thisclass: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    baseclass: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    itfcode:{
+    type: DataTypes.INTEGER,
+    allowNull: true
+  },
+    ilicode: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    seq: {
+    type: DataTypes.INTEGER,
+    allowNull: true
+  },
+    inactive: {
+      type: DataTypes.BOOLEAN,
+      allowNull: true
+    },
+    dispname: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    description: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
   }, {
     sequelize,
     modelName: 'lc_unidadconstrucciontipo',

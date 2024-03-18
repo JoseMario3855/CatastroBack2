@@ -1,7 +1,5 @@
-'use strict';
-const {
-  Model
-} = require('sequelize');
+const { Model, DataTypes } = require('sequelize');
+
 module.exports = (sequelize, DataTypes) => {
   class lc_datosphcondominio extends Model {
     /**
@@ -14,16 +12,48 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   lc_datosphcondominio.init({
-    t_id: DataTypes.INTEGER,
-    t_ili_tid: DataTypes.STRING,
-    area_total_terreno: DataTypes.INTEGER,
-    area_total_terreno_privada: DataTypes.INTEGER,
-    area_total_construida: DataTypes.INTEGER,
-    area_total_construida_priva: DataTypes.INTEGER,
-    area_total_construida_comun: DataTypes.INTEGER,
-    numero_torres: DataTypes.INTEGER,
-    toral_unidades_privadas: DataTypes.INTEGER,
-    lc_predio: DataTypes.INTEGER
+    t_id: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      primaryKey: true,
+      autoIncrement: true
+    },
+    t_ili_tid: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    area_total_terreno: {
+      type: DataTypes.INTEGER,
+      allowNull: true
+    },
+    area_total_terreno_privada: {
+      type: DataTypes.INTEGER,
+      allowNull: true
+    },
+    area_total_construida: {
+      type: DataTypes.INTEGER,
+      allowNull: true
+    },
+    area_total_construida_priva: {
+      type: DataTypes.INTEGER,
+      allowNull: true
+    },
+    area_total_construida_comun: {
+      type: DataTypes.INTEGER,
+      allowNull: true
+    },
+    numero_torres:{
+      type: DataTypes.INTEGER,
+      allowNull: true
+    },
+    toral_unidades_privadas: {
+      type: DataTypes.INTEGER,
+      allowNull: true
+    },
+    lc_predio: {
+      type: DataTypes.INTEGER,
+      allowNull: true
+    },
   }, {
     sequelize,
     modelName: 'lc_datosphcondominio',

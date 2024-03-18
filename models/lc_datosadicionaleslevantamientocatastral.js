@@ -1,8 +1,7 @@
-'use strict';
-const {
-  Model
-} = require('sequelize');
+const { Model, DataTypes } = require('sequelize');
+
 module.exports = (sequelize, DataTypes) => {
+
   class lc_datosadicionaleslevantamientocatastral extends Model {
     /**
      * Helper method for defining associations.
@@ -14,24 +13,80 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   lc_datosadicionaleslevantamientocatastral.init({
-    t_id: DataTypes.INTEGER,
-    t_ili_tid: DataTypes.STRING,
-    tiene_area_registral: DataTypes.BOOLEAN,
-    area_registral_m2: DataTypes.INTEGER,
-    procedimiento_catastral_registral: DataTypes.INTEGER,
-    destinacion_economica: DataTypes.INTEGER,
-    clase_suelo: DataTypes.INTEGER,
-    categoria_suelo: DataTypes.INTEGER,
-    observaciones: DataTypes.STRING,
-    fecha_visita_predial: DataTypes.DATE,
-    tipo_documento_reconocedor: DataTypes.INTEGER,
-    primer_nombre_reconocedor: DataTypes.STRING,
-    segundo_nombre_reconocedor: DataTypes.STRING,
-    primer_apellido_reconocedor: DataTypes.STRING,
-    segundo_apellido_reconocedor: DataTypes.STRING,
-    resultado_visita: DataTypes.INTEGER,
-    suscribe_acta_colindancia: DataTypes.BOOLEAN,
-    lc_predio: DataTypes.INTEGER
+    t_id: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      primaryKey: true,
+      autoIncrement: true
+    },
+    t_ili_tid: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    tiene_area_registral: {
+      type: DataTypes.BOOLEAN,
+      allowNull: false
+    },
+    area_registral_m2: {
+      type: DataTypes.DECIMAL,
+      allowNull: true
+    },
+    procedimiento_catastral_registral: {
+      type: DataTypes.INTEGER,
+      allowNull: true
+    },
+    destinacion_economica: {
+      type: DataTypes.INTEGER,
+      allowNull: true
+    },
+    clase_suelo: {
+      type: DataTypes.INTEGER,
+      allowNull: true
+    },
+    categoria_suelo: {
+      type: DataTypes.INTEGER,
+      allowNull: true
+    },
+    observaciones: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    fecha_visita_predial:{
+     type: DataTypes.DATE,
+     allowNull:false
+    },
+    tipo_documento_reconocedor: {
+      type: DataTypes.INTEGER,
+      allowNull: true
+    },
+    primer_nombre_reconocedor: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    segundo_nombre_reconocedor: {
+    type: DataTypes.STRING,
+    allowNull: false
+  },
+    primer_apellido_reconocedor: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    segundo_apellido_reconocedor: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    resultado_visita: {
+      type: DataTypes.INTEGER,
+      allowNull: true
+    },
+    suscribe_acta_colindancia: {
+      type: DataTypes.BOOLEAN,
+      allowNull: false
+    },
+    lc_predio:{
+      type: DataTypes.INTEGER,
+      allowNull: true
+    },
   }, {
     sequelize,
     modelName: 'lc_datosadicionaleslevantamientocatastral',

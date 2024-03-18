@@ -1,7 +1,5 @@
-'use strict';
-const {
-  Model
-} = require('sequelize');
+const { Model, DataTypes } = require('sequelize');
+
 module.exports = (sequelize, DataTypes) => {
   class lc_tipologiaconstruccion extends Model {
     /**
@@ -14,11 +12,28 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   lc_tipologiaconstruccion.init({
-    t_id: DataTypes.INTEGER,
-    t_ili_tid: DataTypes.STRING,
-    tipo_tipologia: DataTypes.INTEGER,
-    lc_unidad_construccion: DataTypes.INTEGER,
-    cual: DataTypes.STRING
+    t_id: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      primaryKey: true,
+      autoIncrement: true
+    },
+    t_ili_tid: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    tipo_tipologia: {
+      type: DataTypes.INTEGER,
+      allowNull:true
+    },
+    lc_unidad_construccion: {
+      type: DataTypes.INTEGER,
+      allowNull:true
+    },
+    cual: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
   }, {
     sequelize,
     modelName: 'lc_tipologiaconstruccion',

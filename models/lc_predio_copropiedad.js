@@ -1,7 +1,5 @@
-'use strict';
-const {
-  Model
-} = require('sequelize');
+const { Model, DataTypes } = require('sequelize');
+
 module.exports = (sequelize, DataTypes) => {
   class lc_predio_copropiedad extends Model {
     /**
@@ -14,9 +12,20 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   lc_predio_copropiedad.init({
-    t_id: DataTypes.INTEGER,
-    predio: DataTypes.INTEGER,
-    copropiedad: DataTypes.INTEGER
+    t_id: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      primaryKey: true,
+      autoIncrement: true
+    },
+    predio: {
+      type: DataTypes.INTEGER,
+      allowNull: true
+    },
+    copropiedad: {
+      type: DataTypes.INTEGER,
+      allowNull: true
+    },
   }, {
     sequelize,
     modelName: 'lc_predio_copropiedad',

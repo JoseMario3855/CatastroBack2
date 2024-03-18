@@ -14,10 +14,25 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   lc_predio_ini_predioinsumos.init({
-    t_id: DataTypes.INTEGER,
-    t_ili_tid: DataTypes.STRING,
-    ini_predio_insumos: DataTypes.INTEGER,
-    lc_predio: DataTypes.INTEGER
+    t_id: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      primaryKey: true,
+      autoIncrement: true
+    },
+    t_ili_tid: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    
+    ini_predio_insumos: {
+      type: DataTypes.INTEGER,
+      allowNull: true
+    },
+    lc_predio: {
+      type: DataTypes.INTEGER,
+      allowNull: true
+    },
   }, {
     sequelize,
     modelName: 'lc_predio_ini_predioinsumos',

@@ -14,21 +14,68 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   lc_unidadconstruccion.init({
-    t_id: DataTypes.INTEGER,
-    t_ili_tid: DataTypes.STRING,
-    planta_ubicacion: DataTypes.INTEGER,
-    altura: DataTypes.INTEGER,
-    geometria: DataTypes.GEOMETRY,
-    lc_caracteristicasunidadconstruccion: DataTypes.INTEGER,
-    ls_construccion: DataTypes.INTEGER,
-    dimension: DataTypes.INTEGER,
-    etiqueta: DataTypes.STRING,
-    relacion_superficie: DataTypes.INTEGER,
-    nivel: DataTypes.INTEGER,
-    comienzo_vida_util_version: DataTypes.DATE,
-    fin_vida_util_version: DataTypes.DATE,
-    espacio_de_nombres: DataTypes.STRING,
-    local_id: DataTypes.STRING
+    t_id: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      primaryKey: true,
+      autoIncrement: true
+    },
+    t_ili_tid: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    planta_ubicacion: {
+      type: DataTypes.INTEGER,
+      allowNull: true
+    },
+    altura:{
+      type: DataTypes.INTEGER,
+      allowNull: true
+    },
+    geometria: {
+    type: DataTypes.GEOMETRY,
+    allowNull: true
+  },
+    lc_caracteristicasunidadconstruccion: {
+      type: DataTypes.INTEGER,
+      allowNull: true
+    },
+    ls_construccion: {
+      type: DataTypes.INTEGER,
+      allowNull: true
+    },
+    dimension: {
+      type: DataTypes.INTEGER,
+      allowNull: true
+    },
+    etiqueta: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    relacion_superficie: {
+      type: DataTypes.INTEGER,
+      allowNull: true
+    },
+    nivel: {
+      type: DataTypes.INTEGER,
+      allowNull: true
+    },
+    comienzo_vida_util_version: {
+      type: DataTypes.DATE,
+      allowNull: true
+    },
+    fin_vida_util_version: {
+      type: DataTypes.DATE,
+      allowNull: true
+    },
+    espacio_de_nombres: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    local_id: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
   }, {
     sequelize,
     modelName: 'lc_unidadconstruccion',

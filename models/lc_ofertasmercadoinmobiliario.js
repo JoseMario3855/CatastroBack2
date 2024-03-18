@@ -1,7 +1,5 @@
-'use strict';
-const {
-  Model
-} = require('sequelize');
+const { Model, DataTypes } = require('sequelize');
+
 module.exports = (sequelize, DataTypes) => {
   class lc_ofertasmercadoinmobiliario extends Model {
     /**
@@ -14,16 +12,52 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   lc_ofertasmercadoinmobiliario.init({
-    t_id: DataTypes.INTEGER,
-    t_ili_tid: DataTypes.STRING,
-    tipo_oferta: DataTypes.INTEGER,
-    valor_predio: DataTypes.INTEGER,
-    valor_negociado: DataTypes.INTEGER,
-    fecha_captura_oferta: DataTypes.DATE,
-    tiempo_oferta_mercado: DataTypes.INTEGER,
-    numero_contacto_oferente: DataTypes.STRING,
-    nombre_oferente: DataTypes.STRING,
-    lc_predio: DataTypes.INTEGER
+    t_id: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      primaryKey: true,
+      autoIncrement: true
+    },
+    t_ili_tid: {
+      type: DataTypes.STRING,
+      allowNull: false
+
+    },
+    tipo_oferta: {
+      type: DataTypes.INTEGER,
+      allowNull: true
+    },
+    valor_predio: {
+      type: DataTypes.INTEGER,
+      allowNull: true
+    },
+    valor_negociado: {
+      type: DataTypes.INTEGER,
+      allowNull: true
+    },
+    fecha_captura_oferta:{ 
+    type: DataTypes.DATE,
+    allowNull: true
+
+  },
+    tiempo_oferta_mercado: {
+      type: DataTypes.INTEGER,
+      allowNull: true
+    },
+    numero_contacto_oferente: {
+      type: DataTypes.STRING,
+      allowNull: false
+
+    },
+    nombre_oferente: {
+      type: DataTypes.STRING,
+      allowNull: false
+
+    },
+    lc_predio:{
+      type: DataTypes.INTEGER,
+      allowNull: true
+    },
   }, {
     sequelize,
     modelName: 'lc_ofertasmercadoinmobiliario',

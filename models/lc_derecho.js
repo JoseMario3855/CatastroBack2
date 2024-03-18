@@ -1,7 +1,5 @@
-'use strict';
-const {
-  Model
-} = require('sequelize');
+const { Model, DataTypes } = require('sequelize');
+
 module.exports = (sequelize, DataTypes) => {
   class lc_derecho extends Model {
     /**
@@ -14,19 +12,56 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   lc_derecho.init({
-    t_id: DataTypes.INTEGER,
-    t_ili_tid: DataTypes.STRING,
-    tipo: DataTypes.INTEGER,
-    fraccion_derecho: DataTypes.INTEGER,
-    fecha_inicio_tenencia: DataTypes.DATE,
-    descripcion: DataTypes.STRING,
-    interesado_lc_interesado: DataTypes.STRING,
-    interesado_lc_agrupacioninteresados: DataTypes.STRING,
-    unidad: DataTypes.INTEGER,
-    comienzo_vida_util_version: DataTypes.DATE,
-    fin_vida_util_version: DataTypes.DATE,
-    espacio_de_nombres: DataTypes.STRING,
-    local_id: DataTypes.STRING
+    t_id: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      primaryKey: true,
+      autoIncrement: true
+    },
+    t_ili_tid: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    tipo: {
+      type: DataTypes.INTEGER,
+      allowNull: true
+    },
+    fraccion_derecho: {
+      type: DataTypes.INTEGER,
+      allowNull: true
+    },
+    fecha_inicio_tenencia: { 
+      type: DataTypes.DATE,
+      allowNull: false
+    },
+    interesado_lc_interesado: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    interesado_lc_agrupacioninteresados:{
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    unidad: {
+      type: DataTypes.INTEGER,
+      allowNull: true
+    },
+    comienzo_vida_util_version: {
+     type: DataTypes.DATE,
+     allowNull: false
+    },
+    fin_vida_util_version: { 
+      type: DataTypes.DATE,
+      allowNull: false
+    },
+    espacio_de_nombres: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    local_id: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
   }, {
     sequelize,
     modelName: 'lc_derecho',

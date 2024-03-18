@@ -1,7 +1,5 @@
-'use strict';
-const {
-  Model
-} = require('sequelize');
+const { Model, DataTypes } = require('sequelize');
+
 module.exports = (sequelize, DataTypes) => {
   class lc_interesado extends Model {
     /**
@@ -14,23 +12,77 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   lc_interesado.init({
-    t_id: DataTypes.INTEGER,
-    t_ili_tid: DataTypes.STRING,
-    tipo: DataTypes.INTEGER,
-    tipo_documento: DataTypes.INTEGER,
-    documento_identidad: DataTypes.STRING,
-    primer_nombre: DataTypes.STRING,
-    segundo_nombre: DataTypes.STRING,
-    primer_apellido: DataTypes.STRING,
-    segundo_apellido: DataTypes.STRING,
-    sexo: DataTypes.INTEGER,
-    grupo_etnico: DataTypes.INTEGER,
-    razon_social: DataTypes.STRING,
-    nombre: DataTypes.STRING,
-    comienzo_vida_util_version: DataTypes.DATE,
-    fin_vida_util_version: DataTypes.DATE,
-    espacio_de_nombres: DataTypes.STRING,
-    local_id: DataTypes.STRING
+    t_id: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      primaryKey: true,
+      autoIncrement: true
+    },
+    t_ili_tid: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    tipo: {
+      type: DataTypes.INTEGER,
+      allowNull: true
+    },
+    tipo_documento: {
+      type: DataTypes.INTEGER,
+      allowNull: true
+    },
+    documento_identidad: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    primer_nombre: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    segundo_nombre: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    primer_apellido: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    segundo_apellido: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    sexo: {
+      type: DataTypes.INTEGER,
+      allowNull: true
+    },
+    grupo_etnico: {
+      type: DataTypes.INTEGER,
+      allowNull: true
+    },
+    razon_social: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    nombre: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    comienzo_vida_util_version: {
+      type:DataTypes.DATE,
+      allowNull: false
+      },
+    fin_vida_util_version: {
+    type:DataTypes.DATE,
+    allowNull: false
+    },
+    espacio_de_nombres: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    
+    local_id:{
+      type: DataTypes.STRING,
+      allowNull: false
+    },
   }, {
     sequelize,
     modelName: 'lc_interesado',

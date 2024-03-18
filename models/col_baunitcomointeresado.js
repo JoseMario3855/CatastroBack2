@@ -6,6 +6,8 @@ module.exports = (sequelize, DataTypes) => {
    
     static associate(models) {
       col_baunitcomointeresado.belongsto(models.lc_interesado,{foreignkey:'interesado_lc_interesado',targetKey:'interesado_lc_interesado'});
+      col_baunitcomointeresado.belongsTo(models.lc_agrupacioninteresados,{foreignkey:'interesado_lc_agrupacioninteresados',targetKey:'interesado_lc_agrupacioninteresados'});
+      col_baunitcomointeresado.belongsTo(models.lc_predio,{foreignkey:'unidad',targetKey:'unidad'})  
     }
   }
   col_baunitcomointeresado.init({
@@ -20,6 +22,10 @@ module.exports = (sequelize, DataTypes) => {
     allowNull: true
   },
     interesado_lc_interesado:{
+      type: DataTypes.INTEGER,
+      allowNull: true
+    },
+    interesado_lc_agrupacioninteresados:{
       type: DataTypes.INTEGER,
       allowNull: true
     },

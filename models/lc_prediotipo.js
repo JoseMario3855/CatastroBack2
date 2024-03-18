@@ -14,15 +14,46 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   lc_prediotipo.init({
-    t_id: DataTypes.INTEGER,
-    thisclass: DataTypes.STRING,
-    baseclass: DataTypes.STRING,
-    itfcode: DataTypes.INTEGER,
-    ilicode: DataTypes.STRING,
-    seq: DataTypes.INTEGER,
+    t_id: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      primaryKey: true,
+      autoIncrement: true
+    },
+    thisclass: {
+      type: DataTypes.STRING,
+      allowNull: false
+
+    },
+    baseclass: {
+      type: DataTypes.STRING,
+      allowNull: false
+
+    },
+    itfcode: {
+      type: DataTypes.INTEGER,
+      allowNull: true
+    },
+    ilicode: {
+      type: DataTypes.STRING,
+      allowNull: false
+
+    },
+    seq: {
+      type: DataTypes.INTEGER,
+      allowNull: true
+    },
     inactive: DataTypes.BOOLEAN,
-    dispname: DataTypes.STRING,
-    description: DataTypes.STRING
+    dispname: {
+      type: DataTypes.STRING,
+      allowNull: false
+
+    },
+    description: {
+      type: DataTypes.STRING,
+      allowNull: false
+
+    },
   }, {
     sequelize,
     modelName: 'lc_prediotipo',

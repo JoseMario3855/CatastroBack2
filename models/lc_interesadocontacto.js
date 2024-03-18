@@ -1,7 +1,5 @@
-'use strict';
-const {
-  Model
-} = require('sequelize');
+const { Model, DataTypes } = require('sequelize');
+
 module.exports = (sequelize, DataTypes) => {
   class lc_interesadocontacto extends Model {
     /**
@@ -14,19 +12,60 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   lc_interesadocontacto.init({
-    t_id: DataTypes.INTEGER,
-    t_ili_tid: DataTypes.STRING,
-    telefono1: DataTypes.STRING,
-    telefono2: DataTypes.STRING,
-    domicilio_notificacion: DataTypes.STRING,
-    direccion_residencia: DataTypes.STRING,
-    correo_electronico: DataTypes.STRING,
-    autoriza_notificacion_correo: DataTypes.BOOLEAN,
-    departamento: DataTypes.STRING,
-    municipio: DataTypes.STRING,
-    vereda: DataTypes.STRING,
-    corregimiento: DataTypes.STRING,
-    lc_interesado: DataTypes.INTEGER
+    t_id: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      primaryKey: true,
+      autoIncrement: true
+    },
+    t_ili_tid: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    telefono1: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    telefono2:{
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    domicilio_notificacion: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    direccion_residencia: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    correo_electronico: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    autoriza_notificacion_correo: {
+      type: DataTypes.BOOLEAN,
+      allowNull: false
+    },
+    departamento: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    municipio: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    vereda: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    corregimiento: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    lc_interesado: {
+      type: DataTypes.INTEGER,
+      allowNull: false
+    },
   }, {
     sequelize,
     modelName: 'lc_interesadocontacto',
