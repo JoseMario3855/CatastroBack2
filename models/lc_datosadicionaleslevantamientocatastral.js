@@ -3,13 +3,13 @@ const { Model, DataTypes } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
 
   class lc_datosadicionaleslevantamientocatastral extends Model {
-    /**
-     * Helper method for defining associations.
-     * This method is not a part of Sequelize lifecycle.
-     * The `models/index` file will call this method automatically.
-     */
+   
     static associate(models) {
-      // define association here
+      lc_datosadicionaleslevantamientocatastral.belongsTo(models.lc_procedimientocatastralregistratipo,{foreignKey:'procedimiento_catastral_registral',targetKey:'procedimiento_catastral_registral'});
+      lc_datosadicionaleslevantamientocatastral.belongsTo(models.lc_interesadodocumentotipo,{foreignKey:'tipo_documento_reconocedor',targetKey:'tipo_documento_reconocedor'});
+      lc_datosadicionaleslevantamientocatastral.belongsTo(models.lc_resultadovisitatipo,{foreignKey:'resultado_visita',targetKey:'resultado_visita'});
+      lc_datosadicionaleslevantamientocatastral.belongsTo(models.lc_estratotipo,{foreignKey:'estrato',targetKey:'estrato'});
+      lc_datosadicionaleslevantamientocatastral.belongsTo(models.lc_predio,{foreignKey:'lc_predio',targetKey:'lc_predio'});
     }
   }
   lc_datosadicionaleslevantamientocatastral.init({

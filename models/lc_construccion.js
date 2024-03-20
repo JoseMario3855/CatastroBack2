@@ -1,15 +1,14 @@
-'use strict';
 const { Model, DataTypes } = require('sequelize');
 
 module.exports = (sequelize, DataTypes) => {
   class lc_construccion extends Model {
-    /**
-     * Helper method for defining associations.
-     * This method is not a part of Sequelize lifecycle.
-     * The `models/index` file will call this method automatically.
-     */
+    
     static associate(models) {
-      // define association here
+      lc_construccion.belongsTo(models.lc_construcciontipo,{foreignKey:'tipo_construccion',targetKey:'tipo_construccion'});
+      lc_construccion.belongsTo(models.lc_dominioconstrucciontipo,{foreignKey:'tipo_dominio',targetKey:'tipo_dominio'});
+      lc_construccion.belongsTo(models.col_dimensiontipo,{foreignKey:'dimension',targetKey:'dimension'});
+      lc_construccion.belongsTo(models.col_relacionsuperficietipo,{foreignKey:'relacion_superficie',targetKey:'relacion_superficie'});
+      lc_construccion.belongsTo(models.lc_nu_nivel,{foreignKey:'nivel',targetKey:'nivel'});
     }
   }
   lc_construccion.init({
@@ -63,8 +62,14 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.INTEGER,
       allowNull: true
     },
-    observaciones: DataTypes.STRING,
-    dimension: DataTypes.INTEGER,
+    observaciones: {
+      type: DataTypes.STRING,
+      allowNull: true
+    },
+    dimension: {
+      type: DataTypes.INTEGER,
+      allowNull: true
+    },
     etiqueta:  {
       type: DataTypes.STRING,
       allowNull: false

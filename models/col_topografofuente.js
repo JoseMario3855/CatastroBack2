@@ -6,8 +6,8 @@ module.exports = (sequelize, DataTypes) => {
    
     static associate(models) {
       col_topografofuente.belongsTo(models.lc_interesado,{foreignKey:'topografo_lc_interesado',targetKey:'topografo_lc_interesado'});
-      /*col_topografofuente.belongsTo(models.lc_agrupacioninteresados,{foreignKey:'topografo_lc_agrupacioninteresados',targetKey:'topografo_lc_agrupacioninteresados'});*/
-
+      col_topografofuente.belongsTo(models.lc_agrupacioninteresados,{foreignKey:'topografo_lc_agrupacioninteresados',targetKey:'topografo_lc_agrupacioninteresados'});
+      col_topografofuente.belongsTo(models.lc_fuenteespacial,{foreignKey:'fuente_espacial',targetKey:'fuente_espacial'});
     }
   }
   col_topografofuente.init({

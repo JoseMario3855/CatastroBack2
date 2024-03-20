@@ -4,7 +4,13 @@ module.exports = (sequelize, DataTypes) => {
   class col_uefuente extends Model {
  
     static associate(models) {
-    
+      col_uefuente.belongsTo(models.lc_unidadconstruccion,{foreignKey:'ue_lc_unidadconstruccion',targetKey:'ue_lc_unidadconstruccion'});
+      col_uefuente.belongsTo(models.lc_servidumbretransito,{foreignKey:'ue_lc_servidumbretransito',targetKey:'ue_lc_servidumbretransito'});
+      col_uefuente.belongsTo(models.lc_terreno,{foreignKey:'ue_lc_terreno',targetKey:'ue_lc_terreno'});
+      col_uefuente.belongsTo(models.lc_nu_espaciojuridicoredservicios,{foreignKey:'ue_lc_nu_espaciojuridicoredservicios',targetKey:'ue_lc_nu_espaciojuridicoredservicios'});
+      col_uefuente.belongsTo(models.lc_nu_espaciojuridicounidadedificacion,{foreignKey:'ue_lc_nu_espaciojuridicounidadedificacion',targetKey:'ue_lc_nu_espaciojuridicounidadedificacion'});
+      col_uefuente.belongsTo(models.lc_fuenteespacial,{foreignKey:'fuente_espacial',targetKey:'fuente_espacial'});
+      col_uefuente.belongsTo(models.lc_construccion,{foreignKey:'ue_lc_construccion',targetKey:'ue_lc_construccion'});
     }
   }
   col_uefuente.init({
@@ -34,7 +40,7 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.INTEGER,
       allowNull: true
     },
-    fuente_espacia: {
+    fuente_espacial: {
       type: DataTypes.INTEGER,
       allowNull: true
     }

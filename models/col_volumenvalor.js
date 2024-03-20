@@ -4,7 +4,13 @@ module.exports = (sequelize, DataTypes) => {
   class col_volumenvalor extends Model {
     
     static associate(models) {
-      
+      col_volumenvalor.belongsTo(models.col_volumentipo,{foreignKey:'tipo',targetKey:'tipo'});
+      col_volumenvalor.belongsTo(models.lc_servidumbretransito,{foreignKey:'lc_servidumbretransito_volumen',targetKey:'lc_servidumbretransito_volumen'});
+      col_volumenvalor.belongsTo(models.lc_terreno,{foreignKey:'lc_terreno_volumen',targetKey:'lc_terreno_volumen'});
+      col_volumenvalor.belongsTo(models.lc_nu_espaciojuridicoredservicios,{foreignKey:'lc_nu_spcjrdcrdsrvcios_volumen',targetKey:'lc_nu_spcjrdcrdsrvcios_volumen'});
+      col_volumenvalor.belongsTo(models.lc_nu_espaciojuridicounidadedificacion,{foreignKey:'lc_n_spcjrdcndddfccion_volumen',targetKey:'lc_n_spcjrdcndddfccion_volumen'});
+      col_volumenvalor.belongsTo(models.lc_construccion,{foreignKey:'lc_construccion_volumen',targetKey:'lc_construccion_volumen'});
+      col_volumenvalor.belongsTo(models.lc_unidadconstruccion,{foreignKey:'lc_unidadconstruccion_volumen',targetKey:'lc_unidadconstruccion_volumen'});
     }
   }
   col_volumenvalor.init({

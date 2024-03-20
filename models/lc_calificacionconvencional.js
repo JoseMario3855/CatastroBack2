@@ -1,24 +1,37 @@
-'use strict';
-const {
-  Model
-} = require('sequelize');
+const { Model, DataTypes } = require('sequelize');
+
 module.exports = (sequelize, DataTypes) => {
   class lc_calificacionconvencional extends Model {
-    /**
-     * Helper method for defining associations.
-     * This method is not a part of Sequelize lifecycle.
-     * The `models/index` file will call this method automatically.
-     */
+    
     static associate(models) {
-      // define association here
+      lc_calificacionconvencional.belongsTo(models.lc_calificartipo,{foreignKey:'tipo_calificar',targetKey:'tipo_calificar'});
+      lc_calificacionconvencional.belongsTo(models.lc_caracteristicaunidadconstruccion,{foreignKey:'lc_unidad_construccion',targetKey:'lc_unidad_construccion'});
+    
     }
   }
   lc_calificacionconvencional.init({
-    t_id: DataTypes.INTEGER,
-    t_ili_tid: DataTypes.STRING,
-    tipo_calificar: DataTypes.INTEGER,
-    total_calificacion: DataTypes.INTEGER,
-    lc_unidad_construccion: DataTypes.INTEGER
+    t_id: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      primaryKey: true,
+      autoIncrement: true
+    },
+    t_ili_tid: {
+      type: DataTypes.UUID,
+      allowNull: false,
+    },
+    tipo_calificar: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+    },
+    total_calificacion: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+    },
+    lc_unidad_construccion: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+    },
   }, {
     sequelize,
     modelName: 'lc_calificacionconvencional',

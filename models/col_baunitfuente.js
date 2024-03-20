@@ -6,6 +6,7 @@ module.exports = (sequelize, DataTypes) => {
     
     static associate(models) {
       col_baunitfuente.belongsTo(models.lc_predio,{foreignKey:'unidad',targetKey:'unidad'});
+      col_baunitfuente.belongsTo(models.lc_fuenteespacial,{foreignKey:'fuente_especial',targetKey:'fuente_especial'});
     }
   }
   col_baunitfuente.init({

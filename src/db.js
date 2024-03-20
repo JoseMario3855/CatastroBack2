@@ -1,17 +1,14 @@
-const {Pool} = require('pg');
-const {db} = require('./config.js')
+const { Pool } = require('pg');
+const { db } = require('./config.js');
 
-
-//objeto del a conexion
-const pool = new Pool ({
-    user: db.user,
+// Objeto de la conexión
+const pool = new Pool({
+    user: db.username,
     password: db.password,
     host: db.host,
     port: db.port,
-    database: db.database
-
+    database: db.database,
+    schema: db.schema 
 });
 
-module.exports= pool;
-
-
+module.exports = pool;

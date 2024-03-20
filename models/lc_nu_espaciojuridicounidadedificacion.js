@@ -2,13 +2,12 @@ const { Model, DataTypes } = require('sequelize');
 
 module.exports = (sequelize, DataTypes) => {
   class lc_nu_espaciojuridicounidadedificacion extends Model {
-    /**
-     * Helper method for defining associations.
-     * This method is not a part of Sequelize lifecycle.
-     * The `models/index` file will call this method automatically.
-     */
+    
     static associate(models) {
-      // define association here
+        lc_nu_espaciojuridicounidadedificacion.belongsTo(models.col_unidadedificaciontipo,{foreignKey:'tipo',targetKey:'tipo'});
+        lc_nu_espaciojuridicounidadedificacion.belongsTo(models.col_dimensiontipo,{foreignKey:'dimension',targetKey:'dimension'});
+        lc_nu_espaciojuridicounidadedificacion.belongsTo(models.col_relacionsuperficietipo,{foreignKey:'relacion_superficie',targetKey:'relacion_superficie'});
+        lc_nu_espaciojuridicounidadedificacion.belongsTo(models.lc_nu_nivel,{foreignKey:'nivel',targetKey:'nivel'});
     }
   }
   lc_nu_espaciojuridicounidadedificacion.init({
@@ -53,10 +52,6 @@ module.exports = (sequelize, DataTypes) => {
       fin_vida_util_version:{ 
         type: DataTypes.DATE,
         allowNull: true
-      },
-      espacio_de_nombres: {
-        type: DataTypes.STRING,
-        allowNull: false
       },
       espacio_de_nombres: {
         type: DataTypes.STRING,

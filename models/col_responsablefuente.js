@@ -5,8 +5,8 @@ module.exports = (sequelize, DataTypes) => {
     
     static associate(models) {
       col_responsablefuente.belongsTo(models.lc_interesado,{foreignKey:'interesado_lc_interesado',targetKey:'interesado_lc_interesado'});
-      /*col_responsablefuente.belongsTo(models.lc_agrupacioninteresados,{foreignKey:'interesado_lc_agrupacioninteresados',targetKey:'interesado_lc_agrupacioninteresados'});*/
-
+      col_responsablefuente.belongsTo(models.lc_agrupacioninteresados,{foreignKey:'interesado_lc_agrupacioninteresados',targetKey:'interesado_lc_agrupacioninteresados'});
+      col_responsablefuente.belongsTo(models.lc_fuenteadministrativa,{foreignKey:'fuente_administrativa',targetKey:'fuente_administrativa'});
     }
   }
   col_responsablefuente.init({

@@ -1,3 +1,5 @@
+require('dotenv').config(); // Carga las variables de entorno desde el archivo .env
+
 const express = require('express');
 const morgan = require('morgan');
 const cors = require('cors');
@@ -5,8 +7,9 @@ const Sequelize = require('sequelize');
 const router = require('./routes/router.js'); // Importa el enrutador definido en router.js
 
 // Define la configuración de la base de datos
-const sequelize = new Sequelize('catastro', 'postgres', '12345', {
-    host: 'localhost',
+const sequelize = new Sequelize(process.env.DB_DATABASE, process.env.DB_USER, process.env.DB_PASSWORD, {
+    host: process.env.DB_HOST,
+    port: process.env.DB_PORT,
     dialect: 'postgres' // Especifica el dialecto de la base de datos que estás utilizando
 });
 
@@ -40,4 +43,5 @@ async function initialize() {
 }
 
 initialize();
+
 

@@ -2,13 +2,12 @@ const { Model, DataTypes } = require('sequelize');
 
 module.exports = (sequelize, DataTypes) => {
   class lc_interesado extends Model {
-    /**
-     * Helper method for defining associations.
-     * This method is not a part of Sequelize lifecycle.
-     * The `models/index` file will call this method automatically.
-     */
+   
     static associate(models) {
-      // define association here
+      lc_interesado.belongsTo(models.lc_interesadodocumentotipo,{foreignKey:'tipo_documento',targetKey:'tipo_documento'});
+      lc_interesado.belongsTo(models.lc_sexotipo,{foreignKey:'sexo',targetKey:'sexo'});
+      lc_interesado.belongsTo(models.lc_grupoetnicotipo,{foreignKey:'grupo_etnico',targetKey:'grupo_etnico'});
+      lc_interesado.belongsTo(models.lc_estadociviltipo,{foreignKey:'estado_civil',targetKey:'estado_civil'});
     }
   }
   lc_interesado.init({
