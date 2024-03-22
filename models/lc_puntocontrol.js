@@ -1,23 +1,24 @@
 const { Model, DataTypes } = require('sequelize');
 
 module.exports = (sequelize, DataTypes) => {
-  class lc_puntolindero extends Model {
+  class lc_puntocontrol extends Model {
     
     static associate(models) {
-        lc_puntolindero.belongsTo(models.col_puntotipo, { foreignKey: 'puntotipo' ,targetKey:'puntotipo'});
-        lc_puntolindero.belongsTo(models.lc_acuerdotipo,{foreignKey:'acuerdo',targetKey:'acuerdo'});
-        lc_puntolindero.belongsTo(models.lc_fotoidentificaciontipo,{foreignKey: 'fotoidentificacion',targetKey:'fotoidentificacion'});
-        lc_puntolindero.belongsTo(models.col_interpolaciontipo,{foreignKey: 'posicion_interpolacion',targetKey:'posicion_interpolacion'});
-        lc_puntolindero.belongsTo(models.lc_construccion,{foreignKey: 'ue_lc_construccion',targetKey:'ue_lc_construccion'});
-        lc_puntolindero.belongsTo(models.lc_terrenno,{foreignKey: 'ue_lc_terreno',targetKey:'ue_lc_terreno'});
-        lc_puntolindero.belongsTo(models.lc_unidadconstruccion,{foreignKey: 'ue_lc_unidadconstruccion',targetKey:'ue_lc_unidadconstruccion'});
-        lc_puntolindero.belongsTo(models.lc_servidumbretransito,{foreignKey: 'ue_lc_servidumbretransito',targetKey:'ue_lc_servidumbretransito'});
-        lc_puntolindero.belongsTo(models.lc_nu_espaciojuridicoredservicios,{foreignKey: 'ue_lc_nu_espaciojuridicoredservicios',targetKey:'ue_lc_nu_espaciojuridicoredservicios'});
-        lc_puntolindero.belongsTo(models.lc_nu_espaciojuridicounidadedificacion,{foreignKey: 'ue_lc_nu_espaciojuridicounidadedificacion',targetKey:'ue_lc_nu_espaciojuridicounidadedificacion'});
-        lc_puntolindero.belongsTo(models.col_metodoproducciontipo,{foreignKey: 'metodoproduccion',targetKey:'metodoproduccion'});
-    }
+        lc_puntocontrol.belongsTo(models.col_puntotipo, { foreignKey: 'puntotipo' ,targetKey:'puntotipo'});
+        lc_puntocontrol.belongsTo(models.lc_puntocontroltipo,{foreignKey:'tipo_punto_control',targetKey:'tipo_punto_control'});
+        lc_puntocontrol.belongsTo(models.col_interpolaciontipo,{foreignKey: 'posicion_interpolacion',targetKey:'posicion_interpolacion'});
+        lc_puntocontrol.belongsTo(models.col_metodoproducciontipo,{foreignKey: 'metodoproduccion',targetKey:'metodoproduccion'});
+        lc_puntocontrol.belongsTo(models.lc_construccion,{foreignKey: 'ue_lc_construccion',targetKey:'ue_lc_construccion'});
+        lc_puntocontrol.belongsTo(models.lc_terrenno,{foreignKey: 'ue_lc_terreno',targetKey:'ue_lc_terreno'});
+        lc_puntocontrol.belongsTo(models.lc_unidadconstruccion,{foreignKey: 'ue_lc_unidadconstruccion',targetKey:'ue_lc_unidadconstruccion'});
+        lc_puntocontrol.belongsTo(models.lc_servidumbretransito,{foreignKey: 'ue_lc_servidumbretransito',targetKey:'ue_lc_servidumbretransito'});
+        lc_puntocontrol.belongsTo(models.lc_nu_espaciojuridicoredservicios,{foreignKey: 'ue_lc_nu_espaciojuridicoredservicios',targetKey:'ue_lc_nu_espaciojuridicoredservicios'});
+        lc_puntocontrol.belongsTo(models.lc_nu_espaciojuridicounidadedificacion,{foreignKey: 'ue_lc_nu_espaciojuridicounidadedificacion',targetKey:'ue_lc_nu_espaciojuridicounidadedificacion'});
+
+  
+      }
   }
-  lc_puntolindero.init({
+  lc_puntocontrol.init({
     t_id: {
         type: DataTypes.INTEGER,
         allowNull: false,
@@ -28,7 +29,7 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.UUID,
         allowNull: true
       },
-    id_punto_lindero: {
+      id_punto_control: {
         type: DataTypes.STRING,
         allowNull: false
       },
@@ -36,15 +37,7 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.INTEGER,
         allowNull:true
       },
-    fotoidentificacion:{
-        type: DataTypes.INTEGER,
-        allowNull:true
-      },
-    acuerdo:{
-        type: DataTypes.INTEGER,
-        allowNull:true
-      },
-    metodoproduccion:{
+    tipo_punto_control:{
         type: DataTypes.INTEGER,
         allowNull:true
       },
@@ -57,6 +50,10 @@ module.exports = (sequelize, DataTypes) => {
         allowNull:true
       },
     posicion_interpolacion:{
+        type: DataTypes.INTEGER,
+        allowNull:true
+      },
+    metodoproduccion:{
         type: DataTypes.INTEGER,
         allowNull:true
       },
@@ -107,7 +104,7 @@ module.exports = (sequelize, DataTypes) => {
       
   }, {
     sequelize,
-    modelName: 'lc_puntolindero',
+    modelName: 'lc_puntocontrol',
   });
-  return lc_puntolindero;
+  return lc_puntocontrol;
 };

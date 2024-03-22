@@ -1,14 +1,14 @@
 const { Model, DataTypes } = require('sequelize');
 
 module.exports = (sequelize, DataTypes) => {
-  class lc_prediotipo extends Model {
-   
+  class lc_grupoetnicotipo extends Model {
+    
     static associate(models) {
       
     }
   }
-  lc_prediotipo.init({
-    t_id: {
+  lc_grupoetnicotipo.init({
+    t_id:  {
       type: DataTypes.INTEGER,
       allowNull: false,
       primaryKey: true,
@@ -17,40 +17,38 @@ module.exports = (sequelize, DataTypes) => {
     thisclass: {
       type: DataTypes.STRING,
       allowNull: false
-
     },
     baseclass: {
       type: DataTypes.STRING,
       allowNull: false
-
     },
-    itfcode: {
+    itfcode:{
       type: DataTypes.INTEGER,
       allowNull: true
     },
     ilicode: {
       type: DataTypes.STRING,
       allowNull: false
-
     },
     seq: {
       type: DataTypes.INTEGER,
       allowNull: true
     },
-    inactive: DataTypes.BOOLEAN,
+    inactive: {
+      type: DataTypes.BOOLEAN,
+      allowNull: false
+    },
     dispname: {
       type: DataTypes.STRING,
       allowNull: false
-
     },
     description: {
       type: DataTypes.STRING,
       allowNull: false
-
     },
   }, {
     sequelize,
-    modelName: 'lc_prediotipo',
+    modelName: 'lc_grupoetnicotipo',
   });
-  return lc_prediotipo;
+  return lc_grupoetnicotipo;
 };

@@ -2,13 +2,11 @@ const { Model, DataTypes } = require('sequelize');
 
 module.exports = (sequelize, DataTypes) => {
   class lc_ofertasmercadoinmobiliario extends Model {
-    /**
-     * Helper method for defining associations.
-     * This method is not a part of Sequelize lifecycle.
-     * The `models/index` file will call this method automatically.
-     */
+   
     static associate(models) {
-      // define association here
+      lc_ofertasmercadoinmobiliario.belongsTo(models.lc_ofertatipo,{foreignKey:'tipo_oferta',targetKey:'tipo_oferta'});
+      lc_ofertasmercadoinmobiliario.belongsTo(models.lc_predio,{foreignKey:'lc_predio',targetKey:'lc_predio'});
+      
     }
   }
   lc_ofertasmercadoinmobiliario.init({
@@ -36,10 +34,10 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: true
     },
     fecha_captura_oferta:{ 
-    type: DataTypes.DATE,
-    allowNull: true
+      type: DataTypes.DATE,
+      allowNull: true
 
-  },
+    },
     tiempo_oferta_mercado: {
       type: DataTypes.INTEGER,
       allowNull: true

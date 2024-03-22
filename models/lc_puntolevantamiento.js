@@ -2,13 +2,19 @@ const { Model, DataTypes } = require('sequelize');
 
 module.exports = (sequelize, DataTypes) => {
   class lc_puntolevantamiento extends Model {
-    /**
-     * Helper method for defining associations.
-     * This method is not a part of Sequelize lifecycle.
-     * The `models/index` file will call this method automatically.
-     */
+   
     static associate(models) {
-      // define association here
+      lc_puntolevantamiento.belongsTo(models.col_puntotipo, { foreignKey: 'puntotipo' ,targetKey:'puntotipo'});
+      lc_puntolevantamiento.belongsTo(models.lc_puntolevtipo,{foreignKey:'tipo_punto_levantamiento',targetKey:'tipo_punto_levantamiento'});
+      lc_puntolevantamiento.belongsTo(models.lc_fotoidentificaciontipo,{foreignKey: 'fotoidentificacion',targetKey:'fotoidentificacion'});
+      lc_puntolevantamiento.belongsTo(models.col_interpolaciontipo,{foreignKey: 'posicion_interpolacion',targetKey:'posicion_interpolacion'});
+      lc_puntolevantamiento.belongsTo(models.lc_construccion,{foreignKey: 'ue_lc_construccion',targetKey:'ue_lc_construccion'});
+      lc_puntolevantamiento.belongsTo(models.lc_terrenno,{foreignKey: 'ue_lc_terreno',targetKey:'ue_lc_terreno'});
+      lc_puntolevantamiento.belongsTo(models.lc_unidadconstruccion,{foreignKey: 'ue_lc_unidadconstruccion',targetKey:'ue_lc_unidadconstruccion'});
+      lc_puntolevantamiento.belongsTo(models.lc_servidumbretransito,{foreignKey: 'ue_lc_servidumbretransito',targetKey:'ue_lc_servidumbretransito'});
+      lc_puntolevantamiento.belongsTo(models.lc_nu_espaciojuridicoredservicios,{foreignKey: 'ue_lc_nu_espaciojuridicoredservicios',targetKey:'ue_lc_nu_espaciojuridicoredservicios'});
+      lc_puntolevantamiento.belongsTo(models.lc_nu_espaciojuridicounidadedificacion,{foreignKey: 'ue_lc_nu_espaciojuridicounidadedificacion',targetKey:'ue_lc_nu_espaciojuridicounidadedificacion'});
+
     }
   }
   lc_puntolevantamiento.init({

@@ -4,13 +4,11 @@ const {
 } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
   class lc_predio_ini_predioinsumos extends Model {
-    /**
-     * Helper method for defining associations.
-     * This method is not a part of Sequelize lifecycle.
-     * The `models/index` file will call this method automatically.
-     */
+
+   
     static associate(models) {
-      // define association here
+      lc_predio_ini_predioinsumos.belongsTo(models.lc_predio,{foreignKey: 'lc_predio',targetKey:'lc_predio'});
+      lc_predio_ini_predioinsumos.belongsTo(models.ini_predioinsumos,{foreignKey: 'ini_predio_insumos',targetKey:'ini_predio_insumos'});
     }
   }
   lc_predio_ini_predioinsumos.init({

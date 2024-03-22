@@ -1,13 +1,13 @@
 const { Model, DataTypes } = require('sequelize');
 
 module.exports = (sequelize, DataTypes) => {
-    class lc_clasesuelotipo extends Model {
+    class lc_procedimientocatastralregistratipo extends Model {
       static associate(models) {
-        // Define las asociaciones aquí si es necesario
+        
       }
     }
     
-    lc_clasesuelotipo.init({
+    lc_procedimientocatastralregistratipo.init({
         t_id: {
           type: DataTypes.INTEGER,
           allowNull: false,
@@ -49,9 +49,9 @@ module.exports = (sequelize, DataTypes) => {
         
       }, {
         sequelize,
-        modelName: 'lc_clasesuelotipo',
+        modelName: 'lc_procedimientocatastralregistratipo',
       });
 
-      return lc_clasesuelotipo;
+      return lc_procedimientocatastralregistratipo;
     };
     

@@ -1,13 +1,14 @@
-'use strict';
 const { Model, DataTypes } = require('sequelize');
 
 
 module.exports = (sequelize) => {
   class lc_predio extends Model {
     static associate(models) {
-      lc_predio.belongsTo(models.lc_categoriasuelotipo, { foreignKey: 't_id' });
-      lc_predio.belongsTo(models.lc_destinacioneconomicatipo,{foreignKey:'t_id'});
-      lc_predio.belongsTo(models.lc_clasesuelotipo,{foreignKey: 't_id'});
+      lc_predio.belongsTo(models.lc_categoriasuelotipo, { foreignKey: 'categoria_suelo' ,targetKey:'categoria_suelo'});
+      lc_predio.belongsTo(models.lc_destinacioneconomicatipo,{foreignKey:'destinacion_economica',targetKey:'destinacion_economica'});
+      lc_predio.belongsTo(models.lc_clasesuelotipo,{foreignKey: 't_clase_sueloid',targetKey:'clase_suelo'});
+      lc_predio.belongsTo(models.col_unidadadministrativabasicatipo,{foreignKey: 'tipo',targetKey:'tipo'});
+
 
     }
   }
@@ -85,8 +86,8 @@ module.exports = (sequelize) => {
       allowNull: true
     },
     tipo: {
-      type: DataTypes.INTEGER,
-      allowNull: true
+      type: DataTypes.STRING,
+      allowNull: false
     },
     condicion_predio: {
       type: DataTypes.INTEGER,

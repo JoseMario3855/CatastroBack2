@@ -5,6 +5,7 @@ module.exports = (sequelize, DataTypes) => {
    
     static associate(models) {
       lc_objetoconstruccion.belongsTo(models.lc_grupocalificacion,{foreignKey:'lc_grupo_calificacion',targetKey:'lc_grupo_calificacion'});
+      lc_objetoconstruccion.belongsTo(models.lc_objetoconstrucciontipo,{foreignKey:'tipo_objeto_construccion',targetKey:'tipo_objeto_construccion'});
       
     }
   }
