@@ -1,11 +1,11 @@
-// controllers/col_contenidoniveltipoController.js
-const db = require('../../../models/col_contenidoniveltipo');
-const col_contenidoniveltipoController = db.col_contenidoniveltipo;
+// controllers/ini_predioinsumosController.js
+const db = require('../../../models/ini_predioinsumos');
+const ini_predioinsumos = db.ini_predioinsumos;
 
-//Obtener todos los registros de col_contenidoniveltipo
-exports.getAllcol_contenidoniveltipo = async (req, res) => {
+//Obtener todos los registros de ini_predioinsumos
+exports.getAllini_predioinsumos = async (req, res) => {
     try {
-        const data = await col_contenidoniveltipoController.findAll();
+        const data = await ini_predioinsumos.findAll();
         res.json(data);
     } catch (error) {
         console.error('Error al obtener los registros:', error);
@@ -13,10 +13,10 @@ exports.getAllcol_contenidoniveltipo = async (req, res) => {
     }
 };
 
-// Crear un nuevo registro en col_contenidoniveltipo
-exports.createcol_contenidoniveltipo = async (req, res) => {
+// Crear un nuevo registro en ini_predioinsumos
+exports.ini_predioinsumoscreate = async (req, res) => {
     try {
-        const nuevoRegistro = await col_contenidoniveltipoController.create(req.body);
+        const nuevoRegistro = await ini_predioinsumos.create(req.body);
         return res.json(nuevoRegistro);
     } catch (error) {
         console.error('Error al crear un nuevo registro:', error);
@@ -24,11 +24,11 @@ exports.createcol_contenidoniveltipo = async (req, res) => {
     }
 };
 
-// Obtener un registro de col_contenidoniveltipo por ID
-exports.col_contenidoniveltipoById = async (req, res) => {
+// Obtener un registro de ini_predioinsumos por ID
+exports.ini_predioinsumosgetById = async (req, res) => {
     const { id } = req.params;
     try {
-        const registro = await col_contenidoniveltipoController.findByPk(id);
+        const registro = await ini_predioinsumos.findByPk(id);
         if (!registro) {
             return res.status(404).json({ message: 'Registro no encontrado' });
         }
@@ -39,12 +39,12 @@ exports.col_contenidoniveltipoById = async (req, res) => {
     }
 };
 
-// Actualizar un registro de col_contenidoniveltipo por ID
-exports.ACcol_contenidoniveltipoById = async (req, res) => {
+// Actualizar un registro de ini_predioinsumos por ID
+exports.ini_predioinsumosupdateById = async (req, res) => {
     const { id } = req.params;
     const { body } = req;
     try {
-        const registro = await col_contenidoniveltipoController.findByPk(id);
+        const registro = await ini_predioinsumos.findByPk(id);
         if (!registro) {
             return res.status(404).json({ message: 'Registro no encontrado' });
         }
@@ -56,11 +56,11 @@ exports.ACcol_contenidoniveltipoById = async (req, res) => {
     }
 };
 
-// Eliminar un registro de col_contenidoniveltipo por ID
-exports.col_contenidoniveltipoById = async (req, res) => {
+// Eliminar un registro de ini_predioinsumos por ID
+exports.ini_predioinsumosdeleteById = async (req, res) => {
     const { id } = req.params;
     try {
-        const registro = await col_contenidoniveltipoController.findByPk(id);
+        const registro = await ini_predioinsumos.findByPk(id);
         if (!registro) {
             return res.status(404).json({ message: 'Registro no encontrado' });
         }

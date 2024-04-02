@@ -1,11 +1,11 @@
-// controllers/col_contenidoniveltipoController.js
-const db = require('../../../models/col_contenidoniveltipo');
-const col_contenidoniveltipoController = db.col_contenidoniveltipo;
+// controllers/extdireccion_clase_via_principalController.js
+const db = require('../../../models/extdireccion_clase_via_principal');
+const extdireccion_clase_via_principal = db.extdireccion_clase_via_principal;
 
-//Obtener todos los registros de col_contenidoniveltipo
-exports.getAllcol_contenidoniveltipo = async (req, res) => {
+//Obtener todos los registros de extdireccion_clase_via_principal
+exports.getAllextdireccion_clase_via_principal = async (req, res) => {
     try {
-        const data = await col_contenidoniveltipoController.findAll();
+        const data = await extdireccion_clase_via_principal.findAll();
         res.json(data);
     } catch (error) {
         console.error('Error al obtener los registros:', error);
@@ -13,10 +13,10 @@ exports.getAllcol_contenidoniveltipo = async (req, res) => {
     }
 };
 
-// Crear un nuevo registro en col_contenidoniveltipo
-exports.createcol_contenidoniveltipo = async (req, res) => {
+// Crear un nuevo registro en extdireccion_clase_via_principal
+exports.extdireccion_clase_via_principalcreate = async (req, res) => {
     try {
-        const nuevoRegistro = await col_contenidoniveltipoController.create(req.body);
+        const nuevoRegistro = await extdireccion_clase_via_principal.create(req.body);
         return res.json(nuevoRegistro);
     } catch (error) {
         console.error('Error al crear un nuevo registro:', error);
@@ -24,11 +24,11 @@ exports.createcol_contenidoniveltipo = async (req, res) => {
     }
 };
 
-// Obtener un registro de col_contenidoniveltipo por ID
-exports.col_contenidoniveltipoById = async (req, res) => {
+// Obtener un registro de extdireccion_clase_via_principal por ID
+exports.extdireccion_clase_via_principalgetById = async (req, res) => {
     const { id } = req.params;
     try {
-        const registro = await col_contenidoniveltipoController.findByPk(id);
+        const registro = await extdireccion_clase_via_principal.findByPk(id);
         if (!registro) {
             return res.status(404).json({ message: 'Registro no encontrado' });
         }
@@ -39,12 +39,12 @@ exports.col_contenidoniveltipoById = async (req, res) => {
     }
 };
 
-// Actualizar un registro de col_contenidoniveltipo por ID
-exports.ACcol_contenidoniveltipoById = async (req, res) => {
+// Actualizar un registro de extdireccion_clase_via_principal por ID
+exports.extdireccion_clase_via_principalupdateById = async (req, res) => {
     const { id } = req.params;
     const { body } = req;
     try {
-        const registro = await col_contenidoniveltipoController.findByPk(id);
+        const registro = await extdireccion_clase_via_principal.findByPk(id);
         if (!registro) {
             return res.status(404).json({ message: 'Registro no encontrado' });
         }
@@ -56,11 +56,11 @@ exports.ACcol_contenidoniveltipoById = async (req, res) => {
     }
 };
 
-// Eliminar un registro de col_contenidoniveltipo por ID
-exports.col_contenidoniveltipoById = async (req, res) => {
+// Eliminar un registro de extdireccion_clase_via_principal por ID
+exports.extdireccion_clase_via_principaldeleteById = async (req, res) => {
     const { id } = req.params;
     try {
-        const registro = await col_contenidoniveltipoController.findByPk(id);
+        const registro = await extdireccion_clase_via_principal.findByPk(id);
         if (!registro) {
             return res.status(404).json({ message: 'Registro no encontrado' });
         }

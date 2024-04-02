@@ -1,11 +1,11 @@
-// controllers/col_contenidoniveltipoController.js
-const db = require('../../../models/col_contenidoniveltipo');
-const col_contenidoniveltipoController = db.col_contenidoniveltipo;
+// controllers/lc_acuerdotipoController.js
+const db = require('../../../models/lc_acuerdotipo');
+const lc_acuerdotipo = db.lc_acuerdotipo;
 
-//Obtener todos los registros de col_contenidoniveltipo
-exports.getAllcol_contenidoniveltipo = async (req, res) => {
+//Obtener todos los registros de lc_acuerdotipo
+exports.getAlllc_acuerdotipo = async (req, res) => {
     try {
-        const data = await col_contenidoniveltipoController.findAll();
+        const data = await lc_acuerdotipo.findAll();
         res.json(data);
     } catch (error) {
         console.error('Error al obtener los registros:', error);
@@ -13,10 +13,10 @@ exports.getAllcol_contenidoniveltipo = async (req, res) => {
     }
 };
 
-// Crear un nuevo registro en col_contenidoniveltipo
-exports.createcol_contenidoniveltipo = async (req, res) => {
+// Crear un nuevo registro en lc_acuerdotipo
+exports.lc_acuerdotipocreate = async (req, res) => {
     try {
-        const nuevoRegistro = await col_contenidoniveltipoController.create(req.body);
+        const nuevoRegistro = await lc_acuerdotipo.create(req.body);
         return res.json(nuevoRegistro);
     } catch (error) {
         console.error('Error al crear un nuevo registro:', error);
@@ -24,11 +24,11 @@ exports.createcol_contenidoniveltipo = async (req, res) => {
     }
 };
 
-// Obtener un registro de col_contenidoniveltipo por ID
-exports.col_contenidoniveltipoById = async (req, res) => {
+// Obtener un registro de lc_acuerdotipo por ID
+exports.lc_acuerdotipogetById = async (req, res) => {
     const { id } = req.params;
     try {
-        const registro = await col_contenidoniveltipoController.findByPk(id);
+        const registro = await lc_acuerdotipo.findByPk(id);
         if (!registro) {
             return res.status(404).json({ message: 'Registro no encontrado' });
         }
@@ -39,12 +39,12 @@ exports.col_contenidoniveltipoById = async (req, res) => {
     }
 };
 
-// Actualizar un registro de col_contenidoniveltipo por ID
-exports.ACcol_contenidoniveltipoById = async (req, res) => {
+// Actualizar un registro de lc_acuerdotipo por ID
+exports.lc_acuerdotipoupdateById = async (req, res) => {
     const { id } = req.params;
     const { body } = req;
     try {
-        const registro = await col_contenidoniveltipoController.findByPk(id);
+        const registro = await lc_acuerdotipo.findByPk(id);
         if (!registro) {
             return res.status(404).json({ message: 'Registro no encontrado' });
         }
@@ -56,11 +56,11 @@ exports.ACcol_contenidoniveltipoById = async (req, res) => {
     }
 };
 
-// Eliminar un registro de col_contenidoniveltipo por ID
-exports.col_contenidoniveltipoById = async (req, res) => {
+// Eliminar un registro de lc_acuerdotipo por ID
+exports.lc_acuerdotipodeleteById = async (req, res) => {
     const { id } = req.params;
     try {
-        const registro = await col_contenidoniveltipoController.findByPk(id);
+        const registro = await lc_acuerdotipo.findByPk(id);
         if (!registro) {
             return res.status(404).json({ message: 'Registro no encontrado' });
         }
