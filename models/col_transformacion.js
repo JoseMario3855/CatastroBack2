@@ -4,9 +4,9 @@ module.exports = (sequelize, DataTypes) => {
   class col_transformacion extends Model {
  
     static associate(models) {
-        col_transformacion.belongsTo(models.lc_puntocontrol,{foreignKey:'lc_puntocontrol_transformacion_y_resultado',targetKey:'lc_puntocontrol_transformacion_y_resultado'});
-        col_transformacion.belongsTo(models.lc_puntolindero,{foreignKey:'lc_puntolindero_transformacion_y_resultado',targetKey:'lc_puntolindero_transformacion_y_resultado'});
-        col_transformacion.belongsTo(models.lc_puntolevantamiento,{foreignKey:'lc_puntolevantamiento_transformacion_y_resultado',targetKey:'lc_puntolevantamiento_transformacion_y_resultado'});
+        col_transformacion.belongsTo(models.lc_puntocontrol,{foreignKey:'lc_puntocontrol_transformacion_y_resultado',targetKey:'t_id'});
+        col_transformacion.belongsTo(models.lc_puntolindero,{foreignKey:'lc_puntolindero_transformacion_y_resultado',targetKey:'t_id'});
+        col_transformacion.belongsTo(models.lc_puntolevantamiento,{foreignKey:'lc_puntolevantamiento_transformacion_y_resultado',targetKey:'t_id'});
     
     }
 

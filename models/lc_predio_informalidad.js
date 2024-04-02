@@ -4,8 +4,8 @@ module.exports = (sequelize, DataTypes) => {
   class lc_predio_informalidad extends Model {
     
     static associate(models) {
-      lc_predio_informalidad.belongsTo(models.lc_predio,{foreignKey: 'lc_predio_formal',targetKey:'lc_predio_formal'});
-      lc_predio_informalidad.belongsTo(models.lc_predio,{foreignKey: 'lc_predio_informal',targetKey:'lc_predio_informal'});
+      lc_predio_informalidad.belongsTo(models.lc_predio,{foreignKey: 'lc_predio_formal',targetKey:'t_id'});
+      lc_predio_informalidad.belongsTo(models.lc_predio,{foreignKey: 'lc_predio_informal',targetKey:'t_id'});
     }
   }
   lc_predio_informalidad.init({

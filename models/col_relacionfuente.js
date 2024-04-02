@@ -4,7 +4,7 @@ module.exports = (sequelize, DataTypes) => {
   class col_relacionfuente extends Model {
     
     static associate(models) {
-        col_relacionfuente.belongsTo(models.lc_fuenteadministrativa,{foreignKey:'fuente_administrativa',targetKey:'fuente_administrativa'});
+        col_relacionfuente.belongsTo(models.lc_nu_relacionnecesariabaunits,{foreignKey:'relacionrequeridabaunit',targetKey:'t_id'});
             
     }
   }

@@ -38,10 +38,17 @@ const lc_tipologiaconstruccion =require ('../models/lc_tipologiaconstruccion');
 const lc_sexotipo =require ('../models/lc_sexotipo');
 const lc_restriccion = require ('../models/lc_restriccion');
 const lc_prediotipo = require ('../models/lc_prediotipo');
-
+const lc_predio_ini_predioinsumos= require ('../models/lc_predio_ini_predioinsumos');
+const lc_predio_copropiedad = require ('../models/lc_predio_copropiedad');
+const lc_dominioconstrucciontipo =require ('../models/lc_dominioconstrucciontipo');
+const lc_destinacioneconomicatipo = require ('../models/lc_destinacioneconomicatipo');
+const lc_clasesuelotipo = require ('../models/lc_clasesuelotipo');
+const lc_categoriasuelotipo = require ('../models/lc_categoriasuelotipo');
+const lc_caracteristicaunidadconstruccion = require ('../models/lc_caracteristicaunidadconstruccion')
+const lc_calificacionconvecional = require ('../models/lc_calificacionconvencional');
+const lc_calificacionnoconvecional = require ('../models/lc_calificacionnoconvencional');
 
 //Se inicializa los modelos 
-
 lc_predio.init(sequelize);
 col_areavalor.init(sequelize);
 col_baunitcomointeresado.init(sequelize);
@@ -73,5 +80,14 @@ lc_tipologiaconstruccion.init(sequelize);
 lc_sexotipo.init(sequelize);
 lc_restriccion.init(sequelize);
 lc_prediotipo.init(sequelize);
+lc_predio_ini_predioinsumos.init(sequelize);
+lc_predio_copropiedad.init (sequelize);
+lc_dominioconstrucciontipo.init(sequelize);
+lc_destinacioneconomicatipo.init(sequelize);
+lc_clasesuelotipo.init(sequelize);
+lc_categoriasuelotipo.init(sequelize);
+lc_caracteristicaunidadconstruccion.init(sequelize);
+lc_calificacionconvecional.init(sequelize);
+lc_calificacionnoconvecional.init(sequelize);
 
 module.exports = sequelize;

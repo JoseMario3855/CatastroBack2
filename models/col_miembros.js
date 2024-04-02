@@ -4,9 +4,9 @@ module.exports = (sequelize, DataTypes) => {
   class col_miembros extends Model {
     
     static associate(models) {
-      col_miembros.belongsTo(models.lc_interesado,{foreignKey:'interesado_lc_interesado',targetKey:'interesado_lc_interesado'});
-      col_miembros.belongsTo(models.lc_agrupacioninteresados,{foreignKey:'agrupacion',targetKey:'agrupacion'});
-      col_miembros.belongsTo(models.lc_agrupacioninteresados,{foreignKey:'interesado_lc_agrupacioninteresados',targetKey:'interesado_lc_agrupacioninteresados'});
+      col_miembros.belongsTo(models.lc_interesado,{foreignKey:'interesado_lc_interesado',targetKey:'t_id'});
+      col_miembros.belongsTo(models.lc_agrupacioninteresados,{foreignKey:'agrupacion',targetKey:'t_id'});
+      col_miembros.belongsTo(models.lc_agrupacioninteresados,{foreignKey:'interesado_lc_agrupacioninteresados',targetKey:'t_id'});
     }
   }
   col_miembros.init({

@@ -4,13 +4,13 @@ module.exports = (sequelize, DataTypes) => {
   class col_mascl extends Model {
    
     static associate(models) {
-      col_mascl.belongsTo(models.lc_unidadconstruccion,{foreignKey:'ue_mas_lc_unidadconstruccion',targetKey:'ue_mas_lc_unidadconstruccion'});
-      col_mascl.belongsTo(models.lc_nu_caraslindero,{foreignKey:'cl_mas',targetKey:'cl_mas'});
-      col_mascl.belongsTo(models.lc_terreno,{foreignKey:'ue_mas_lc_terreno',targetKey:'ue_mas_lc_terreno'});
-      col_mascl.belongsTo(models.lc_servidumbretransito,{foreignKey:'ue_mas_lc_servidumbretransito',targetKey:'ue_mas_lc_servidumbretransito'});
-      col_mascl.belongsTo(models.lc_nu_espaciojuridicoredservicios,{foreignKey:'ue_mas_lc_nu_espaciojuridicoredservicios',targetKey:'ue_mas_lc_nu_espaciojuridicoredservicios'});
-      col_mascl.belongsTo(models.lc_nu_espaciojuridicounidadedificacion,{foreignKey:'ue_mas_lc_nu_espaciojuridicounidadedificacion',targetKey:'ue_mas_lc_nu_espaciojuridicounidadedificacion'});
-      col_mascl.belongsTo(models.lc_unidadconstruccion,{foreignKey:'ue_mas_lc_unidadconstruccion',targetKey:'ue_mas_lc_unidadconstruccion'}) ;
+      col_mascl.belongsTo(models.lc_unidadconstruccion,{foreignKey:'ue_mas_lc_unidadconstruccion',targetKey:'t_id'});
+      col_mascl.belongsTo(models.lc_nu_caraslindero,{foreignKey:'cl_mas',targetKey:'t_id'});
+      col_mascl.belongsTo(models.lc_terreno,{foreignKey:'ue_mas_lc_terreno',targetKey:'t_id'});
+      col_mascl.belongsTo(models.lc_servidumbretransito,{foreignKey:'ue_mas_lc_servidumbretransito',targetKey:'t_id'});
+      col_mascl.belongsTo(models.lc_nu_espaciojuridicoredservicios,{foreignKey:'ue_mas_lc_nu_espaciojuridicoredservicios',targetKey:'t_id'});
+      col_mascl.belongsTo(models.lc_nu_espaciojuridicounidadedificacion,{foreignKey:'ue_mas_lc_nu_espaciojuridicounidadedificacion',targetKey:'t_id'});
+      col_mascl.belongsTo(models.lc_unidadconstruccion,{foreignKey:'ue_mas_lc_unidadconstruccion',targetKey:'t_id'}) ;
     }
   }
   col_mascl.init({

@@ -19,6 +19,10 @@ const extdireccionRoutes = require ('./extdireccionRoutes');
 const colareavalorRoutes = require ('./col_arevalorRoutes');
 const colmasccRoutes = require ('./col_mascclRoutes');
 const colvolumenvalorRoutes = require ('./col_volumenvalorRoutes');
+const ci_forma_presentacion_codigoRoutes = require('./ci_forma_presentacion_codigoRoutes');
+const col_baunitcomointeresadoRoutes =require ('./col_baunitcomointeresadoRoutes');
+const col_baunitfuenteRoutes = require ('./col_baunitfuenteRoutes');
+const col_cifuenteRoutes = require ('./col_cifuenteRoutes')
 
 
 
@@ -40,6 +44,10 @@ router.use(extdireccionRoutes);
 router.use (colareavalorRoutes);
 router.use (colmasccRoutes);
 router.use(colvolumenvalorRoutes);
+router.use(ci_forma_presentacion_codigoRoutes);
+router.use(col_baunitcomointeresadoRoutes)
+router.use(col_baunitfuenteRoutes);
+router.use(col_cifuenteRoutes);
 
 
 

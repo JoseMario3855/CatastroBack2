@@ -4,16 +4,16 @@ module.exports = (sequelize, DataTypes) => {
   class lc_puntocontrol extends Model {
     
     static associate(models) {
-        lc_puntocontrol.belongsTo(models.col_puntotipo, { foreignKey: 'puntotipo' ,targetKey:'puntotipo'});
-        lc_puntocontrol.belongsTo(models.lc_puntocontroltipo,{foreignKey:'tipo_punto_control',targetKey:'tipo_punto_control'});
-        lc_puntocontrol.belongsTo(models.col_interpolaciontipo,{foreignKey: 'posicion_interpolacion',targetKey:'posicion_interpolacion'});
-        lc_puntocontrol.belongsTo(models.col_metodoproducciontipo,{foreignKey: 'metodoproduccion',targetKey:'metodoproduccion'});
-        lc_puntocontrol.belongsTo(models.lc_construccion,{foreignKey: 'ue_lc_construccion',targetKey:'ue_lc_construccion'});
-        lc_puntocontrol.belongsTo(models.lc_terrenno,{foreignKey: 'ue_lc_terreno',targetKey:'ue_lc_terreno'});
-        lc_puntocontrol.belongsTo(models.lc_unidadconstruccion,{foreignKey: 'ue_lc_unidadconstruccion',targetKey:'ue_lc_unidadconstruccion'});
-        lc_puntocontrol.belongsTo(models.lc_servidumbretransito,{foreignKey: 'ue_lc_servidumbretransito',targetKey:'ue_lc_servidumbretransito'});
-        lc_puntocontrol.belongsTo(models.lc_nu_espaciojuridicoredservicios,{foreignKey: 'ue_lc_nu_espaciojuridicoredservicios',targetKey:'ue_lc_nu_espaciojuridicoredservicios'});
-        lc_puntocontrol.belongsTo(models.lc_nu_espaciojuridicounidadedificacion,{foreignKey: 'ue_lc_nu_espaciojuridicounidadedificacion',targetKey:'ue_lc_nu_espaciojuridicounidadedificacion'});
+        lc_puntocontrol.belongsTo(models.col_puntotipo, { foreignKey: 'puntotipo' ,targetKey:'t_id'});
+        lc_puntocontrol.belongsTo(models.lc_puntocontroltipo,{foreignKey:'tipo_punto_control',targetKey:'t_id'});
+        lc_puntocontrol.belongsTo(models.col_interpolaciontipo,{foreignKey: 'posicion_interpolacion',targetKey:'t_id'});
+        lc_puntocontrol.belongsTo(models.col_metodoproducciontipo,{foreignKey: 'metodoproduccion',targetKey:'t_id'});
+        lc_puntocontrol.belongsTo(models.lc_construccion,{foreignKey: 'ue_lc_construccion',targetKey:'t_id'});
+        lc_puntocontrol.belongsTo(models.lc_terreno,{foreignKey: 'ue_lc_terreno',targetKey:'t_id'});
+        lc_puntocontrol.belongsTo(models.lc_unidadconstruccion,{foreignKey: 'ue_lc_unidadconstruccion',targetKey:'t_id'});
+        lc_puntocontrol.belongsTo(models.lc_servidumbretransito,{foreignKey: 'ue_lc_servidumbretransito',targetKey:'t_id'});
+        lc_puntocontrol.belongsTo(models.lc_nu_espaciojuridicoredservicios,{foreignKey: 'ue_lc_nu_espaciojuridicoredservicios',targetKey:'t_id'});
+        lc_puntocontrol.belongsTo(models.lc_nu_espaciojuridicounidadedificacion,{foreignKey: 'ue_lc_nu_espaciojuridicounidadedificacion',targetKey:'t_id'});
 
   
       }

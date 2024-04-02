@@ -1,13 +1,13 @@
 const { Model, DataTypes } = require('sequelize');
 
 module.exports = (sequelize, DataTypes) => {
-  class extdireccion_tipo_direccion extends Model {
+  class extdireccion_clase_via_principal extends Model {
  
     static associate(models) {
        
     }
   }
-  extdireccion_tipo_direccion.init({
+  extdireccion_clase_via_principal.init({
     t_id: {
       type: DataTypes.INTEGER,
       allowNull: false,
@@ -48,7 +48,7 @@ module.exports = (sequelize, DataTypes) => {
       }
   }, {
     sequelize,
-    modelName: 'extdireccion_tipo_direccion',
+    modelName: 'extdireccion_clase_via_principal',
   });
-  return extdireccion_tipo_direccion;
+  return extdireccion_clase_via_principal;
 };

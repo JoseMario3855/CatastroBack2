@@ -4,9 +4,9 @@ module.exports = (sequelize, DataTypes) => {
   class lc_nu_nivel extends Model {
     
     static associate(models) {
-      lc_nu_nivel.belongsTo(models.col_registrotipo,{foreignKey:'registro_tipo',targetKey:'registro_tipo'});
-      lc_nu_nivel.belongsTo(models.col_estructuratipo,{foreignKey:'estructura',targetKey:'estructura'});
-      lc_nu_nivel.belongsTo(models.col_contenidoniveltipo,{foreignKey:'tipo',targetKey:'tipo'});
+      lc_nu_nivel.belongsTo(models.col_registrotipo,{foreignKey:'registro_tipo',targetKey:'t_id'});
+      lc_nu_nivel.belongsTo(models.col_estructuratipo,{foreignKey:'estructura',targetKey:'t_id'});
+      lc_nu_nivel.belongsTo(models.col_contenidoniveltipo,{foreignKey:'tipo',targetKey:'t_id'});
     }
   }
   lc_nu_nivel.init({

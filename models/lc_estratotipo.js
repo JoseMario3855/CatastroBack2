@@ -1,13 +1,13 @@
 const { Model, DataTypes } = require('sequelize');
 
 module.exports = (sequelize, DataTypes) => {
-  class lc_resultadovisitatipo extends Model {
+  class lc_estratotipo extends Model {
  
     static associate(models) {
        
     }
   }
-  lc_resultadovisitatipo.init({
+  lc_estratotipo.init({
     t_id: {
       type: DataTypes.INTEGER,
       allowNull: false,
@@ -48,7 +48,7 @@ module.exports = (sequelize, DataTypes) => {
       }
   }, {
     sequelize,
-    modelName: 'lc_resultadovisitatipo',
+    modelName: 'lc_estratotipo',
   });
-  return lc_resultadovisitatipo;
+  return lc_estratotipo;
 };

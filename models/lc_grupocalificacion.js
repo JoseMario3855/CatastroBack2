@@ -4,9 +4,9 @@ module.exports = (sequelize, DataTypes) => {
   class lc_grupocalificacion extends Model {
    
     static associate(models) {
-        lc_grupocalificacion.belongsTo(models.lc_clasecalificaciontipo,{foreignKey:'clase_calificacion',targetKey:'clase_calificacion'});
-        lc_grupocalificacion.belongsTo(models.lc_estadoconservaciontipo,{foreignKey:'conservacion',targetKey:'conservacion'});
-        lc_grupocalificacion.belongsTo(models.lc_calificacionconvencional,{foreignKey:'lc_calificacion_convencional',targetKey:'lc_calificacion_convencional'});
+        lc_grupocalificacion.belongsTo(models.lc_clasecalificaciontipo,{foreignKey:'clase_calificacion',targetKey:'t_id'});
+        lc_grupocalificacion.belongsTo(models.lc_estadoconservaciontipo,{foreignKey:'conservacion',targetKey:'t_id'});
+        lc_grupocalificacion.belongsTo(models.lc_calificacionconvencional,{foreignKey:'lc_calificacion_convencional',targetKey:'t_id'});
     }
   }
   lc_grupocalificacion.init({

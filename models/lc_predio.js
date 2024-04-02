@@ -4,10 +4,10 @@ const { Model, DataTypes } = require('sequelize');
 module.exports = (sequelize) => {
   class lc_predio extends Model {
     static associate(models) {
-      lc_predio.belongsTo(models.lc_categoriasuelotipo, { foreignKey: 'categoria_suelo' ,targetKey:'categoria_suelo'});
-      lc_predio.belongsTo(models.lc_destinacioneconomicatipo,{foreignKey:'destinacion_economica',targetKey:'destinacion_economica'});
-      lc_predio.belongsTo(models.lc_clasesuelotipo,{foreignKey: 't_clase_sueloid',targetKey:'clase_suelo'});
-      lc_predio.belongsTo(models.col_unidadadministrativabasicatipo,{foreignKey: 'tipo',targetKey:'tipo'});
+      lc_predio.belongsTo(models.lc_categoriasuelotipo, { foreignKey: 'categoria_suelo' ,targetKey:'t_id'});
+      lc_predio.belongsTo(models.lc_destinacioneconomicatipo,{foreignKey:'destinacion_economica',targetKey:'t_id'});
+      lc_predio.belongsTo(models.lc_clasesuelotipo,{foreignKey: 't_clase_sueloid',targetKey:'t_id'});
+      lc_predio.belongsTo(models.col_unidadadministrativabasicatipo,{foreignKey: 'tipo',targetKey:'t_id'});
 
 
     }

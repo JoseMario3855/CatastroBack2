@@ -1,13 +1,13 @@
 const { Model, DataTypes } = require('sequelize');
 
 module.exports = (sequelize, DataTypes) => {
-  class lc_calificartipo extends Model {
+  class lc_clasecalificaciontipo extends Model {
  
     static associate(models) {
        
     }
   }
-  lc_calificartipo.init({
+  lc_clasecalificaciontipo.init({
     t_id: {
       type: DataTypes.INTEGER,
       allowNull: false,
@@ -48,7 +48,7 @@ module.exports = (sequelize, DataTypes) => {
       }
   }, {
     sequelize,
-    modelName: 'lc_calificartipo',
+    modelName: 'lc_clasecalificaciontipo',
   });
-  return lc_calificartipo;
+  return lc_clasecalificaciontipo;
 };

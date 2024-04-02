@@ -4,8 +4,8 @@ module.exports = (sequelize, DataTypes) => {
   class lc_estructuranovedadnumeropredial extends Model {
    
     static associate(models) {
-      lc_estructuranovedadnumeropredial.belongsTo(models.lc_datosadicionaleslevantamientocatastral,{foreignKey:'lc_dtsdcnlstmntctstral_novedad_numeros_prediales',targetKey:'lc_dtsdcnlstmntctstral_novedad_numeros_prediales'});
-      lc_estructuranovedadnumeropredial.belongsTo(models.lc_estructuranovedadnumeropredial_tipo_novedad,{foreignKey:'tipo_novedad',targetKey:'tipo_novedad'});
+      lc_estructuranovedadnumeropredial.belongsTo(models.lc_datosadicionaleslevantamientocatastral,{foreignKey:'lc_dtsdcnlstmntctstral_novedad_numeros_prediales',targetKey:'t_id'});
+      lc_estructuranovedadnumeropredial.belongsTo(models.lc_estructuranovedadnumeropredial_tipo_novedad,{foreignKey:'tipo_novedad',targetKey:'t_id'});
     }
   }
   lc_estructuranovedadnumeropredial.init({

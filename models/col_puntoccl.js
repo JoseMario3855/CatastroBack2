@@ -5,10 +5,10 @@ module.exports = (sequelize, DataTypes) => {
   class col_puntoccl extends Model {
     
     static associate(models) {
-      col_puntoccl.belongsTo(models.lc_lindero,{foreignKey:'ccl',targetKey:'ccl'});
-      col_puntoccl.belongsTo(models.lc_puntocontrol,{foreignKey:'punto_lc_puntocontrol',targetKey:'punto_lc_puntocontrol'});
-      col_puntoccl.belongsTo(models.lc_puntolindero,{foreignKey:'punto_lc_puntolindero',targetKey:'punto_lc_puntolindero'});
-      col_puntoccl.belongsTo(models.lc_puntolevantamiento,{foreignKey:'punto_lc_puntolevantamiento',targetKey:'punto_lc_puntolevantamiento'});
+      col_puntoccl.belongsTo(models.lc_lindero,{foreignKey:'ccl',targetKey:'t_id'});
+      col_puntoccl.belongsTo(models.lc_puntocontrol,{foreignKey:'punto_lc_puntocontrol',targetKey:'t_id'});
+      col_puntoccl.belongsTo(models.lc_puntolindero,{foreignKey:'punto_lc_puntolindero',targetKey:'t_id'});
+      col_puntoccl.belongsTo(models.lc_puntolevantamiento,{foreignKey:'punto_lc_puntolevantamiento',targetKey:'t_id'});
 
     }
   }

@@ -4,12 +4,12 @@ module.exports = (sequelize, DataTypes) => {
   class col_areavalor extends Model {
    
     static associate(models) {
-      col_areavalor.belongsTo(models.lc_construccion,{foreignKey:'lc_construccion_area',targetKey:'lc_construccion_area'});
-      col_areavalor.belongsTo(models.lc_unidadconstruccion,{foreignKey:'lc_unidadconstruccion_area',targetKey:'lc_unidadconstruccion_area'});
-      col_areavalor.belongsTo(models.lc_nu_espaciojuridicounidadedificacion,{foreignKey:'lc_n_spcjrdcndddfccion_area',targetKey:'lc_n_spcjrdcndddfccion_area'});
-      col_areavalor.belongsTo(models.lc_nu_espaciojuridicoredservicios,{foreignKey:'lc_nu_spcjrdcrdsrvcios_area',targetKey:'lc_nu_spcjrdcrdsrvcios_area'});
-      col_areavalor.belongsTo(models.lc_terreno,{foreignKey:'lc_terreno_area',targetKey:'lc_terreno_area'});
-      col_areavalor.belongsTo(models.lc_servidumbretransito,{foreignKey:'lc_servidumbretransito_area',targetKey:'lc_servidumbretransito_area'})
+      col_areavalor.belongsTo(models.lc_construccion, { foreignKey: 'lc_construccion_area', targetKey: 't_id' });
+      col_areavalor.belongsTo(models.lc_unidadconstruccion,{foreignKey:'lc_unidadconstruccion_area',targetKey:'t_id'});
+      col_areavalor.belongsTo(models.lc_nu_espaciojuridicounidadedificacion,{foreignKey:'lc_n_spcjrdcndddfccion_area',targetKey:'t_id'});
+      col_areavalor.belongsTo(models.lc_nu_espaciojuridicoredservicios,{foreignKey:'lc_nu_spcjrdcrdsrvcios_area',targetKey:'t_id'});
+      col_areavalor.belongsTo(models.lc_terreno,{foreignKey:'lc_terreno_area',targetKey:'t_id'});
+      col_areavalor.belongsTo(models.lc_servidumbretransito,{foreignKey:'lc_servidumbretransito_area',targetKey:'t_id'})
     }
   }
   col_areavalor.init({

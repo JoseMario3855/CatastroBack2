@@ -4,7 +4,7 @@ module.exports = (sequelize, DataTypes) => {
   class lc_datosphcondominio extends Model {
    
     static associate(models) {
-      lc_datosphcondominio.belongsTo(models.lc_predio,{foreignKey:'lc_predio',targetKey:'lc_predio'});
+      lc_datosphcondominio.belongsTo(models.lc_predio, { foreignKey: 'lc_predio_id', as: 'lcPredioAssociation' });
     }
   }
   lc_datosphcondominio.init({

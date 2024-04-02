@@ -4,7 +4,7 @@ module.exports = (sequelize, DataTypes) => {
   class extredserviciosfisica extends Model {
  
     static associate(models) {
-      extredserviciosfisica.belongsTo(models.lc_nu_espaciojuridicoredservicios,{foreignKey:'lc_nu_spcjrdcrdsrvcios_ext_id_red_fisica',targetKey:'lc_nu_spcjrdcrdsrvcios_ext_id_red_fisica'});
+      extredserviciosfisica.belongsTo(models.lc_nu_espaciojuridicoredservicios,{foreignKey:'lc_nu_spcjrdcrdsrvcios_ext_id_red_fisica',targetKey:'t_id'});
     }
   }
   extredserviciosfisica.init({

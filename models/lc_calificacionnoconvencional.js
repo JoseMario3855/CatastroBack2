@@ -4,8 +4,8 @@ module.exports = (sequelize, DataTypes) => {
   class lc_calificacionnoconvencional extends Model {
     
     static associate(models) {
-      lc_calificacionnoconvencional.belongsTo(models.lc_anexotipo,{foreignKey:'tipo_anexo',targetKey:'tipo_anexo'});
-      lc_calificacionnoconvencional.belongsTo(models.lc_caracteristicaunidadconstruccion,{foreignKey:'lc_unidad_construccion',targetKey:'lc_unidad_construccion'});
+      lc_calificacionnoconvencional.belongsTo(models.lc_anexotipo,{foreignKey:'tipo_anexo',targetKey:'t_id'});
+      lc_calificacionnoconvencional.belongsTo(models.lc_caracteristicaunidadconstruccion,{foreignKey:'lc_unidad_construccion',targetKey:'t_id'});
     
     }
   }

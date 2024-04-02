@@ -4,8 +4,9 @@ module.exports = (sequelize, DataTypes) => {
   class lc_ofertasmercadoinmobiliario extends Model {
    
     static associate(models) {
-      lc_ofertasmercadoinmobiliario.belongsTo(models.lc_ofertatipo,{foreignKey:'tipo_oferta',targetKey:'tipo_oferta'});
-      lc_ofertasmercadoinmobiliario.belongsTo(models.lc_predio,{foreignKey:'lc_predio',targetKey:'lc_predio'});
+      lc_ofertasmercadoinmobiliario.belongsTo(models.lc_ofertatipo,{foreignKey:'tipo_oferta',targetKey:'t_id'});
+      lc_ofertasmercadoinmobiliario.belongsTo(models.lc_predio, { foreignKey: 'lc_predio_id', as: 'lcPredioAssociation' });
+
       
     }
   }
@@ -52,7 +53,7 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false
 
     },
-    lc_predio:{
+    lc_predio_id:{
       type: DataTypes.INTEGER,
       allowNull: true
     },

@@ -4,11 +4,11 @@ module.exports = (sequelize, DataTypes) => {
   class lc_construccion extends Model {
     
     static associate(models) {
-      lc_construccion.belongsTo(models.lc_construcciontipo,{foreignKey:'tipo_construccion',targetKey:'tipo_construccion'});
-      lc_construccion.belongsTo(models.lc_dominioconstrucciontipo,{foreignKey:'tipo_dominio',targetKey:'tipo_dominio'});
-      lc_construccion.belongsTo(models.col_dimensiontipo,{foreignKey:'dimension',targetKey:'dimension'});
-      lc_construccion.belongsTo(models.col_relacionsuperficietipo,{foreignKey:'relacion_superficie',targetKey:'relacion_superficie'});
-      lc_construccion.belongsTo(models.lc_nu_nivel,{foreignKey:'nivel',targetKey:'nivel'});
+      lc_construccion.belongsTo(models.lc_construcciontipo,{foreignKey:'tipo_construccion',targetKey:'t_id'});
+      lc_construccion.belongsTo(models.lc_dominioconstrucciontipo,{foreignKey:'tipo_dominio',targetKey:'t_id'});
+      lc_construccion.belongsTo(models.col_dimensiontipo,{foreignKey:'dimension',targetKey:'t_id'});
+      lc_construccion.belongsTo(models.col_relacionsuperficietipo,{foreignKey:'relacion_superficie',targetKey:'t_id'});
+      lc_construccion.belongsTo(models.lc_nu_nivel,{foreignKey:'nivel',targetKey:'t_id'});
     }
   }
   lc_construccion.init({
@@ -89,7 +89,7 @@ module.exports = (sequelize, DataTypes) => {
       
     local_id:{
     type: DataTypes.STRING,
-    allowNull: fals
+    allowNull: false
     },
   }, {
     sequelize,

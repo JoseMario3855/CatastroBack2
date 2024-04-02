@@ -4,9 +4,9 @@ module.exports = (sequelize, DataTypes) => {
   class lc_fuenteespacial extends Model {
    
     static associate(models) {
-        lc_fuenteespacial.belongsTo(models.col_fuenteespacialtipo,{foreignKey:'tipo',targetKey:'tipo'});
-        lc_fuenteespacial.belongsTo(models.col_estadodisponibilidadtipo,{foreignKey:'estado_disponibilidad',targetKey:'estado_disponibilidad'});
-        lc_fuenteespacial.belongsTo(models.ci_forma_presentacion_codigo,{foreignKey:'tipo_principal',targetKey:'tipo_principal'});
+        lc_fuenteespacial.belongsTo(models.col_fuenteespacialtipo,{foreignKey:'tipo',targetKey:'t_id'});
+        lc_fuenteespacial.belongsTo(models.col_estadodisponibilidadtipo,{foreignKey:'estado_disponibilidad',targetKey:'t_id'});
+        lc_fuenteespacial.belongsTo(models.ci_forma_presentacion_codigo,{foreignKey:'tipo_principal',targetKey:'t_id'});
     }
   }
   lc_fuenteespacial.init({

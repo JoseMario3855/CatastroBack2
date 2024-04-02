@@ -4,10 +4,10 @@ module.exports = (sequelize, DataTypes) => {
   class lc_nu_espaciojuridicounidadedificacion extends Model {
     
     static associate(models) {
-        lc_nu_espaciojuridicounidadedificacion.belongsTo(models.col_unidadedificaciontipo,{foreignKey:'tipo',targetKey:'tipo'});
-        lc_nu_espaciojuridicounidadedificacion.belongsTo(models.col_dimensiontipo,{foreignKey:'dimension',targetKey:'dimension'});
-        lc_nu_espaciojuridicounidadedificacion.belongsTo(models.col_relacionsuperficietipo,{foreignKey:'relacion_superficie',targetKey:'relacion_superficie'});
-        lc_nu_espaciojuridicounidadedificacion.belongsTo(models.lc_nu_nivel,{foreignKey:'nivel',targetKey:'nivel'});
+        lc_nu_espaciojuridicounidadedificacion.belongsTo(models.col_unidadedificaciontipo,{foreignKey:'tipo',targetKey:'t_id'});
+        lc_nu_espaciojuridicounidadedificacion.belongsTo(models.col_dimensiontipo,{foreignKey:'dimension',targetKey:'t_id'});
+        lc_nu_espaciojuridicounidadedificacion.belongsTo(models.col_relacionsuperficietipo,{foreignKey:'relacion_superficie',targetKey:'t_id'});
+        lc_nu_espaciojuridicounidadedificacion.belongsTo(models.lc_nu_nivel,{foreignKey:'nivel',targetKey:'t_id'});
     }
   }
   lc_nu_espaciojuridicounidadedificacion.init({

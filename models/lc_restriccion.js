@@ -1,15 +1,16 @@
 const { Model, DataTypes } = require('sequelize');
+const sequelize = require('../src/db');
 
 module.exports = (sequelize, DataTypes) => {
   class lc_restriccion extends Model {
-   
     static associate(models) {
-      lc_restriccion.belongsTo(models.lc_restricciontipo, { foreignKey: 'tipo' ,targetKey:'tipo'});
-      lc_restriccion.belongsTo(models.lc_interesado,{foreignKey:'interesado_lc_interesado',targetKey:'interesado_lc_interesado'});
-      lc_restriccion.belongsTo(models.lc_agrupacioninteresado,{foreignKey: 'interesado_lc_agrupacioninteresados',targetKey:'interesado_lc_agrupacioninteresados'});
-      lc_restriccion.belongsTo(models.lc_predio,{foreignKey: 'unidad',targetKey:'unidad'});
+      lc_restriccion.belongsTo(models.lc_restricciontipo, { foreignKey: 'tipo', targetKey: 't_id' });
+      lc_restriccion.belongsTo(models.lc_interesado, { foreignKey: 'interesado_lc_interesado', targetKey: 't_id' });
+      lc_restriccion.belongsTo(models.lc_agrupacioninteresados, { foreignKey: 'interesado_lc_agrupacioninteresados', targetKey: 't_id' });
+      lc_restriccion.belongsTo(models.lc_predio, { foreignKey: 'unidad', targetKey: 't_id' });
     }
   }
+
   lc_restriccion.init({
     t_id: {
       type: DataTypes.INTEGER,
@@ -29,7 +30,7 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       allowNull: false
     },
-    interesado_lc_interesado:{
+    interesado_lc_interesado: {
       type: DataTypes.STRING,
       allowNull: false
     },
@@ -41,7 +42,7 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       allowNull: false
     },
-    comienzo_vida_util_version:{
+    comienzo_vida_util_version: {
       type: DataTypes.DATE,
       allowNull: true
     },
@@ -56,9 +57,11 @@ module.exports = (sequelize, DataTypes) => {
     local_id: {
       type: DataTypes.STRING,
       allowNull: false
-    },
+    }
+  }, {
     sequelize,
     modelName: 'lc_restriccion',
   });
+
   return lc_restriccion;
 };

@@ -4,7 +4,7 @@ module.exports = (sequelize, DataTypes) => {
   class lc_interesadocontacto extends Model {
     
     static associate(models) {
-      lc_interesadocontacto.belongsTo(models.lc_interesado,{foreignKey:'lc_interesado',targetKey:'lc_interesado'});
+      lc_interesadocontacto.belongsTo(models.lc_interesado,{foreignKey:'lc_interesado_id',targetKey:'t_id'});
     }
   }
   lc_interesadocontacto.init({
@@ -58,7 +58,7 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       allowNull: false
     },
-    lc_interesado: {
+    lc_interesado_id: {
       type: DataTypes.INTEGER,
       allowNull: false
     },

@@ -4,8 +4,8 @@ const { Model, DataTypes } = require('sequelize');
 module.exports = (sequelize) => {
   class lc_contactovisita extends Model {
     static associate(models) {
-      lc_contactovisita.belongsTo(models.lc_datos_adicionales, { foreignKey: 'lc_datos_adicionales' ,targetKey:'lc_datos_adicionales'});
-      lc_contactovisita.belongsTo(models.lc_interesadodocumentotipo, { foreignKey: 'tipo_documento_quien_atendio' ,targetKey:'tipo_documento_quien_atendio'});
+      lc_contactovisita.belongsTo(models.lc_datosadicionaleslevantamientocatastral, { foreignKey: 'lc_datos_adicionales' ,targetKey:'t_id'});
+      lc_contactovisita.belongsTo(models.lc_interesadodocumentotipo, { foreignKey: 'tipo_documento_quien_atendio' ,targetKey:'t_id'});
     }
   }
   

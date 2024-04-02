@@ -4,11 +4,11 @@ module.exports = (sequelize, DataTypes) => {
   class lc_caracteristicaunidadconstruccion extends Model {
   
     static associate(models) {
-      lc_caracteristicaunidadconstruccion.belongsTo(models.lc_construcciontipo,{foreignKey:'tipo_construccion',targetKey:'tipo_construccion'});
-      lc_caracteristicaunidadconstruccion.belongsTo(models.lc_dominioconstrucciontipo,{foreignKey:'tipo_dominio',targetKey:'tipo_dominio'});
-      lc_caracteristicaunidadconstruccion.belongsTo(models.lc_unidadconstrucciontipo,{foreignKey:'tipo_unidad_construccion',targetKey:'tipo_unidad_construccion'});
-      lc_caracteristicaunidadconstruccion.belongsTo(models.lc_construccionplantatipo,{foreignKey:'tipo_planta',targetKey:'tipo_planta'});
-      lc_caracteristicaunidadconstruccion.belongsTo(models.lc_usouconstipo,{foreignKey:'uso',targetKey:'uso'});
+      lc_caracteristicaunidadconstruccion.belongsTo(models.lc_construcciontipo,{foreignKey:'tipo_construccion',targetKey:'t_id'});
+      lc_caracteristicaunidadconstruccion.belongsTo(models.lc_dominioconstrucciontipo,{foreignKey:'tipo_dominio',targetKey:'t_id'});
+      lc_caracteristicaunidadconstruccion.belongsTo(models.lc_unidadconstrucciontipo,{foreignKey:'tipo_unidad_construccion',targetKey:'t_id'});
+      lc_caracteristicaunidadconstruccion.belongsTo(models.lc_construccionplantatipo,{foreignKey:'tipo_planta',targetKey:'t_id'});
+      lc_caracteristicaunidadconstruccion.belongsTo(models.lc_usouconstipo,{foreignKey:'uso',targetKey:'t_id'});
     }
   }
   lc_caracteristicaunidadconstruccion.init({

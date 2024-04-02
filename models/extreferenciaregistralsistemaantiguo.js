@@ -4,8 +4,8 @@ module.exports = (sequelize, DataTypes) => {
   class extreferenciaregistralsistemaantiguo extends Model {
  
     static associate(models) {
-        extreferenciaregistralsistemaantiguo.belongsTo(models.lc_predio,{foreignKey:'lc_predio_referencia_registral_sistema_antiguo',targetKey:'lc_predio_referencia_registral_sistema_antiguo'});
-        extreferenciaregistralsistemaantiguo.belongsTo(models.extreferenciaregistralsistemaantiguo_tipo_referencia,{foreignKey:'tipo_referencia',targetKey:'tipo_referencia'});
+        extreferenciaregistralsistemaantiguo.belongsTo(models.lc_predio,{foreignKey:'lc_predio_referencia_registral_sistema_antiguo',targetKey:'t_id'});
+        extreferenciaregistralsistemaantiguo.belongsTo(models.extreferenciaregistralsistemaantiguo_tipo_referencia,{foreignKey:'tipo_referencia',targetKey:'t_id'});
     }
   }
   extreferenciaregistralsistemaantiguo.init({

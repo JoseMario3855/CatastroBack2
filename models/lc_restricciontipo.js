@@ -1,17 +1,13 @@
 const { Model, DataTypes } = require('sequelize');
 
 module.exports = (sequelize, DataTypes) => {
-  class lc_sexotipo extends Model {
-    /**
-     * Helper method for defining associations.
-     * This method is not a part of Sequelize lifecycle.
-     * The `models/index` file will call this method automatically.
-     */
+  class lc_restricciontipo extends Model {
+  
     static associate(models) {
-      // define association here
+      
     }
   }
-  lc_sexotipo.init({
+  lc_restricciontipo.init({
     t_id: {
       type: DataTypes.INTEGER,
       allowNull: false,
@@ -52,7 +48,7 @@ module.exports = (sequelize, DataTypes) => {
     },
   }, {
     sequelize,
-    modelName: 'lc_sexotipo',
+    modelName: 'lc_restricciontipo',
   });
-  return lc_sexotipo;
+  return lc_restricciontipo;
 };

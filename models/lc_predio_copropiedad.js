@@ -2,13 +2,10 @@ const { Model, DataTypes } = require('sequelize');
 
 module.exports = (sequelize, DataTypes) => {
   class lc_predio_copropiedad extends Model {
-    /**
-     * Helper method for defining associations.
-     * This method is not a part of Sequelize lifecycle.
-     * The `models/index` file will call this method automatically.
-     */
+    
     static associate(models) {
-      // define association here
+      lc_predio_copropiedad.belongsTo(models.lc_predio,{foreignKey: 'unidad_predial',targetKey:'t_id'});
+      lc_predio_copropiedad.belongsTo(models.lc_predio,{foreignKey: 'matriz',targetKey:'t_id'});
     }
   }
   lc_predio_copropiedad.init({
@@ -18,11 +15,15 @@ module.exports = (sequelize, DataTypes) => {
       primaryKey: true,
       autoIncrement: true
     },
-    predio: {
+    unidad_predial: {
       type: DataTypes.INTEGER,
       allowNull: true
     },
-    copropiedad: {
+    matriz: {
+      type: DataTypes.INTEGER,
+      allowNull: true
+    },
+    coeficiente: {
       type: DataTypes.INTEGER,
       allowNull: true
     },

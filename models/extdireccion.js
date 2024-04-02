@@ -7,15 +7,15 @@ module.exports = (sequelize, DataTypes) => {
    class extdireccion extends Model {
   
      static associate(models) {
-      extdireccion.belongsTo(models.lc_predio,{foreignKey:'lc_predio_direccion',targetKey:'lc_predio_direccion'});
-      extdireccion.belongsTo(models.extunidadedificacionfisica,{foreignKey:'extunidadedificcnfsica_ext_direccion_id',targetKey:'extunidadedificcnfsica_ext_direccion_id'});
-      extdireccion.belongsTo(models.extinteresado,{foreignKey:'extinteresado_ext_direccion_id',targetKey:'extinteresado_ext_direccion_id'});
-      extdireccion.belongsTo(models.lc_terreno,{foreignKey:'lc_terreno_ext_direccion_id',targetKey:'lc_terreno_ext_direccion_id'});
-      extdireccion.belongsTo(models.lc_nu_espaciojuridicoredservicios,{foreignKey:'lc_nu_spcjrdcrdsrvcios_ext_direccion_id',targetKey:'lc_nu_spcjrdcrdsrvcios_ext_direccion_id'});
-      extdireccion.belongsTo(models.lc_nu_espaciojuridicounidadedificacion,{foreignKey:'lc_n_spcjrdcndddfccion_ext_direccion_id',targetKey:'lc_n_spcjrdcndddfccion_ext_direccion_id'});
-      extdireccion.belongsTo(models.lc_construccion,{foreignKey:'lc_construccion_ext_direccion_id',targetKey:'lc_construccion_ext_direccion_id'});
-      extdireccion.belongsTo(models.lc_unidadconstruccion,{foreignKey:'lc_unidadconstruccion_ext_direccion_id',targetKey:'lc_unidadconstruccion_ext_direccion_id'});
-      extdireccion.belongsTo(models.lc_servidumbretransito,{foreignKey:'lc_servidumbretransito_ext_direccion_id',targetKey:'lc_servidumbretransito_ext_direccion_id'});
+      extdireccion.belongsTo(models.lc_predio,{foreignKey:'lc_predio_direccion',targetKey:'t_id'});
+      extdireccion.belongsTo(models.extunidadedificacionfisica,{foreignKey:'extunidadedificcnfsica_ext_direccion_id',targetKey:'t_id'});
+      extdireccion.belongsTo(models.extinteresado,{foreignKey:'extinteresado_ext_direccion_id',targetKey:'t_id'});
+      extdireccion.belongsTo(models.lc_terreno,{foreignKey:'lc_terreno_ext_direccion_id',targetKey:'t_id'});
+      extdireccion.belongsTo(models.lc_nu_espaciojuridicoredservicios,{foreignKey:'lc_nu_spcjrdcrdsrvcios_ext_direccion_id',targetKey:'t_id'});
+      extdireccion.belongsTo(models.lc_nu_espaciojuridicounidadedificacion,{foreignKey:'lc_n_spcjrdcndddfccion_ext_direccion_id',targetKey:'t_id'});
+      extdireccion.belongsTo(models.lc_construccion,{foreignKey:'lc_construccion_ext_direccion_id',targetKey:'t_id'});
+      extdireccion.belongsTo(models.lc_unidadconstruccion,{foreignKey:'lc_unidadconstruccion_ext_direccion_id',targetKey:'t_id'});
+      extdireccion.belongsTo(models.lc_servidumbretransito,{foreignKey:'lc_servidumbretransito_ext_direccion_id',targetKey:'t_id'});
     }
   }
   extdireccion.init({

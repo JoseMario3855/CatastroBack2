@@ -1,13 +1,12 @@
-'use strict';
 const { Model, DataTypes } = require('sequelize');
 
 module.exports = (sequelize, DataTypes) => {
   class col_baunitcomointeresado extends Model {
    
     static associate(models) {
-      col_baunitcomointeresado.belongsto(models.lc_interesado,{foreignkey:'interesado_lc_interesado',targetKey:'interesado_lc_interesado'});
-      col_baunitcomointeresado.belongsTo(models.lc_agrupacioninteresados,{foreignkey:'interesado_lc_agrupacioninteresados',targetKey:'interesado_lc_agrupacioninteresados'});
-      col_baunitcomointeresado.belongsTo(models.lc_predio,{foreignkey:'unidad',targetKey:'unidad'})  
+      col_baunitcomointeresado.belongsTo(models.lc_interesado, { foreignKey: 'interesado_lc_interesado', targetKey: 't_id' });
+      col_baunitcomointeresado.belongsTo(models.lc_agrupacioninteresados, { foreignKey: 'interesado_lc_agrupacioninteresados', targetKey: 't_id' });
+      col_baunitcomointeresado.belongsTo(models.lc_predio, { foreignKey: 'unidad', targetKey: 't_id' });  
     }
   }
   col_baunitcomointeresado.init({
@@ -18,9 +17,9 @@ module.exports = (sequelize, DataTypes) => {
       autoIncrement: true
     },
     t_ili_tid: {
-    type: DataTypes.STRING,
-    allowNull: true
-  },
+      type: DataTypes.STRING,
+      allowNull: true
+    },
     interesado_lc_interesado:{
       type: DataTypes.INTEGER,
       allowNull: true
@@ -30,8 +29,8 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: true
     },
     unidad:{
-      type:DataTypes.INTEGER,
-      allowNull:true
+      type: DataTypes.INTEGER,
+      allowNull: true
     }
   }, {
     sequelize,

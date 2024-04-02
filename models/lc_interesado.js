@@ -4,10 +4,10 @@ module.exports = (sequelize, DataTypes) => {
   class lc_interesado extends Model {
    
     static associate(models) {
-      lc_interesado.belongsTo(models.lc_interesadodocumentotipo,{foreignKey:'tipo_documento',targetKey:'tipo_documento'});
-      lc_interesado.belongsTo(models.lc_sexotipo,{foreignKey:'sexo',targetKey:'sexo'});
-      lc_interesado.belongsTo(models.lc_grupoetnicotipo,{foreignKey:'grupo_etnico',targetKey:'grupo_etnico'});
-      lc_interesado.belongsTo(models.lc_estadociviltipo,{foreignKey:'estado_civil',targetKey:'estado_civil'});
+      lc_interesado.belongsTo(models.lc_interesadodocumentotipo,{foreignKey:'tipo_documento',targetKey:'t_id'});
+      lc_interesado.belongsTo(models.lc_sexotipo,{foreignKey:'sexo',targetKey:'t_id'});
+      lc_interesado.belongsTo(models.lc_grupoetnicotipo,{foreignKey:'grupo_etnico',targetKey:'t_id'});
+      lc_interesado.belongsTo(models.lc_estadociviltipo,{foreignKey:'estado_civil',targetKey:'t_id'});
     }
   }
   lc_interesado.init({

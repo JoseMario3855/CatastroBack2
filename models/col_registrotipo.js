@@ -4,7 +4,7 @@ module.exports = (sequelize, DataTypes) => {
   class col_registrotipo extends Model {
  
     static associate(models) {
-       
+      
     }
   }
   col_registrotipo.init({

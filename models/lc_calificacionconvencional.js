@@ -4,8 +4,8 @@ module.exports = (sequelize, DataTypes) => {
   class lc_calificacionconvencional extends Model {
     
     static associate(models) {
-      lc_calificacionconvencional.belongsTo(models.lc_calificartipo,{foreignKey:'tipo_calificar',targetKey:'tipo_calificar'});
-      lc_calificacionconvencional.belongsTo(models.lc_caracteristicaunidadconstruccion,{foreignKey:'lc_unidad_construccion',targetKey:'lc_unidad_construccion'});
+      lc_calificacionconvencional.belongsTo(models.lc_calificartipo,{foreignKey:'tipo_calificar',targetKey:'t_id'});
+      lc_calificacionconvencional.belongsTo(models.lc_caracteristicaunidadconstruccion,{foreignKey:'lc_unidad_construccion',targetKey:'t_id'});
     
     }
   }

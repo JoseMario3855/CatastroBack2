@@ -7,8 +7,8 @@ module.exports = (sequelize, DataTypes) => {
 
    
     static associate(models) {
-      lc_predio_ini_predioinsumos.belongsTo(models.lc_predio,{foreignKey: 'lc_predio',targetKey:'lc_predio'});
-      lc_predio_ini_predioinsumos.belongsTo(models.ini_predioinsumos,{foreignKey: 'ini_predio_insumos',targetKey:'ini_predio_insumos'});
+      lc_predio_ini_predioinsumos.belongsTo(models.lc_predio, { foreignKey: 'lc_predio_id', as: 'lcPredioAssociation' });
+      lc_predio_ini_predioinsumos.belongsTo(models.ini_predioinsumos,{foreignKey: 'ini_predio_insumos',targetKey:'t_id'});
     }
   }
   lc_predio_ini_predioinsumos.init({

@@ -4,9 +4,9 @@ module.exports = (sequelize, DataTypes) => {
   class lc_fuenteadministrativa extends Model {
    
     static associate(models) {
-        lc_fuenteadministrativa.belongsTo(models.col_fuenteadministrativatipo,{foreignKey:'tipo',targetKey:'tipo'});
-        lc_fuenteadministrativa.belongsTo(models.col_estadodisponibilidadtipo,{foreignKey:'estado_disponibilidad',targetKey:'estado_disponibilidad'});
-        lc_fuenteadministrativa.belongsTo(models.ci_forma_presentacion_codigo,{foreignKey:'tipo_principal',targetKey:'tipo_principal'});
+        lc_fuenteadministrativa.belongsTo(models.col_fuenteadministrativatipo,{foreignKey:'tipo',targetKey:'t_id'});
+        lc_fuenteadministrativa.belongsTo(models.col_estadodisponibilidadtipo,{foreignKey:'estado_disponibilidad',targetKey:'t_id'});
+        lc_fuenteadministrativa.belongsTo(models.ci_forma_presentacion_codigo,{foreignKey:'tipo_principal',targetKey:'t_id'});
         
     }
   }

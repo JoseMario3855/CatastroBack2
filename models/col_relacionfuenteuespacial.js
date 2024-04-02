@@ -4,7 +4,7 @@ module.exports = (sequelize, DataTypes) => {
   class col_relacionfuenteuespacial extends Model {
     
     static associate(models) {
-        col_relacionfuenteuespacial.belongsTo(models.col_relacionfuenteuespacial,{foreignKey:'relacionrequeridaue',targetKey:'relacionrequeridaue'});
+        col_relacionfuenteuespacial.belongsTo(models.col_relacionfuenteuespacial,{foreignKey:'relacionrequeridaue',targetKey:'t_id'});
             
     }
   }

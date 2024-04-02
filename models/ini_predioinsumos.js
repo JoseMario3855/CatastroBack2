@@ -4,8 +4,7 @@ module.exports = (sequelize, DataTypes) => {
   class ini_predioinsumos extends Model {
     
     static associate(models) {
-      ini_predioinsumos.belongsTo(models.lc_predio,{foreignKey: 'lc_predio_formal',targetKey:'lc_predio_formal'});
-      ini_predioinsumos.belongsTo(models.lc_predio,{foreignKey: 'lc_predio_informal',targetKey:'lc_predio_informal'});
+      
     }
   }
   ini_predioinsumos.init({

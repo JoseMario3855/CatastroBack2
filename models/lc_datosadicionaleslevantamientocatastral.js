@@ -5,11 +5,12 @@ module.exports = (sequelize, DataTypes) => {
   class lc_datosadicionaleslevantamientocatastral extends Model {
    
     static associate(models) {
-      lc_datosadicionaleslevantamientocatastral.belongsTo(models.lc_procedimientocatastralregistratipo,{foreignKey:'procedimiento_catastral_registral',targetKey:'procedimiento_catastral_registral'});
-      lc_datosadicionaleslevantamientocatastral.belongsTo(models.lc_interesadodocumentotipo,{foreignKey:'tipo_documento_reconocedor',targetKey:'tipo_documento_reconocedor'});
-      lc_datosadicionaleslevantamientocatastral.belongsTo(models.lc_resultadovisitatipo,{foreignKey:'resultado_visita',targetKey:'resultado_visita'});
-      lc_datosadicionaleslevantamientocatastral.belongsTo(models.lc_estratotipo,{foreignKey:'estrato',targetKey:'estrato'});
-      lc_datosadicionaleslevantamientocatastral.belongsTo(models.lc_predio,{foreignKey:'lc_predio',targetKey:'lc_predio'});
+      lc_datosadicionaleslevantamientocatastral.belongsTo(models.lc_procedimientocatastralregistratipo,{foreignKey:'procedimiento_catastral_registral',targetKey:'t_id'});
+      lc_datosadicionaleslevantamientocatastral.belongsTo(models.lc_interesadodocumentotipo,{foreignKey:'tipo_documento_reconocedor',targetKey:'t_id'});
+      lc_datosadicionaleslevantamientocatastral.belongsTo(models.lc_resultadovisitatipo,{foreignKey:'resultado_visita',targetKey:'t_id'});
+      lc_datosadicionaleslevantamientocatastral.belongsTo(models.lc_estratotipo,{foreignKey:'estrato',targetKey:'t_id'});
+      lc_datosadicionaleslevantamientocatastral.belongsTo(models.lc_predio, { foreignKey: 'lc_predio_id', as: 'lcPredioAssociation' });
+
     }
   }
   lc_datosadicionaleslevantamientocatastral.init({

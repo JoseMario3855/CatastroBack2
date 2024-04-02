@@ -4,7 +4,7 @@ module.exports = (sequelize, DataTypes) => {
   class col_puntofuente extends Model {
  
     static associate(models) {
-      col_puntofuente.belongsTo(models.lc_puntocontrol,{foreignKey:'punto_lc_puntocontrol',targetKey:'punto_lc_puntocontrol'});
+      col_puntofuente.belongsTo(models.lc_puntocontrol,{foreignKey:'punto_lc_puntocontrol',targetKey:'t_id'});
       
     }
 

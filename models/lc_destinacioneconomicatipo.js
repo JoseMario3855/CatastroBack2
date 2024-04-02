@@ -1,4 +1,6 @@
 const { Model, DataTypes } = require('sequelize');
+const sequelize = require('../src/db');
+
 module.exports = (sequelize, DataTypes) => {
     class lc_destinacioneconomicatipo extends Model {
       static associate(models) {
@@ -46,8 +48,10 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.STRING,
         allowNull: true
       },
+    }, {
       sequelize,
-      modelName:lc_destinacioneconomicatipo
+      modelName: 'lc_destinacioneconomicatipo',
     });
+
     return lc_destinacioneconomicatipo;
 };

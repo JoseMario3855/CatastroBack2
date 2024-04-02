@@ -1,31 +1,56 @@
-'use strict';
-const {
-  Model
-} = require('sequelize');
+const { Model, DataTypes } = require('sequelize');
+const sequelize = require('../src/db');
+
 module.exports = (sequelize, DataTypes) => {
   class lc_condicionprediotipo extends Model {
-    /**
-     * Helper method for defining associations.
-     * This method is not a part of Sequelize lifecycle.
-     * The `models/index` file will call this method automatically.
-     */
     static associate(models) {
-      // define association here
+      // Aquí defines tus asociaciones si las tienes
     }
   }
+  
   lc_condicionprediotipo.init({
-    t_id: DataTypes.INTEGER,
-    thisclass: DataTypes.STRING,
-    baseclass: DataTypes.STRING,
-    itfcode: DataTypes.INTEGER,
-    ilicode: DataTypes.STRING,
-    seq: DataTypes.INTEGER,
-    inactive: DataTypes.BOOLEAN,
-    dispname: DataTypes.STRING,
-    description: DataTypes.STRING
+    t_id: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      primaryKey: true,
+      autoIncrement: true
+    },
+    thisclass: {
+      type: DataTypes.STRING,
+      allowNull: true
+    },
+    baseclass:{
+      type: DataTypes.STRING,
+      allowNull: true
+    },
+    itfcode: {
+      type: DataTypes.INTEGER,
+      allowNull: true
+    },
+    ilicode: {
+      type: DataTypes.STRING,
+      allowNull: true
+    },
+    seq: {
+      type: DataTypes.INTEGER,
+      allowNull: true
+    },
+    inactive: {
+      type: DataTypes.BOOLEAN,
+      allowNull: true
+    },
+    dispname: {
+      type: DataTypes.STRING,
+      allowNull: true
+    },
+    description: {
+      type: DataTypes.STRING,
+      allowNull: true
+    }
   }, {
-    sequelize,
+    sequelize, // Aquí debes pasar la instancia de Sequelize
     modelName: 'lc_condicionprediotipo',
   });
+
   return lc_condicionprediotipo;
 };

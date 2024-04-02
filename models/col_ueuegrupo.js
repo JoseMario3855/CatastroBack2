@@ -4,13 +4,13 @@ module.exports = (sequelize, DataTypes) => {
   class col_ueuegrupo extends Model {
  
     static associate(models) {
-        col_ueuegrupo.belongsTo(models.lc_unidadconstruccion,{foreignKey:'parte_lc_unidadconstruccion',targetKey:'parte_lc_unidadconstruccion'});
-        col_ueuegrupo.belongsTo(models.lc_servidumbretransito,{foreignKey:'parte_lc_servidumbretransito',targetKey:'parte_lc_servidumbretransito'});
-        col_ueuegrupo.belongsTo(models.lc_terreno,{foreignKey:'parte_lc_terreno',targetKey:'parte_lc_terreno'});
-        col_ueuegrupo.belongsTo(models.lc_nu_espaciojuridicoredservicios,{foreignKey:'parte_lc_nu_espaciojuridicoredservicios',targetKey:'parte_lc_nu_espaciojuridicoredservicios'});
-        col_ueuegrupo.belongsTo(models.lc_nu_espaciojuridicounidadedificacion,{foreignKey:'parte_lc_nu_espaciojuridicounidadedificacion',targetKey:'parte_lc_nu_espaciojuridicounidadedificacion'});
-        col_ueuegrupo.belongsTo(models.lc_nu_agrupacionunidadesespaciales,{foreignKey:'todo',targetKey:'todo'});
-        col_ueuegrupo.belongsTo(models.lc_construccion,{foreignKey:'parte_lc_construccion',targetKey:'parte_lc_construccion'});
+        col_ueuegrupo.belongsTo(models.lc_unidadconstruccion,{foreignKey:'parte_lc_unidadconstruccion',targetKey:'t_id'});
+        col_ueuegrupo.belongsTo(models.lc_servidumbretransito,{foreignKey:'parte_lc_servidumbretransito',targetKey:'t_id'});
+        col_ueuegrupo.belongsTo(models.lc_terreno,{foreignKey:'parte_lc_terreno',targetKey:'t_id'});
+        col_ueuegrupo.belongsTo(models.lc_nu_espaciojuridicoredservicios,{foreignKey:'parte_lc_nu_espaciojuridicoredservicios',targetKey:'t_id'});
+        col_ueuegrupo.belongsTo(models.lc_nu_espaciojuridicounidadedificacion,{foreignKey:'parte_lc_nu_espaciojuridicounidadedificacion',targetKey:'t_id'});
+        col_ueuegrupo.belongsTo(models.lc_nu_agrupacionunidadesespaciales,{foreignKey:'todo',targetKey:'t_id'});
+        col_ueuegrupo.belongsTo(models.lc_construccion,{foreignKey:'parte_lc_construccion',targetKey:'t_id'});
     }
   }
   col_ueuegrupo.init({

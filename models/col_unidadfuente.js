@@ -4,8 +4,8 @@ module.exports = (sequelize, DataTypes) => {
   class col_unidadfuente extends Model {
    
     static associate(models) {
-      col_unidadfuente.belongsTo(models.lc_predio,{foreignKey:'unidad',targetKey:'unidad'});
-      col_unidadfuente.belongsTo(models.lc_fuenteadministrativa,{foreignKey:'fuente_administrativa',targetKey:'fuente_administrativa'});
+      col_unidadfuente.belongsTo(models.lc_predio,{foreignKey:'unidad',targetKey:'t_id'});
+      col_unidadfuente.belongsTo(models.lc_fuenteadministrativa,{foreignKey:'fuente_administrativa',targetKey:'t_id'});
     }
   }
   col_unidadfuente.init({

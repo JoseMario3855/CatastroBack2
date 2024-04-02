@@ -1,13 +1,13 @@
 const { Model, DataTypes } = require('sequelize');
 
 module.exports = (sequelize, DataTypes) => {
-  class col_registrotipo extends Model {
+  class col_puntotipo extends Model {
  
     static associate(models) {
        
     }
   }
-  col_registrotipo.init({
+  col_puntotipo.init({
     t_id: {
       type: DataTypes.INTEGER,
       allowNull: false,
@@ -48,7 +48,7 @@ module.exports = (sequelize, DataTypes) => {
       }
   }, {
     sequelize,
-    modelName: 'col_registrotipo',
+    modelName: 'col_puntotipo',
   });
-  return col_registrotipo;
+  return col_puntotipo;
 };
