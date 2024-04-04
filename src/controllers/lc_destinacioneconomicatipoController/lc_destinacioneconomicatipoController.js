@@ -1,11 +1,11 @@
-// controllers/col_cifuenteController.js
-const db = require('../../../models/col_cifuente');
-const col_cifuente = db.col_cifuente;
+// controllers/lc_destinacioneconomicatipoController.js
+const db = require('../../../models/lc_destinacioneconomicatipo');
+const lc_destinacioneconomicatipo = db.lc_destinacioneconomicatipo;
 
-//Obtener todos los registros de col_cifuente
-exports.getAllcol_cifuente = async (req, res) => {
+//Obtener todos los registros de lc_destinacioneconomicatipo
+exports.getAlllc_destinacioneconomicatipo = async (req, res) => {
     try {
-        const data = await col_cifuente.findAll();
+        const data = await lc_destinacioneconomicatipo.findAll();
         res.json(data);
     } catch (error) {
         console.error('Error al obtener los registros:', error);
@@ -13,10 +13,10 @@ exports.getAllcol_cifuente = async (req, res) => {
     }
 };
 
-// Crear un nuevo registro en col_cifuente
-exports.createcol_cifuente = async (req, res) => {
+// Crear un nuevo registro en lc_destinacioneconomicatipo
+exports.lc_destinacioneconomicatipocreate = async (req, res) => {
     try {
-        const nuevoRegistro = await col_cifuente.create(req.body);
+        const nuevoRegistro = await lc_destinacioneconomicatipo.create(req.body);
         return res.json(nuevoRegistro);
     } catch (error) {
         console.error('Error al crear un nuevo registro:', error);
@@ -24,11 +24,11 @@ exports.createcol_cifuente = async (req, res) => {
     }
 };
 
-// Obtener un registro de col_cifuente por ID
-exports.col_cifuenterById = async (req, res) => {
+// Obtener un registro de lc_destinacioneconomicatipo por ID
+exports.lc_destinacioneconomicatipogetById = async (req, res) => {
     const { id } = req.params;
     try {
-        const registro = await col_cifuente.findByPk(id);
+        const registro = await lc_destinacioneconomicatipo.findByPk(id);
         if (!registro) {
             return res.status(404).json({ message: 'Registro no encontrado' });
         }
@@ -39,12 +39,12 @@ exports.col_cifuenterById = async (req, res) => {
     }
 };
 
-// Actualizar un registro de col_cifuente por ID
-exports.ACcol_cifuenteById = async (req, res) => {
+// Actualizar un registro de lc_destinacioneconomicatipo por ID
+exports.lc_destinacioneconomicatipoupdateById = async (req, res) => {
     const { id } = req.params;
     const { body } = req;
     try {
-        const registro = await col_cifuente.findByPk(id);
+        const registro = await lc_destinacioneconomicatipo.findByPk(id);
         if (!registro) {
             return res.status(404).json({ message: 'Registro no encontrado' });
         }
@@ -56,11 +56,11 @@ exports.ACcol_cifuenteById = async (req, res) => {
     }
 };
 
-// Eliminar un registro de col_cifuente por ID
-exports.col_cifuenteeById = async (req, res) => {
+// Eliminar un registro de lc_destinacioneconomicatipo por ID
+exports.lc_destinacioneconomicatipodeleteById = async (req, res) => {
     const { id } = req.params;
     try {
-        const registro = await col_cifuente.findByPk(id);
+        const registro = await lc_destinacioneconomicatipo.findByPk(id);
         if (!registro) {
             return res.status(404).json({ message: 'Registro no encontrado' });
         }

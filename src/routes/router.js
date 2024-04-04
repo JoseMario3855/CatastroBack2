@@ -1,8 +1,6 @@
 const express = require('express');
 const router = express.Router();
 
-
-
 // Importar controladores
 const predioRoutes = require('./lc_predioRoutes');
 const unidadconstruccionroutes = require('./lc_unidadconstruccionRoutes');
@@ -23,10 +21,52 @@ const ci_forma_presentacion_codigoRoutes = require('./ci_forma_presentacion_codi
 const col_baunitcomointeresadoRoutes =require ('./col_baunitcomointeresadoRoutes');
 const col_baunitfuenteRoutes = require ('./col_baunitfuenteRoutes');
 const col_cifuenteRoutes = require ('./col_cifuenteRoutes')
-
-
-
-
+const col_contenidoniveltipoRoutes = require ('./col_contenidoniveltipoRoutes');
+const col_dimensiontipoRoutes = require ('./col_dimensiontipoRoutes');
+const col_estadodisponibilidadtipoRoutes = require ('./col_estadodisponibilidadtipoRoutes');
+const col_estadoredserviciostipoRoutes = require ('./col_estadoredserviciostipoRoutes');
+const col_estructuratipoRoutes = require ('./col_estructuratipoRoutes');
+const col_fuenteadministrativatipoRoutes = require ('./col_fuenteadministrativatipoRoutes');
+const col_fuenteespacialtipoRoutes = require ('./col_fuenteespacialtipoRoutes');
+const col_grupointeresadotipoRoutes = require ('./col_grupointeresadotipoRoutes');
+const col_interpolaciontipoRoutes = require ('./col_interpolaciontipoRoutes');
+const col_iso19125_tipoRoutes = require ('./col_iso19125_tipoRoutes');
+const col_masclRoutes = require ('./col_masclRoutes');
+const col_metodoproducciontipoRoutes = require ('./col_metodoproducciontipoRoutes');
+const col_miembrosRoutes = require ('./col_miembrosRoutes');
+const col_puntocclRoutes = require ('./col_puntocclRoutes');
+const col_puntoclRoutes = require ('./col_puntoclRoutes');
+const col_puntofuenteRoutes = require ('./col_puntofuenteRoutes');
+const col_puntotipoRoutes = require ('./col_puntotipoRoutes');
+const col_redserviciostipoRoutes = require ('./col_redserviciostipoRoutes');
+const col_registrotipoRoutes = require ('./col_registrotipoRoutes');
+const col_relacionfuenteRoutes = require ('./col_relacionfuenteRoutes');
+const col_relacionfuenteuespacialRoutes = require ('./col_relacionfuenteuespacialRoutes');
+const col_relacionsuperficietipoRoutes = require ('./col_relacionsuperficietipoRoutes');
+const col_responsablefuenteRoutes = require ('./col_responsablefuenteRoutes');
+const col_rrrfuenteRoutes = require ('./col_rrrfuenteRoutes');
+const col_topografofuenteRoutes = require ('./col_topografofuenteRoutes');
+const col_transformacionRoutes = require ('./col_transformacionRoutes');
+const col_uebaunitRoutes = require ('./col_uebaunitRoutes');
+const col_uefuenteRoutes = require ('./col_uefuenteRoutes');
+const col_ueuegrupoRoutes = require ('./col_ueuegrupoRoutes');
+const col_unidadadministrativabasicatipoRoutes = require ('./col_unidadadministrativabasicatipoRoutes');
+const col_unidadedificaciontipoRoutes = require ('./col_unidadedificaciontipoRoutes');
+const col_unidadfuenteRoutes = require ('./col_unidadfuenteRoutes');
+const col_volumentipoRoutes = require ('./col_volumentipoRoutes');
+const extarchivoRoutes = require ('./extarchivoRoutes');
+const extdireccion_clase_via_principalRoutes = require ('./extdireccion_clase_via_principalRoutes');
+const extdireccion_sector_ciudadRoutes = require ('./extdireccion_sector_ciudadRoutes');
+const extdireccion_sector_predioRoutes = require ('./extdireccion_sector_predioRoutes');
+const extinteresadoRoutes = require ('./extinteresadoRoutes');
+const extredserviciosfisicaRoutes = require ('./extredserviciosfisicaRoutes');
+const extreferenciaregistralsistemaantiguo_tipo_referenciaRoutes = require ('./extreferenciaregistralsistemaantiguo_tipo_referenciaRoutes');
+const extreferenciaregistralsistemaantiguoRoutes = require ('./extreferenciaregistralsistemaantiguoRoutes');
+const extunidadedificacionfisicaRoutes = require ('./extunidadedificacionfisicaRoutes');
+const ini_predioinsumosRoutes = require ('./ini_predioinsumosRoutes');
+const lc_acuerdotipoRoutes = require ('./lc_acuerdotipoRoutes');
+const lc_agrupacioninteresadosRoutes = require ('./lc_agrupacioninteresadosRoutes');
+const lc_anexotipoRoutes = require ('./lc_anexotipoRoutes')
 
 // Definir rutas
 router.use(predioRoutes);
@@ -48,7 +88,50 @@ router.use(ci_forma_presentacion_codigoRoutes);
 router.use(col_baunitcomointeresadoRoutes)
 router.use(col_baunitfuenteRoutes);
 router.use(col_cifuenteRoutes);
-
-
-
+router.use(col_contenidoniveltipoRoutes);
+router.use(col_dimensiontipoRoutes);
+router.use(col_estadodisponibilidadtipoRoutes);
+router.use(col_estadoredserviciostipoRoutes);
+router.use(col_estructuratipoRoutes);
+router.use(col_fuenteadministrativatipoRoutes);
+router.use(col_fuenteespacialtipoRoutes);
+router.use(col_grupointeresadotipoRoutes);
+router.use(col_interpolaciontipoRoutes);
+router.use(col_iso19125_tipoRoutes);
+router.use(col_masclRoutes);
+router.use(col_metodoproducciontipoRoutes);
+router.use(col_miembrosRoutes);
+router.use(col_puntocclRoutes);
+router.use(col_puntoclRoutes);
+router.use(col_puntofuenteRoutes);
+router.use(col_puntotipoRoutes);
+router.use(col_redserviciostipoRoutes);
+router.use(col_registrotipoRoutes);
+router.use(col_relacionfuenteRoutes);
+router.use(col_relacionfuenteuespacialRoutes);
+router.use(col_relacionsuperficietipoRoutes);
+router.use(col_responsablefuenteRoutes);
+router.use(col_rrrfuenteRoutes);
+router.use(col_topografofuenteRoutes);
+router.use(col_transformacionRoutes);
+router.use(col_uebaunitRoutes);
+router.use(col_uefuenteRoutes);
+router.use(col_ueuegrupoRoutes);
+router.use(col_unidadadministrativabasicatipoRoutes);
+router.use(col_unidadedificaciontipoRoutes);
+router.use(col_unidadfuenteRoutes);
+router.use(col_volumentipoRoutes);
+router.use(extarchivoRoutes);
+router.use(extdireccion_clase_via_principalRoutes);
+router.use(extdireccion_sector_ciudadRoutes);
+router.use(extdireccion_sector_predioRoutes);
+router.use(extredserviciosfisicaRoutes);
+router.use(extinteresadoRoutes);
+router.use(extreferenciaregistralsistemaantiguo_tipo_referenciaRoutes);
+router.use(extreferenciaregistralsistemaantiguoRoutes);
+router.use(extunidadedificacionfisicaRoutes);
+router.use(ini_predioinsumosRoutes);
+router.use(lc_acuerdotipoRoutes);
+router.use(lc_agrupacioninteresadosRoutes);
+router.use(lc_anexotipoRoutes);
 module.exports = router;

@@ -1,4 +1,4 @@
-/ controllers/col_puntotipoController.js
+// controllers/col_puntotipoController.js
 const db = require('../../../models/col_puntotipo');
 const col_puntotipo = db.col_puntotipo;
 

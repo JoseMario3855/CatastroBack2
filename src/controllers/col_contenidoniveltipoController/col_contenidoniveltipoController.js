@@ -57,7 +57,7 @@ exports.ACcol_contenidoniveltipoById = async (req, res) => {
 };
 
 // Eliminar un registro de col_contenidoniveltipo por ID
-exports.col_contenidoniveltipoById = async (req, res) => {
+exports.Deletecol_contenidoniveltipoById = async (req, res) => {
     const { id } = req.params;
     try {
         const registro = await col_contenidoniveltipoController.findByPk(id);

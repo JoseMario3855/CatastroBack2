@@ -1,11 +1,11 @@
-// controllers/col_cifuenteController.js
-const db = require('../../../models/col_cifuente');
-const col_cifuente = db.col_cifuente;
+// controllers/lc_sexotipoController.js
+const db = require('../../../models/lc_sexotipo');
+const lc_sexotipo = db.lc_sexotipo;
 
-//Obtener todos los registros de col_cifuente
-exports.getAllcol_cifuente = async (req, res) => {
+//Obtener todos los registros de lc_sexotipo
+exports.getAlllc_sexotipo = async (req, res) => {
     try {
-        const data = await col_cifuente.findAll();
+        const data = await lc_sexotipo.findAll();
         res.json(data);
     } catch (error) {
         console.error('Error al obtener los registros:', error);
@@ -13,10 +13,10 @@ exports.getAllcol_cifuente = async (req, res) => {
     }
 };
 
-// Crear un nuevo registro en col_cifuente
-exports.createcol_cifuente = async (req, res) => {
+// Crear un nuevo registro en lc_sexotipo
+exports.lc_sexotipocreate = async (req, res) => {
     try {
-        const nuevoRegistro = await col_cifuente.create(req.body);
+        const nuevoRegistro = await lc_sexotipo.create(req.body);
         return res.json(nuevoRegistro);
     } catch (error) {
         console.error('Error al crear un nuevo registro:', error);
@@ -24,11 +24,11 @@ exports.createcol_cifuente = async (req, res) => {
     }
 };
 
-// Obtener un registro de col_cifuente por ID
-exports.col_cifuenterById = async (req, res) => {
+// Obtener un registro de lc_sexotipo por ID
+exports.lc_sexotipogetById = async (req, res) => {
     const { id } = req.params;
     try {
-        const registro = await col_cifuente.findByPk(id);
+        const registro = await lc_sexotipo.findByPk(id);
         if (!registro) {
             return res.status(404).json({ message: 'Registro no encontrado' });
         }
@@ -39,12 +39,12 @@ exports.col_cifuenterById = async (req, res) => {
     }
 };
 
-// Actualizar un registro de col_cifuente por ID
-exports.ACcol_cifuenteById = async (req, res) => {
+// Actualizar un registro de lc_sexotipo por ID
+exports.lc_sexotipoupdateById = async (req, res) => {
     const { id } = req.params;
     const { body } = req;
     try {
-        const registro = await col_cifuente.findByPk(id);
+        const registro = await lc_sexotipo.findByPk(id);
         if (!registro) {
             return res.status(404).json({ message: 'Registro no encontrado' });
         }
@@ -56,11 +56,11 @@ exports.ACcol_cifuenteById = async (req, res) => {
     }
 };
 
-// Eliminar un registro de col_cifuente por ID
-exports.col_cifuenteeById = async (req, res) => {
+// Eliminar un registro de lc_sexotipo por ID
+exports.lc_sexotipodeleteById = async (req, res) => {
     const { id } = req.params;
     try {
-        const registro = await col_cifuente.findByPk(id);
+        const registro = await lc_sexotipo.findByPk(id);
         if (!registro) {
             return res.status(404).json({ message: 'Registro no encontrado' });
         }

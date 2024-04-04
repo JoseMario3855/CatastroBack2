@@ -1,11 +1,11 @@
-// controllers/col_cifuenteController.js
-const db = require('../../../models/col_cifuente');
-const col_cifuente = db.col_cifuente;
+// controllers/lc_terrenoController.js
+const db = require('../../../models/lc_terreno');
+const lc_terreno = db.lc_terreno;
 
-//Obtener todos los registros de col_cifuente
-exports.getAllcol_cifuente = async (req, res) => {
+//Obtener todos los registros de lc_terreno
+exports.getAlllc_terreno = async (req, res) => {
     try {
-        const data = await col_cifuente.findAll();
+        const data = await lc_terreno.findAll();
         res.json(data);
     } catch (error) {
         console.error('Error al obtener los registros:', error);
@@ -13,10 +13,10 @@ exports.getAllcol_cifuente = async (req, res) => {
     }
 };
 
-// Crear un nuevo registro en col_cifuente
-exports.createcol_cifuente = async (req, res) => {
+// Crear un nuevo registro en lc_terreno
+exports.lc_terrenocreate = async (req, res) => {
     try {
-        const nuevoRegistro = await col_cifuente.create(req.body);
+        const nuevoRegistro = await lc_terreno.create(req.body);
         return res.json(nuevoRegistro);
     } catch (error) {
         console.error('Error al crear un nuevo registro:', error);
@@ -24,11 +24,11 @@ exports.createcol_cifuente = async (req, res) => {
     }
 };
 
-// Obtener un registro de col_cifuente por ID
-exports.col_cifuenterById = async (req, res) => {
+// Obtener un registro de lc_terreno por ID
+exports.lc_terrenogetById = async (req, res) => {
     const { id } = req.params;
     try {
-        const registro = await col_cifuente.findByPk(id);
+        const registro = await lc_terreno.findByPk(id);
         if (!registro) {
             return res.status(404).json({ message: 'Registro no encontrado' });
         }
@@ -39,12 +39,12 @@ exports.col_cifuenterById = async (req, res) => {
     }
 };
 
-// Actualizar un registro de col_cifuente por ID
-exports.ACcol_cifuenteById = async (req, res) => {
+// Actualizar un registro de lc_terreno por ID
+exports.lc_terrenoupdateById = async (req, res) => {
     const { id } = req.params;
     const { body } = req;
     try {
-        const registro = await col_cifuente.findByPk(id);
+        const registro = await lc_terreno.findByPk(id);
         if (!registro) {
             return res.status(404).json({ message: 'Registro no encontrado' });
         }
@@ -56,11 +56,11 @@ exports.ACcol_cifuenteById = async (req, res) => {
     }
 };
 
-// Eliminar un registro de col_cifuente por ID
-exports.col_cifuenteeById = async (req, res) => {
+// Eliminar un registro de lc_terreno por ID
+exports.lc_terrenodeleteById = async (req, res) => {
     const { id } = req.params;
     try {
-        const registro = await col_cifuente.findByPk(id);
+        const registro = await lc_terreno.findByPk(id);
         if (!registro) {
             return res.status(404).json({ message: 'Registro no encontrado' });
         }

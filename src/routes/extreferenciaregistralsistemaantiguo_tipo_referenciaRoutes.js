@@ -1,0 +1,20 @@
+const express = require('express');
+const router = express.Router();
+const extreferenciaregistralsistemaantiguo_tipo_referenciaController = require('../controllers/extreferenciaregistralsistemaantiguo_tipo_referenciaController/extreferenciaregistralsistemaantiguo_tipo_referenciaController');
+
+// Ruta para obtener todos los registros de extreferenciaregistralsistemaantiguo_tipo_referencia
+router.get('/extreferenciaregistralsistemaantiguo_tipo_referencia', extreferenciaregistralsistemaantiguo_tipo_referenciaController.getAllextreferenciaregistralsistemaantiguo_tipo_referencia);
+
+// Ruta para crear un nuevo registro en extreferenciaregistralsistemaantiguo_tipo_referencia
+router.post('/extreferenciaregistralsistemaantiguo_tipo_referencia', extreferenciaregistralsistemaantiguo_tipo_referenciaController.extreferenciaregistralsistemaantiguo_tipo_referenciacreate);
+
+// Ruta para obtener un registro de extreferenciaregistralsistemaantiguo_tipo_referencia por su ID
+router.get('/extreferenciaregistralsistemaantiguo_tipo_referencia/:id', extreferenciaregistralsistemaantiguo_tipo_referenciaController.extreferenciaregistralsistemaantiguo_tipo_referenciagetById);
+
+// Ruta para actualizar un registro de extreferenciaregistralsistemaantiguo_tipo_referencia por su ID
+router.put('/extreferenciaregistralsistemaantiguo_tipo_referencia/:id', extreferenciaregistralsistemaantiguo_tipo_referenciaController.extreferenciaregistralsistemaantiguo_tipo_referenciaupdateById);
+
+// Ruta para eliminar un registro de extreferenciaregistralsistemaantiguo_tipo_referencia por su ID
+router.delete('/extreferenciaregistralsistemaantiguo_tipo_referencia/:id', extreferenciaregistralsistemaantiguo_tipo_referenciaController.extreferenciaregistralsistemaantiguo_tipo_referenciadeleteById);
+
+module.exports = router;
