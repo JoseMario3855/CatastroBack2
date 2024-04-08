@@ -1,4 +1,4 @@
-/ controllers/lc_nu_espaciojuridicounidadedificacionController.js
+// controllers/lc_nu_espaciojuridicounidadedificacionController.js
 const db = require('../../../models/lc_nu_espaciojuridicounidadedificacion');
 const lc_nu_espaciojuridicounidadedificacion = db.lc_nu_espaciojuridicounidadedificacion;
 
