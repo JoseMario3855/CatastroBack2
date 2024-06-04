@@ -18,3 +18,5 @@ router.put('/extreferenciaregistralsistemaantiguo_tipo_referencia/:id', extrefer
 router.delete('/extreferenciaregistralsistemaantiguo_tipo_referencia/:id', extreferenciaregistralsistemaantiguo_tipo_referenciaController.extreferenciaregistralsistemaantiguo_tipo_referenciadeleteById);
 
 module.exports = router;
+
+

@@ -1,9 +1,12 @@
-const express = require('express');
-const router = express.Router();
+import {Router} from 'express';
+import {router} from './lc_predioRoutes.js'
+
+
+const router =Router();
 
 // Importar controladores
 const predioRoutes = require('./lc_predioRoutes');
-const unidadconstruccionroutes = require('./lc_unidadconstruccionRoutes');
+/*const unidadconstruccionroutes = require('./lc_unidadconstruccionRoutes');
 const calificacionconvencionalroutes = require('./lc_calificacionconvencionalRoutes');
 const calificacionnoconvencionalroutes= require('./lc_calificacionconvencionalRoutes');
 const caracteristicaunidadconstruccionRoutes = require ('./lc_caracteristicaunidadconstruccionRoutes');
@@ -114,13 +117,13 @@ const lc_restricciontipoRoutes = require ('./lc_restricciontipoRoutes');
 const lc_resultadovisitatipoRoutes = require ('./lc_resultadovisitatipoRoutes');
 const lc_servidumbretransitoRoutes = require ('./lc_servidumbretransitoRoutes');
 const lc_sexotipoRoutes = require ('./lc_sexotipoRoutes');
-const lc_puntolinderoRoutes = require ('./lc_puntolinderoRoutes');
+const lc_puntolinderoRoutes = require ('./lc_puntolinderoRoutes');*/
 
 
 
 // Definir rutas
 router.use(predioRoutes);
-router.use(unidadconstruccionroutes);
+/*router.use(unidadconstruccionroutes);
 router.use(calificacionconvencionalroutes);
 router.use(calificacionnoconvencionalroutes);
 router.use(caracteristicaunidadconstruccionRoutes);
@@ -232,7 +235,7 @@ router.use( lc_restriccionRoutes);
 router.use( lc_restricciontipoRoutes); 
 router.use( lc_resultadovisitatipoRoutes); 
 router.use( lc_servidumbretransitoRoutes); 
-router.use( lc_sexotipoRoutes); 
+router.use( lc_sexotipoRoutes); */
 
 
-module.exports = router;
+module default  router;

@@ -1,15 +1,10 @@
-const { Pool } = require('pg');
-const { db } = require('./config.js');
+const Sequelize = require('sequelize');
 
-// Objeto de la conexión
-const pool = new Pool({
-    user: "postgres",
-    password: "12345",
-    host: "localhost",
-    port: "5432",
-    database: "catastro",
-    schema: "penol" 
+const sequelize = new Sequelize(process.env.DB_DATABASE, process.env.DB_USER, process.env.DB_PASSWORD, {
+    host: process.env.DB_HOST,
+    port: process.env.DB_PORT,
+    dialect: 'postgres',
+    logging: console.log
 });
 
-module.exports = pool;
-
+module.exports = sequelize;

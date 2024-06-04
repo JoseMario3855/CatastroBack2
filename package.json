@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "start": "node src/index.js",
     "dev": "nodemon src/index.js"
@@ -17,11 +18,11 @@
     "git": "^0.1.5",
     "morgan": "^1.10.0",
     "pg": "^8.11.3",
-    "react-scripts": "^5.0.1",
+    "react-scripts": "^3.0.1",
     "sequelize": "^6.37.1",
     "sequelize-cli": "^6.6.2"
   },
   "devDependencies": {
-    "nodemon": "^3.0.3"
+    "nodemon": "^3.1.0"
   }
 }

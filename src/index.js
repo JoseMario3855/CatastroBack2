@@ -1,47 +1,59 @@
-require('dotenv').config(); // Carga las variables de entorno desde el archivo .env
+/*
+// index.js
 
+// Carga las variables de entorno desde el archivo .env
+require('dotenv').config();
+
+// Importa las dependencias necesarias
 const express = require('express');
 const morgan = require('morgan');
 const cors = require('cors');
-const Sequelize = require('sequelize');
-const router = require('./routes/router.js'); // Importa el enrutador definido en router.js
+const router = require('../src/routes/router'); // Importa el enrutador principal
 
-// Define la configuración de la base de datos
-const sequelize = new Sequelize(process.env.DB_DATABASE, process.env.DB_USER, process.env.DB_PASSWORD, {
-    host: process.env.DB_HOST,
-    port: process.env.DB_PORT,
-    dialect: 'postgres' // Especifica el dialecto de la base de datos que estás utilizando
-});
-
+// Crea una instancia de la aplicación Express
 const app = express();
 
+// Configura middleware
 app.use(cors());
 app.use(morgan('dev'));
 app.use(express.json());
+
+// Define las rutas
 app.use('/', router); // Usa el enrutador definido en router.js en la ruta raíz '/'
 
+// Define el puerto en el que escuchará el servidor
+
+
 const PORT = process.env.PORT || 4000;
+console.log ('Server is listening on port',4000)
+
+// Arranca el servidor
 app.listen(PORT, () => {
     console.log(`Servidor en puerto ${PORT}`);
 });
+*/
 
-// Inicializa sequelize
-async function initialize() {
+import app from './app.js';
+import { sequelize } from './database/database.js';
+import './models/lc_predio.js';
+import './models/lc_categoriasuelotipo.js'
+import './models/lc_destinacioneconomicatipo.js'
+import './models/lc_clasesuelotipo.js'
+import './models/col_unidadadministrativabasicatipo.js'
+
+async function main (){
     try {
-        // Verifica la conexión con la base de datos
-        await sequelize.authenticate();
-        console.log('Conexión establecida correctamente con la base de datos');
-        
-        // Sincroniza los modelos con la base de datos
-        await sequelize.sync({ alter: true });
-        console.log('Modelos sincronizados con la base de datos');
-    } catch (error) {
-        console.error('Error al conectar y sincronizar con la base de datos:', error);
-        // Si hay un error, detiene la aplicación
-        process.exit(1);
-    }
+    await sequelize.sync({alter: true})
+    app.listen(4000);
+    console.log('serveer is listening on port',5000);
+}  catch (error) {
+    console.error("Unable to connect to the database:", error)
+
+}
 }
 
-initialize();
+main();
+
+
 
 

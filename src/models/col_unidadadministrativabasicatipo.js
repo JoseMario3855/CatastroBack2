@@ -1,13 +1,8 @@
-const { Model, DataTypes } = require('sequelize');
+import {DataTypes} from 'sequelize'
+import {sequelize} from '../database/database.js';
 
-module.exports = (sequelize, DataTypes) => {
-  class col_unidadadministrativabasicatipo extends Model {
- 
-    static associate(models) {
-       
-    }
-  }
-  col_unidadadministrativabasicatipo.init({
+
+  export const col_unidadadministrativabasicatipo= sequelize.define ("col_unidadadministrativabasicatipo",{
     t_id: {
       type: DataTypes.INTEGER,
       allowNull: false,
@@ -46,9 +41,5 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.STRING,
         allowNull: true
       }
-  }, {
-    sequelize,
-    modelName: 'col_unidadadministrativabasicatipo',
   });
-  return col_unidadadministrativabasicatipo;
-};
+

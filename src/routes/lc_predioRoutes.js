@@ -1,24 +1,19 @@
-const express = require('express');
-const router = express.Router();
-const lc_predioController = require('../controllers/lc_predioController/lc_prediocontroller');
+// src/routes/lc_predioRoutes.js
+import { Router } from 'express';
+import {
+    getAllPredios,
+    createPredio,
+    getPredioById,
+    updatePredioById,
+    deletePredioById
+} from '../controllers/lc_predioController/lc_prediocontroller.js';
 
+const router = Router();
 
+router.get('/predios', getAllPredios);
+router.post('/predios', createPredio);
+router.get('/predios/:id', getPredioById);
+router.put('/predios/:id', updatePredioById);
+router.delete('/predios/:id', deletePredioById);
 
-// Ruta para obtener todos los predios
-router.get('/predios', lc_predioController.getAllPredios);
-
-// Ruta para obtener un predio por ID
-router.get('/predios/:id', lc_predioController.getPredioById);
-
-// Ruta para crear un nuevo predio
-router.post('/predios', lc_predioController.createPredio);
-
-// Ruta para actualizar un predio por ID
-router.put('/predios/:id', lc_predioController.updatePredioById);
-
-// Ruta para eliminar un predio por ID
-router.delete('/predios/:id', lc_predioController.deletePredioById);
-
-
-
-module.exports = router;
+export default router;

@@ -1,19 +1,23 @@
 const { Model, DataTypes } = require('sequelize');
+const sequelize = require('../../sequelize/sequelize.js');
+const lc_categoriasuelotipo = require('./lc_categoriasuelotipo.js');
+const lc_destinacioneconomicatipo = require('./lc_destinacioneconomicatipo.js');
+const lc_clasesuelotipo = require('./lc_clasesuelotipo.js');
+const col_unidadadministrativabasicatipo = require('./col_unidadadministrativabasicatipo.js');
 
-
-module.exports = (sequelize) => {
-  class lc_predio extends Model {
-    static associate(models) {
-      lc_predio.belongsTo(models.lc_categoriasuelotipo, { foreignKey: 'categoria_suelo' ,targetKey:'t_id'});
-      lc_predio.belongsTo(models.lc_destinacioneconomicatipo,{foreignKey:'destinacion_economica',targetKey:'t_id'});
-      lc_predio.belongsTo(models.lc_clasesuelotipo,{foreignKey: 't_clase_sueloid',targetKey:'t_id'});
-      lc_predio.belongsTo(models.col_unidadadministrativabasicatipo,{foreignKey: 'tipo',targetKey:'t_id'});
-
-
-    }
+class lc_predio extends Model {
+  static associate(models) {
+    lc_predio.belongsTo(lc_categoriasuelotipo, { foreignKey: 'categoria_suelo', targetKey: 't_id' });
+    lc_predio.belongsTo(lc_destinacioneconomicatipo, { foreignKey: 'destinacion_economica', targetKey: 't_id' });
+    lc_predio.belongsTo(lc_clasesuelotipo, { foreignKey: 'clase_suelo', targetKey: 't_id' });
+    lc_predio.belongsTo(col_unidadadministrativabasicatipo, { foreignKey: 'tipo', targetKey: 't_id' });
   }
-  
-  lc_predio.init({
+}
+
+
+//const lc_predio = sequelize.define("lc_predio", 
+lc_predio.init(
+{
     t_id: {
       type: DataTypes.INTEGER,
       allowNull: false,
@@ -40,15 +44,13 @@ module.exports = (sequelize) => {
       type: DataTypes.BOOLEAN,
       allowNull: true
     },
-    codigo_orip:{
+    codigo_orip: {
       type: DataTypes.STRING,
       allowNull: false
-
     },
-    matricula_inmobiliaria:{
+    matricula_inmobiliaria: {
       type: DataTypes.STRING,
       allowNull: false
-
     },
     numero_predial: {
       type: DataTypes.STRING,
@@ -58,20 +60,17 @@ module.exports = (sequelize) => {
       type: DataTypes.STRING,
       allowNull: true
     },
-    codigo_homologado:{
+    codigo_homologado: {
       type: DataTypes.STRING,
-      allowNull: false
-
+      allowNull: true
     },
-    interrelacionado:{
+    interrelacionado: {
       type: DataTypes.BOOLEAN,
       allowNull: false
-
     },
-    codigo_homologado_fmi:{
+    codigo_homologado_fmi: {
       type: DataTypes.BOOLEAN,
       allowNull: false
-
     },
     nupre: {
       type: DataTypes.STRING,
@@ -93,13 +92,13 @@ module.exports = (sequelize) => {
       type: DataTypes.INTEGER,
       allowNull: true
     },
-    destinacion_economica:{
+    destinacion_economica: {
       type: DataTypes.INTEGER,
-      allowNull:true
+      allowNull: true
     },
-    clase_suelo:{
+    clase_suelo: {
       type: DataTypes.INTEGER,
-      allowNull:true
+      allowNull: true
     },
 
     nombre: {
@@ -117,11 +116,26 @@ module.exports = (sequelize) => {
     local_id: {
       type: DataTypes.STRING,
       allowNull: true
+    },
+    createdAt: {
+      type: DataTypes.DATE,
+      allowNull: true
+    },
+    updatedAt: {
+      type: DataTypes.DATE,
+      allowNull: true
     }
   }, {
     sequelize,
     modelName: 'lc_predio',
+    tableName:'lc_predio',
+    freezeTableName:true,
+    timestamps:false
   });
-
-  return lc_predio;
-};
+  //lc_predio.belongsTo(lc_categoriasuelotipo, { foreignKey: 'categoria_suelo', targetKey: 't_id' });
+  //lc_predio.belongsTo(lc_destinacioneconomicatipo, { foreignKey: 'destinacion_economica', targetKey: 't_id' });
+  //lc_predio.belongsTo(lc_clasesuelotipo, { foreignKey: 'clase_suelo', targetKey: 't_id' });
+  //lc_predio.belongsTo(col_unidadadministrativabasicatipo, { foreignKey: 'tipo', targetKey: 't_id' });
+  //return lc_predio;
+//};
+module.exports=lc_predio;
