@@ -1,9 +1,7 @@
-// controllers/col_dimensiontipoController.js
-const db = require('../../../models/col_dimensiontipo');
-const col_dimensiontipoController = db.col_dimensiontipo;
+import col_dimensiontipoController from '../../models/col_dimensiontipo.js'
 
 //Obtener todos los registros de col_dimensiontipo
-exports.getAllcol_dimensiontipo = async (req, res) => {
+export const getAllcol_dimensiontipo = async (req, res) => {
     try {
         const data = await col_dimensiontipoController.findAll();
         res.json(data);
@@ -14,7 +12,7 @@ exports.getAllcol_dimensiontipo = async (req, res) => {
 };
 
 // Crear un nuevo registro en col_dimensiontipo
-exports.createcol_dimensiontipo = async (req, res) => {
+export const createcol_dimensiontipo = async (req, res) => {
     try {
         const nuevoRegistro = await col_dimensiontipoController.create(req.body);
         return res.json(nuevoRegistro);
@@ -25,7 +23,7 @@ exports.createcol_dimensiontipo = async (req, res) => {
 };
 
 // Obtener un registro de col_dimensiontipo por ID
-exports.col_dimensiontipoById = async (req, res) => {
+export const col_dimensiontipoById = async (req, res) => {
     const { id } = req.params;
     try {
         const registro = await col_dimensiontipoController.findByPk(id);
@@ -40,7 +38,7 @@ exports.col_dimensiontipoById = async (req, res) => {
 };
 
 // Actualizar un registro de col_dimensiontipo por ID
-exports.ACcol_dimensiontipooById = async (req, res) => {
+export const ACcol_dimensiontipooById = async (req, res) => {
     const { id } = req.params;
     const { body } = req;
     try {
@@ -57,7 +55,7 @@ exports.ACcol_dimensiontipooById = async (req, res) => {
 };
 
 // Eliminar un registro de col_dimensiontipo por ID
-exports.col_dimensiontipoById = async (req, res) => {
+export const updatecol_dimensiontipoById = async (req, res) => {
     const { id } = req.params;
     try {
         const registro = await col_dimensiontipoController.findByPk(id);

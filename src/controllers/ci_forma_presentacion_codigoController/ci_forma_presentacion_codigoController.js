@@ -1,9 +1,8 @@
 // controllers/ci_forma_presentacion_codigoController.js
-const db = require('../../../models/ci_forma_presentacion_codigo');
-const ci_forma_presentacion_codigo = db.ci_forma_presentacion_codigo;
+import ci_forma_presentacion_codigo  from "../../models/ci_forma_presentacion_codigo.js";
 
 //Obtener todos los registros de ci_forma_presentacion_codigo
-exports.getAllci_forma_presentacion_codigo = async (req, res) => {
+export const getAllci_forma_presentacion_codigo = async (req, res) => {
     try {
         const data = await ci_forma_presentacion_codigo.findAll();
         res.json(data);
@@ -14,7 +13,7 @@ exports.getAllci_forma_presentacion_codigo = async (req, res) => {
 };
 
 // Crear un nuevo registro en ci_forma_presentacion_codigo
-exports.createci_forma_presentacion_codigo = async (req, res) => {
+export const createci_forma_presentacion_codigo = async (req, res) => {
     try {
         const nuevoRegistro = await ci_forma_presentacion_codigo.create(req.body);
         return res.json(nuevoRegistro);
@@ -25,7 +24,7 @@ exports.createci_forma_presentacion_codigo = async (req, res) => {
 };
 
 // Obtener un registro de ci_forma_presentacion_codigo por ID
-exports.ci_forma_presentacion_codigoById = async (req, res) => {
+export const ci_forma_presentacion_codigoById = async (req, res) => {
     const { id } = req.params;
     try {
         const registro = await ci_forma_presentacion_codigo.findByPk(id);
@@ -40,7 +39,7 @@ exports.ci_forma_presentacion_codigoById = async (req, res) => {
 };
 
 // Actualizar un registro de ci_forma_presentacion_codigo por ID
-exports.ACci_forma_presentacion_codigoById = async (req, res) => {
+export const ACci_forma_presentacion_codigoById = async (req, res) => {
     const { id } = req.params;
     const { body } = req;
     try {
@@ -57,7 +56,7 @@ exports.ACci_forma_presentacion_codigoById = async (req, res) => {
 };
 
 // Eliminar un registro de ci_forma_presentacion_codigo por ID
-exports.ci_forma_presentacion_codigodeleteById = async (req, res) => {
+export const ci_forma_presentacion_codigodeleteById = async (req, res) => {
     const { id } = req.params;
     try {
         const registro = await ci_forma_presentacion_codigo.findByPk(id);

@@ -1,13 +1,7 @@
-const { Model, DataTypes } = require('sequelize');
+import { DataTypes } from 'sequelize';
+import { sequelize } from '../database/database.js';
 
-module.exports = (sequelize, DataTypes) => {
-  class col_grupointeresadotipo extends Model {
- 
-    static associate(models) {
-       
-    }
-  }
-  col_grupointeresadotipo.init({
+const col_grupointeresadotipo = sequelize.define('penol.col_grupointeresadotipo', {  
     t_id: {
       type: DataTypes.INTEGER,
       allowNull: false,
@@ -45,10 +39,18 @@ module.exports = (sequelize, DataTypes) => {
     description: {
         type: DataTypes.STRING,
         allowNull: true
+      },
+      createdAt: {
+        type: DataTypes.DATE,
+        allowNull: true
+      },
+      updatedAt: {
+        type: DataTypes.DATE,
+        allowNull: true
       }
   }, {
-    sequelize,
-    modelName: 'col_grupointeresadotipo',
+    freezeTableName: true,
+    schema: 'penol',
+    tableName:'col_grupointeresadotipo',
   });
-  return col_grupointeresadotipo;
-};
+  export default col_grupointeresadotipo;

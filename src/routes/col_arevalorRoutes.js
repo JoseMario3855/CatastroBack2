@@ -1,21 +1,30 @@
-const express = require('express');
-const router = express.Router();
-const  col_areavalorController= require('../controllers/col_areavalorController/col_areavalorController');
+import  { Router } from 'express';
 
+import {
+    getAllcolareavalor,
+    colareavalorgetById,
+    createcolareavalor,
+    colareavalorupdateById,
+    colareavalordeleteById
 
+    
+
+} from '../controllers/col_areavalorController/col_areavalorController.js'
+
+const router= Router();
 // Ruta para obtener todas las extdireccion
-router.get('/colareavalor', col_areavalorController.getAllcolareavalor);
+router.get('/colareavalor', getAllcolareavalor);
 
 // Ruta para obtener todas las extdireccion por ID
-router.get('/colareavalor/:id', col_areavalorController.colareavalorgetById);
+router.get('/colareavalor/:id', colareavalorgetById);
 
 // Ruta para crear una todas las extdireccion
-router.post('/colareavalor', col_areavalorController.createcolareavalor);
+router.post('/colareavalor', createcolareavalor);
 
 // Ruta para actualizar una extdireccion por ID
-router.put('/colareavalor/:id', col_areavalorController.colareavalorupdateById);
+router.put('/colareavalor/:id', colareavalorupdateById);
 
 // Ruta para eliminar una extdireccion por ID
-router.delete('/colareavalor/:id', col_areavalorController.colareavalordeleteById);
+router.delete('/colareavalor/:id', colareavalordeleteById);
 
-module.exports = router;
+export default router;

@@ -1,17 +1,7 @@
-const { Model, DataTypes } = require('sequelize');
+import {DataTypes} from 'sequelize'
+import {sequelize} from '../database/database.js';
 
-module.exports = (sequelize, DataTypes) => {
-  class lc_sexotipo extends Model {
-    /**
-     * Helper method for defining associations.
-     * This method is not a part of Sequelize lifecycle.
-     * The `models/index` file will call this method automatically.
-     */
-    static associate(models) {
-      // define association here
-    }
-  }
-  lc_sexotipo.init({
+export const lc_sexotipo= sequelize.define ("lc_sexotipo",{
     t_id: {
       type: DataTypes.INTEGER,
       allowNull: false,
@@ -54,5 +44,3 @@ module.exports = (sequelize, DataTypes) => {
     sequelize,
     modelName: 'lc_sexotipo',
   });
-  return lc_sexotipo;
-};

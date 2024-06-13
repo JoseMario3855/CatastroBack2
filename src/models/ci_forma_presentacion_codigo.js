@@ -1,13 +1,10 @@
-const { Model, DataTypes } = require('sequelize');
+import { DataTypes } from 'sequelize';
+import { sequelize } from '../database/database.js';
 
-module.exports = (sequelize, DataTypes) => {
-  class ci_forma_presentacion_codigo extends Model {
- 
-    static associate(models) {
-       
-    }
-  }
-  ci_forma_presentacion_codigo.init({
+
+  const ci_forma_presentacion_codigo=sequelize.define(
+    'penol.ci_forma_presentacion_codigo', {
+  
     t_id: {
       type: DataTypes.INTEGER,
       allowNull: false,
@@ -45,10 +42,18 @@ module.exports = (sequelize, DataTypes) => {
     description: {
         type: DataTypes.STRING,
         allowNull: true
+      },
+      createdAt: {
+        type: DataTypes.DATE,
+        allowNull: true
+      },
+      updatedAt: {
+        type: DataTypes.DATE,
+        allowNull: true
       }
   }, {
-    sequelize,
-    modelName: 'ci_forma_presentacion_codigo',
+    freezeTableName: true,
+    schema: 'penol',
+    tableName: 'ci_forma_presentacion_codigo',
   });
-  return ci_forma_presentacion_codigo;
-};
+  export default ci_forma_presentacion_codigo;

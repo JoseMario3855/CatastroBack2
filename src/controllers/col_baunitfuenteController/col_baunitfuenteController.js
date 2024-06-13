@@ -1,9 +1,9 @@
 // controllers/col_baunitfuenteController.js
-const db = require('../../../models/col_baunitfuente');
-const col_baunitfuente = db.col_baunitfuente;
+import col_baunitfuente from '../../models/col_baunitfuente.js';
+
 
 //Obtener todos los registros de col_baunitfuente
-exports.getAllcol_baunitfuenteController = async (req, res) => {
+export const getAllcol_baunitfuenteController = async (req, res) => {
     try {
         const data = await col_baunitfuente.findAll();
         res.json(data);
@@ -14,7 +14,7 @@ exports.getAllcol_baunitfuenteController = async (req, res) => {
 };
 
 // Crear un nuevo registro en col_baunitfuente
-exports.createcol_baunitfuenteController = async (req, res) => {
+export const createcol_baunitfuenteController = async (req, res) => {
     try {
         const nuevoRegistro = await col_baunitfuente.create(req.body);
         return res.json(nuevoRegistro);
@@ -25,7 +25,7 @@ exports.createcol_baunitfuenteController = async (req, res) => {
 };
 
 // Obtener un registro de col_baunitfuente por ID
-exports.col_baunitfuenteControllerById = async (req, res) => {
+export const col_baunitfuenteControllerById = async (req, res) => {
     const { id } = req.params;
     try {
         const registro = await col_baunitfuente.findByPk(id);
@@ -40,7 +40,7 @@ exports.col_baunitfuenteControllerById = async (req, res) => {
 };
 
 // Actualizar un registro de col_baunitfuente por ID
-exports.ACcol_baunitfuenteControllerById = async (req, res) => {
+export const ACcol_baunitfuenteControllerById = async (req, res) => {
     const { id } = req.params;
     const { body } = req;
     try {
@@ -57,7 +57,7 @@ exports.ACcol_baunitfuenteControllerById = async (req, res) => {
 };
 
 // Eliminar un registro de col_baunitfuente por ID
-exports.col_baunitfuenteControllerdeleteById = async (req, res) => {
+export const col_baunitfuenteControllerdeleteById = async (req, res) => {
     const { id } = req.params;
     try {
         const registro = await col_baunitfuente.findByPk(id);

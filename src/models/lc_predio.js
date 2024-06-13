@@ -4,8 +4,8 @@ import { lc_categoriasuelotipo } from './lc_categoriasuelotipo.js';
 import { lc_destinacioneconomicatipo } from './lc_destinacioneconomicatipo.js';
 import { lc_clasesuelotipo } from './lc_clasesuelotipo.js';
 import { col_unidadadministrativabasicatipo } from './col_unidadadministrativabasicatipo.js';
-
-const lc_predio = sequelize.define('lc_predio', {
+ 
+const lc_predio = sequelize.define('penol.lc_predio', {
   t_id: {
     type: DataTypes.INTEGER,
     allowNull: false,
@@ -34,11 +34,11 @@ const lc_predio = sequelize.define('lc_predio', {
   },
   codigo_orip: {
     type: DataTypes.STRING,
-    allowNull: false
+    allowNull: true
   },
   matricula_inmobiliaria: {
     type: DataTypes.STRING,
-    allowNull: false
+    allowNull: true
   },
   numero_predial: {
     type: DataTypes.STRING,
@@ -88,6 +88,14 @@ const lc_predio = sequelize.define('lc_predio', {
     type: DataTypes.INTEGER,
     allowNull: true
   },
+  categoria_suelo: {
+    type: DataTypes.INTEGER,
+    allowNull: true
+  },
+  tipo:{
+    type: DataTypes.INTEGER,
+    allowNull: true
+  },
   nombre: {
     type: DataTypes.STRING,
     allowNull: true
@@ -113,19 +121,21 @@ const lc_predio = sequelize.define('lc_predio', {
     allowNull: true
   }
 }, {
-  freezeTableName: true
+  freezeTableName: true,
+  schema: 'penol',
+  tableName: 'lc_predio',
 });
-
+ 
 lc_predio.hasMany(lc_categoriasuelotipo, { foreignKey: 'categoria_suelo', sourceKey: 't_id' });
 lc_categoriasuelotipo.belongsTo(lc_predio, { foreignKey: 'categoria_suelo', targetKey: 't_id' });
-
+ 
 lc_predio.hasMany(lc_destinacioneconomicatipo, { foreignKey: 'destinacion_economica', sourceKey: 't_id' });
 lc_destinacioneconomicatipo.belongsTo(lc_predio, { foreignKey: 'destinacion_economica', targetKey: 't_id' });
-
+ 
 lc_predio.hasMany(lc_clasesuelotipo, { foreignKey: 'clase_suelo', sourceKey: 't_id' });
 lc_clasesuelotipo.belongsTo(lc_predio, { foreignKey: 'clase_suelo', targetKey: 't_id' });
-
+ 
 lc_predio.hasMany(col_unidadadministrativabasicatipo, { foreignKey: 'tipo', sourceKey: 't_id' });
 col_unidadadministrativabasicatipo.belongsTo(lc_predio, { foreignKey: 'tipo', targetKey: 't_id' });
-
+ 
 export default lc_predio;

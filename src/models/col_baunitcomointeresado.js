@@ -1,15 +1,13 @@
-const { Model, DataTypes } = require('sequelize');
+import { DataTypes } from 'sequelize';
+import { sequelize } from '../database/database.js';
+import  lc_interesado  from './lc_interesado.js';
+import  lc_agrupacioninteresados  from './lc_agrupacioninteresados.js';
+import  lc_predio  from './lc_predio.js';
 
-module.exports = (sequelize, DataTypes) => {
-  class col_baunitcomointeresado extends Model {
    
-    static associate(models) {
-      col_baunitcomointeresado.belongsTo(models.lc_interesado, { foreignKey: 'interesado_lc_interesado', targetKey: 't_id' });
-      col_baunitcomointeresado.belongsTo(models.lc_agrupacioninteresados, { foreignKey: 'interesado_lc_agrupacioninteresados', targetKey: 't_id' });
-      col_baunitcomointeresado.belongsTo(models.lc_predio, { foreignKey: 'unidad', targetKey: 't_id' });  
-    }
-  }
-  col_baunitcomointeresado.init({
+  
+const col_baunitcomointeresado = sequelize.define('penol.col_baunitcomointeresado', {
+        
     t_id: {
       type: DataTypes.INTEGER,
       allowNull: false,
@@ -33,8 +31,20 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: true
     }
   }, {
-    sequelize,
-    modelName: 'col_baunitcomointeresado',
+    freezeTableName: true,
+    schema: 'penol',
+    tableName:'col_baunitcomointeresado',
   });
-  return col_baunitcomointeresado;
-};
+  
+  col_baunitcomointeresado.hasMany(lc_interesado, { foreignKey: 'interesado_lc_interesado', sourcekey: 't_id' });
+  lc_interesado.belongsTo(col_baunitcomointeresado, { foreignKey: 'interesado_lc_interesado', targetKey: 't_id' });
+  
+  col_baunitcomointeresado.hasMany(lc_agrupacioninteresados, { foreignKey: 'interesado_lc_agrupacioninteresados', sourcekey: 't_id' });
+  lc_agrupacioninteresados.belongsTo(col_baunitcomointeresado, { foreignKey: 'interesado_lc_agrupacioninteresados', targetKey: 't_id' });
+  
+  col_baunitcomointeresado.hasMany(lc_predio, { foreignKey: 'unidad', sourcekey: 't_id' });  
+  lc_predio.belongsTo(col_baunitcomointeresado, { foreignKey: 'unidad', targetKey: 't_id' });  
+
+  
+
+  export default  col_baunitcomointeresado;

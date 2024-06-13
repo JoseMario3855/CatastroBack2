@@ -1,9 +1,8 @@
 // controllers/col_contenidoniveltipoController.js
-const db = require('../../../models/col_contenidoniveltipo');
-const col_contenidoniveltipoController = db.col_contenidoniveltipo;
 
+import col_contenidoniveltipoController  from '../../models/col_contenidoniveltipo.js';
 //Obtener todos los registros de col_contenidoniveltipo
-exports.getAllcol_contenidoniveltipo = async (req, res) => {
+export const getAllcol_contenidoniveltipo = async (req, res) => {
     try {
         const data = await col_contenidoniveltipoController.findAll();
         res.json(data);
@@ -14,7 +13,7 @@ exports.getAllcol_contenidoniveltipo = async (req, res) => {
 };
 
 // Crear un nuevo registro en col_contenidoniveltipo
-exports.createcol_contenidoniveltipo = async (req, res) => {
+export const createcol_contenidoniveltipo = async (req, res) => {
     try {
         const nuevoRegistro = await col_contenidoniveltipoController.create(req.body);
         return res.json(nuevoRegistro);
@@ -25,7 +24,7 @@ exports.createcol_contenidoniveltipo = async (req, res) => {
 };
 
 // Obtener un registro de col_contenidoniveltipo por ID
-exports.col_contenidoniveltipoById = async (req, res) => {
+export const col_contenidoniveltipoById = async (req, res) => {
     const { id } = req.params;
     try {
         const registro = await col_contenidoniveltipoController.findByPk(id);
@@ -40,7 +39,7 @@ exports.col_contenidoniveltipoById = async (req, res) => {
 };
 
 // Actualizar un registro de col_contenidoniveltipo por ID
-exports.ACcol_contenidoniveltipoById = async (req, res) => {
+export const ACcol_contenidoniveltipoById = async (req, res) => {
     const { id } = req.params;
     const { body } = req;
     try {
@@ -57,7 +56,7 @@ exports.ACcol_contenidoniveltipoById = async (req, res) => {
 };
 
 // Eliminar un registro de col_contenidoniveltipo por ID
-exports.Deletecol_contenidoniveltipoById = async (req, res) => {
+export const Deletecol_contenidoniveltipoById = async (req, res) => {
     const { id } = req.params;
     try {
         const registro = await col_contenidoniveltipoController.findByPk(id);

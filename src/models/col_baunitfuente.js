@@ -1,15 +1,9 @@
-const { Model, DataTypes } = require('sequelize');
+import { DataTypes } from 'sequelize';
+import { sequelize } from '../database/database.js';
+import  lc_predio  from './lc_predio.js';
+import  lc_fuenteespacial  from './lc_fuenteespacial.js';
 
-const lc_predio = require('./lc_predio');
-module.exports = (sequelize, DataTypes) => {
-  class col_baunitfuente extends Model {
-    
-    static associate(models) {
-      col_baunitfuente.belongsTo(models.lc_predio,{foreignKey:'unidad',targetKey:'t_id'});
-      col_baunitfuente.belongsTo(models.lc_fuenteespacial,{foreignKey:'fuente_especial',targetKey:'t_id'});
-    }
-  }
-  col_baunitfuente.init({
+  const col_baunitfuente= sequelize.define('penol.col_baunitfuente',{
     t_id: {
       type: DataTypes.INTEGER,
       allowNull: false,
@@ -29,8 +23,14 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: true
     },
   }, {
-    sequelize,
-    modelName: 'col_baunitfuente',
+    freezeTableName: true,
+    schema: 'penol',
+    tableName: 'col_baunitfuente',
   });
-  return col_baunitfuente;
-};
+  
+  col_baunitfuente.hasMany(lc_predio,{foreignKey:'unidad',sourceKey:'t_id'});
+  lc_predio.belongsTo(col_baunitfuente,{foreignKey:'unidad',targetKey:'t_id'});
+
+  col_baunitfuente.hasMany(lc_fuenteespacial,{foreignKey:'fuente_especial',sourceKey:'t_id'});
+  lc_fuenteespacial.belongsTo(col_baunitfuente,{foreignKey:'fuente_especial',targetKey:'t_id'});
+  export default col_baunitfuente;

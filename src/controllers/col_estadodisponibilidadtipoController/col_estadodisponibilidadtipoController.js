@@ -1,9 +1,7 @@
-// controllers/col_estadodisponibilidadtipoController.js
-const db = require('../../../models/col_estadodisponibilidadtipo');
-const col_estadodisponibilidadtipoController = db.col_estadodisponibilidadtipo;
+import col_estadodisponibilidadtipoController from '../../models/col_estadodisponibilidadtipo.js';
 
 //Obtener todos los registros de col_estadodisponibilidadtipo
-exports.getAllcol_estadodisponibilidadtipo = async (req, res) => {
+export const getAllcol_estadodisponibilidadtipo = async (req, res) => {
     try {
         const data = await col_estadodisponibilidadtipoController.findAll();
         res.json(data);
@@ -14,7 +12,7 @@ exports.getAllcol_estadodisponibilidadtipo = async (req, res) => {
 };
 
 // Crear un nuevo registro en col_estadodisponibilidadtipo
-exports.createcol_estadodisponibilidadtipo = async (req, res) => {
+export const createcol_estadodisponibilidadtipo = async (req, res) => {
     try {
         const nuevoRegistro = await col_estadodisponibilidadtipoController.create(req.body);
         return res.json(nuevoRegistro);
@@ -25,7 +23,7 @@ exports.createcol_estadodisponibilidadtipo = async (req, res) => {
 };
 
 // Obtener un registro de col_estadodisponibilidadtipo por ID
-exports.col_estadodisponibilidadtipoById = async (req, res) => {
+export const col_estadodisponibilidadtipoById = async (req, res) => {
     const { id } = req.params;
     try {
         const registro = await col_estadodisponibilidadtipoController.findByPk(id);
@@ -40,7 +38,7 @@ exports.col_estadodisponibilidadtipoById = async (req, res) => {
 };
 
 // Actualizar un registro de col_estadodisponibilidadtipo por ID
-exports.ACcol_estadodisponibilidadtipoById = async (req, res) => {
+export const ACcol_estadodisponibilidadtipoById = async (req, res) => {
     const { id } = req.params;
     const { body } = req;
     try {
@@ -57,7 +55,7 @@ exports.ACcol_estadodisponibilidadtipoById = async (req, res) => {
 };
 
 // Eliminar un registro de col_estadodisponibilidadtipo por ID
-exports.col_estadodisponibilidadtipoById = async (req, res) => {
+export const Updatecol_estadodisponibilidadtipoById = async (req, res) => {
     const { id } = req.params;
     try {
         const registro = await col_estadodisponibilidadtipoController.findByPk(id);

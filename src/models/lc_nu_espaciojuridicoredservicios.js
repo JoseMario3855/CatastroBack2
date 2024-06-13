@@ -1,17 +1,14 @@
-const { Model, DataTypes } = require('sequelize');
+import { DataTypes } from 'sequelize';
+import { sequelize } from '../database/database.js';
+import col_estadoredserviciostipo from './col_estadoredserviciostipo.js';
+import col_redserviciostipo from './col_redserviciostipo.js';
+import col_dimensiontipo from './col_dimensiontipo.js';
+import col_relacionsuperficietipo from './col_relacionsuperficietipo.js'
+import lc_nu_nivel from './lc_nu_nivel.js';
 
-module.exports = (sequelize, DataTypes) => {
-  class lc_nu_espaciojuridicoredservicios extends Model {
     
-    static associate(models) {
-        lc_nu_espaciojuridicoredservicios.belongsTo(models.col_estadoredserviciostipo,{foreignKey:'estado',targetKey:'t_id'});
-        lc_nu_espaciojuridicoredservicios.belongsTo(models.col_redserviciostipo,{foreignKey:'tipo',targetKey:'t_id'});
-        lc_nu_espaciojuridicoredservicios.belongsTo(models.col_dimensiontipo,{foreignKey:'dimension',targetKey:'t_id'});
-        lc_nu_espaciojuridicoredservicios.belongsTo(models.col_relacionsuperficietipo,{foreignKey:'relacion_superficie',targetKey:'t_id'});
-        lc_nu_espaciojuridicoredservicios.belongsTo(models.lc_nu_nivel,{foreignKey:'nivel',targetKey:'t_id'});
-    }
-  }
-  lc_nu_espaciojuridicoredservicios.init({
+       
+  const lc_nu_espaciojuridicoredservicios= sequelize.define('penol.lc_nu_espaciojuridicoredservicios',{
     t_id: {
         type: DataTypes.INTEGER,
         allowNull: false,
@@ -64,8 +61,23 @@ module.exports = (sequelize, DataTypes) => {
       },
       
   }, {
-    sequelize,
-    modelName: 'lc_nu_espaciojuridicoredservicios',
+    freezeTableName: true,
+    schema: 'penol',
+    tableName:'lc_nu_espaciojuridicoredservicios',
   });
-  return lc_nu_espaciojuridicoredservicios;
-};
+  lc_nu_espaciojuridicoredservicios.hasMany(col_estadoredserviciostipo,{foreignKey:'estado',sourceKey:'t_id'});
+  col_estadoredserviciostipo.belongsTo(lc_nu_espaciojuridicoredservicios ,{foreignKey:'estado',targetKey:'t_id'});
+
+  lc_nu_espaciojuridicoredservicios.hasMany(col_redserviciostipo,{foreignKey:'tipo',sourceKey:'t_id'});
+  col_redserviciostipo.belongsTo(lc_nu_espaciojuridicoredservicios,{foreignKey:'tipo',targetKey:'t_id'});
+  
+  lc_nu_espaciojuridicoredservicios.hasMany(col_dimensiontipo,{foreignKey:'dimension',sourceKey:'t_id'});
+  col_dimensiontipo.belongsTo(lc_nu_espaciojuridicoredservicios,{foreignKey:'dimension',targetKey:'t_id'});
+
+  lc_nu_espaciojuridicoredservicios.hasMany(col_relacionsuperficietipo,{foreignKey:'relacion_superficie',sourceKey:'t_id'});
+  col_relacionsuperficietipo.belongsTo(lc_nu_espaciojuridicoredservicios,{foreignKey:'relacion_superficie',targetKey:'t_id'});
+
+  lc_nu_espaciojuridicoredservicios.hasMany(lc_nu_nivel,{foreignKey:'nivel',sourceKey:'t_id'});
+  lc_nu_nivel.belongsTo(lc_nu_espaciojuridicoredservicios,{foreignKey:'nivel',targetKey:'t_id'});
+
+  export default lc_nu_espaciojuridicoredservicios;

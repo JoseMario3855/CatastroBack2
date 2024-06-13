@@ -1,13 +1,10 @@
-const { Model, DataTypes } = require('sequelize');
+import { DataTypes } from 'sequelize';
+import { sequelize } from '../database/database.js';
+import  col_grupointeresadotipo  from './col_grupointeresadotipo.js';
 
-module.exports = (sequelize, DataTypes) => {
-  class lc_agrupacioninteresados extends Model {
-   
-    static associate(models) {
-        lc_agrupacioninteresados.belongsTo(models.col_grupointeresadotipo,{foreignKey:'tipo',targetKey:'t_id'});
-    }
-  }
-  lc_agrupacioninteresados.init({
+  
+const lc_agrupacioninteresados = sequelize.define('penol.lc_agrupacioninteresados', {
+ 
     t_id: {
         type: DataTypes.INTEGER,
         allowNull: false,
@@ -42,9 +39,22 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.STRING,
         allowNull: false
       },
+      createdAt: {
+        type: DataTypes.DATE,
+        allowNull: true
+      },
+      updatedAt: {
+        type: DataTypes.DATE,
+        allowNull: true
+      }
     }, {
-        sequelize,
-        modelName: 'lc_agrupacioninteresados',
+      freezeTableName: true,
+      schema: 'penol',
+      tableName: 'lc_agrupacioninteresados',
+      
       });
-      return lc_agrupacioninteresados;
-    };
+      lc_agrupacioninteresados.hasMany(col_grupointeresadotipo,{foreignKey:'tipo',sourceKey:'t_id'});
+      col_grupointeresadotipo.belongsTo(lc_agrupacioninteresados,{foreignKey:'tipo',targetKey:'t_id'});
+
+      export default  lc_agrupacioninteresados;
+ 

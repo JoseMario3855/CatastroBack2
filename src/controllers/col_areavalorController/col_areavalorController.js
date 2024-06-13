@@ -1,9 +1,8 @@
-// controllers/col_areavalorController.js
-const db = require('../../../models/col_areavalor');
-const col_areavalor = db.col_areavalo;
+
+import col_areavalor from '../../models/col_areavalor.js';
 
 //Obtener todos los registros de col_areavalor
-exports.getAllcolareavalor = async (req, res) => {
+export const getAllcolareavalor = async (req, res) => {
     try {
         const data = await col_areavalor.findAll();
         res.json(data);
@@ -14,7 +13,7 @@ exports.getAllcolareavalor = async (req, res) => {
 };
 
 // Crear un nuevo registro en col_areavalor
-exports.createcolareavalor = async (req, res) => {
+export const createcolareavalor = async (req, res) => {
     try {
         const nuevoRegistro = await col_areavalor.create(req.body);
         return res.json(nuevoRegistro);
@@ -25,7 +24,7 @@ exports.createcolareavalor = async (req, res) => {
 };
 
 // Obtener un registro de col_areavalor por ID
-exports.colareavalorgetById = async (req, res) => {
+export const colareavalorgetById = async (req, res) => {
     const { id } = req.params;
     try {
         const registro = await col_areavalor.findByPk(id);
@@ -40,7 +39,7 @@ exports.colareavalorgetById = async (req, res) => {
 };
 
 // Actualizar un registro de col_areavalor por ID
-exports.colareavalorupdateById = async (req, res) => {
+export const colareavalorupdateById = async (req, res) => {
     const { id } = req.params;
     const { body } = req;
     try {
@@ -57,7 +56,7 @@ exports.colareavalorupdateById = async (req, res) => {
 };
 
 // Eliminar un registro de col_areavalor por ID
-exports.colareavalordeleteById = async (req, res) => {
+export const colareavalordeleteById = async (req, res) => {
     const { id } = req.params;
     try {
         const registro = await col_areavalor.findByPk(id);

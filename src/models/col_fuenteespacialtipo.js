@@ -1,13 +1,7 @@
-const { Model, DataTypes } = require('sequelize');
+import { DataTypes } from 'sequelize';
+import { sequelize } from '../database/database.js';
 
-module.exports = (sequelize, DataTypes) => {
-  class col_fuenteespacialtipo extends Model {
- 
-    static associate(models) {
-       
-    }
-  }
-  col_fuenteespacialtipo.init({
+  const col_fuenteespacialtipo = sequelize.define('penol.col_fuenteespacialtipo', {
     t_id: {
       type: DataTypes.INTEGER,
       allowNull: false,
@@ -43,12 +37,20 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: true
     },
     description: {
-        type: DataTypes.STRING,
+        type: DataTypes.STRING(1024),
+        allowNull: true
+      },
+      createdAt: {
+        type: DataTypes.DATE,
+        allowNull: true
+      },
+      updatedAt: {
+        type: DataTypes.DATE,
         allowNull: true
       }
   }, {
-    sequelize,
-    modelName: 'col_fuenteespacialtipo',
+    freezeTableName: true,
+    schema: 'penol',
+    tableName: 'col_fuenteespacialtipo',
   });
-  return col_fuenteespacialtipo;
-};
+  export default col_fuenteespacialtipo;

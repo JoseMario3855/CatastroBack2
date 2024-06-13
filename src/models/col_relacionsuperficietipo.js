@@ -1,17 +1,7 @@
-const { Model, DataTypes } = require('sequelize');
+import { DataTypes } from 'sequelize';
+import { sequelize } from '../database/database.js';
 
-module.exports = (sequelize, DataTypes) => {
-  class col_relacionsuperficietipo extends Model {
-    /**
-     * Helper method for defining associations.
-     * This method is not a part of Sequelize lifecycle.
-     * The `models/index` file will call this method automatically.
-     */
-    static associate(models) {
-      // define association here
-    }
-  }
-  col_relacionsuperficietipo.init({
+const col_relacionsuperficietipo= sequelize.define('penol.col_relacionsuperficietipo',{
     t_id: {
       type: DataTypes.INTEGER,
       allowNull: false,
@@ -24,7 +14,7 @@ module.exports = (sequelize, DataTypes) => {
     },
     baseclass: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: true
     },
     itfcode: {
       type: DataTypes.INTEGER,
@@ -50,9 +40,17 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       allowNull: false
     },
+    createdAt: {
+      type: DataTypes.DATE,
+      allowNull: true
+    },
+    updatedAt: {
+      type: DataTypes.DATE,
+      allowNull: true
+    }
   }, {
-    sequelize,
-    modelName: 'col_relacionsuperficietipo',
+    freezeTableName: true,
+    schema: 'penol',
+    tableName: 'col_relacionsuperficietipo',
   });
-  return col_relacionsuperficietipo;
-};
+  export default col_relacionsuperficietipo;

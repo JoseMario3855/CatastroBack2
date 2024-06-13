@@ -1,9 +1,8 @@
 // controllers/col_estadoredserviciostipoController.js
-const db = require('../../../models/col_estadoredserviciostipo');
-const col_estadoredserviciostipo = db.col_estadoredserviciostipo;
+import col_estadoredserviciostipo  from '../../models/col_estadoredserviciostipo.js';
 
 //Obtener todos los registros de col_estadoredserviciostipo
-exports.getAllcol_estadoredserviciostipo = async (req, res) => {
+export const getAllcol_estadoredserviciostipo = async (req, res) => {
     try {
         const data = await col_estadoredserviciostipo.findAll();
         res.json(data);
@@ -14,7 +13,7 @@ exports.getAllcol_estadoredserviciostipo = async (req, res) => {
 };
 
 // Crear un nuevo registro en col_estadoredserviciostipo
-exports.col_estadoredserviciostipocreate = async (req, res) => {
+export const col_estadoredserviciostipocreate = async (req, res) => {
     try {
         const nuevoRegistro = await col_estadoredserviciostipo.create(req.body);
         return res.json(nuevoRegistro);
@@ -25,7 +24,7 @@ exports.col_estadoredserviciostipocreate = async (req, res) => {
 };
 
 // Obtener un registro de col_estadoredserviciostipo por ID
-exports.col_estadoredserviciostipogetById = async (req, res) => {
+export const col_estadoredserviciostipogetById = async (req, res) => {
     const { id } = req.params;
     try {
         const registro = await col_estadoredserviciostipo.findByPk(id);
@@ -40,7 +39,7 @@ exports.col_estadoredserviciostipogetById = async (req, res) => {
 };
 
 // Actualizar un registro de col_estadoredserviciostipo por ID
-exports.col_estadoredserviciostipoupdateById = async (req, res) => {
+export const col_estadoredserviciostipoupdateById = async (req, res) => {
     const { id } = req.params;
     const { body } = req;
     try {
@@ -57,7 +56,7 @@ exports.col_estadoredserviciostipoupdateById = async (req, res) => {
 };
 
 // Eliminar un registro de col_estadoredserviciostipo por ID
-exports.col_estadoredserviciostipodeleteById = async (req, res) => {
+export const col_estadoredserviciostipodeleteById = async (req, res) => {
     const { id } = req.params;
     try {
         const registro = await col_estadoredserviciostipo.findByPk(id);

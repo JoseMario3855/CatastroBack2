@@ -1,18 +1,16 @@
-const { Model, DataTypes } = require('sequelize');
+import { DataTypes } from 'sequelize';
+import { sequelize } from '../database/database.js';
+import lc_construccion from './lc_construccion.js';
+import lc_unidadconstruccion from './lc_unidadconstruccion.js';
+import lc_nu_espaciojuridicounidadedificacion from './lc_nu_espaciojuridicounidadedificacion.js';
+import lc_nu_espaciojuridicoredservicios from './lc_nu_espaciojuridicoredservicios.js'
+import lc_terreno from './lc_terreno.js';
+import lc_servidumbretransito from './lc_servidumbretransito.js';
 
-module.exports = (sequelize, DataTypes) => {
-  class col_areavalor extends Model {
-   
-    static associate(models) {
-      col_areavalor.belongsTo(models.lc_construccion, { foreignKey: 'lc_construccion_area', targetKey: 't_id' });
-      col_areavalor.belongsTo(models.lc_unidadconstruccion,{foreignKey:'lc_unidadconstruccion_area',targetKey:'t_id'});
-      col_areavalor.belongsTo(models.lc_nu_espaciojuridicounidadedificacion,{foreignKey:'lc_n_spcjrdcndddfccion_area',targetKey:'t_id'});
-      col_areavalor.belongsTo(models.lc_nu_espaciojuridicoredservicios,{foreignKey:'lc_nu_spcjrdcrdsrvcios_area',targetKey:'t_id'});
-      col_areavalor.belongsTo(models.lc_terreno,{foreignKey:'lc_terreno_area',targetKey:'t_id'});
-      col_areavalor.belongsTo(models.lc_servidumbretransito,{foreignKey:'lc_servidumbretransito_area',targetKey:'t_id'})
-    }
-  }
-  col_areavalor.init({
+    
+      
+  
+  const col_areavalor = sequelize.define('penol.col_areavalor', {
     t_id: {
       type: DataTypes.INTEGER,
       allowNull: false,
@@ -61,8 +59,26 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false
     },
   }, {
-    sequelize,
-    modelName: 'col_areavalor',
+    freezeTableName: true,
+    schema: 'penol',
+    tableName: 'col_areavalor',
   });
-  return col_areavalor;
-};
+      col_areavalor.hasMany(lc_construccion, { foreignKey: 'lc_construccion_area', sourceKey: 't_id' });
+      lc_construccion.belongsTo(col_areavalor, { foreignKey: 'lc_construccion_area', targetKey: 't_id' });
+      
+      col_areavalor.hasMany(lc_unidadconstruccion,{foreignKey:'lc_unidadconstruccion_area',sourceKey:'t_id'});
+      lc_unidadconstruccion.belongsTo(col_areavalor,{foreignKey:'lc_unidadconstruccion_area',targetKey:'t_id'});
+      
+      col_areavalor.hasMany(lc_nu_espaciojuridicounidadedificacion,{foreignKey:'lc_n_spcjrdcndddfccion_area',sourceKey:'t_id'});
+      lc_nu_espaciojuridicounidadedificacion.belongsTo(col_areavalor,{foreignKey:'lc_n_spcjrdcndddfccion_area',targetKey:'t_id'});
+      
+      col_areavalor.hasMany(lc_nu_espaciojuridicoredservicios,{foreignKey:'lc_nu_spcjrdcrdsrvcios_area',sourceKey:'t_id'});
+      lc_nu_espaciojuridicoredservicios.belongsTo(col_areavalor,{foreignKey:'lc_nu_spcjrdcrdsrvcios_area',targetKey:'t_id'});
+      
+      col_areavalor.hasMany(lc_terreno,{foreignKey:'lc_terreno_area',sourceKey:'t_id'});
+      lc_terreno.belongsTo(col_areavalor,{foreignKey:'lc_terreno_area',targetKey:'t_id'});
+      
+      col_areavalor.hasMany(lc_servidumbretransito,{foreignKey:'lc_servidumbretransito_area',sourceKey:'t_id'});
+      lc_servidumbretransito.hasMany(col_areavalor,{foreignKey:'lc_servidumbretransito_area',targetKey:'t_id'});
+      
+      export default col_areavalor;

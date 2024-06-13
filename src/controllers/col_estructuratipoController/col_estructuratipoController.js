@@ -1,9 +1,9 @@
 // controllers/col_estructuratipoController.js
-const db = require('../../../models/col_estructuratipo');
-const col_estructuratipo = db.col_estructuratipo;
+import col_estructuratipo from '../../models/col_estructuratipo.js';
+
 
 //Obtener todos los registros de col_estructuratipo
-exports.getAllcol_estructuratipo = async (req, res) => {
+export const getAllcol_estructuratipo = async (req, res) => {
     try {
         const data = await col_estructuratipo.findAll();
         res.json(data);
@@ -14,7 +14,7 @@ exports.getAllcol_estructuratipo = async (req, res) => {
 };
 
 // Crear un nuevo registro en col_estructuratipo
-exports.col_estructuratipocreate = async (req, res) => {
+export const col_estructuratipocreate = async (req, res) => {
     try {
         const nuevoRegistro = await col_estructuratipo.create(req.body);
         return res.json(nuevoRegistro);
@@ -25,7 +25,7 @@ exports.col_estructuratipocreate = async (req, res) => {
 };
 
 // Obtener un registro de col_estructuratipo por ID
-exports.col_estructuratipogetById = async (req, res) => {
+export const col_estructuratipogetById = async (req, res) => {
     const { id } = req.params;
     try {
         const registro = await col_estructuratipo.findByPk(id);
@@ -40,7 +40,7 @@ exports.col_estructuratipogetById = async (req, res) => {
 };
 
 // Actualizar un registro de col_estructuratipo por ID
-exports.col_estructuratipoupdateById = async (req, res) => {
+export const col_estructuratipoupdateById = async (req, res) => {
     const { id } = req.params;
     const { body } = req;
     try {
@@ -57,7 +57,7 @@ exports.col_estructuratipoupdateById = async (req, res) => {
 };
 
 // Eliminar un registro de col_estructuratipo por ID
-exports.col_estructuratipodeleteById = async (req, res) => {
+export const col_estructuratipodeleteById = async (req, res) => {
     const { id } = req.params;
     try {
         const registro = await col_estructuratipo.findByPk(id);

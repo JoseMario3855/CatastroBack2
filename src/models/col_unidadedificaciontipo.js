@@ -1,13 +1,7 @@
-const { Model, DataTypes } = require('sequelize');
+import { DataTypes } from 'sequelize';
+import { sequelize } from '../database/database.js';
 
-module.exports = (sequelize, DataTypes) => {
-  class col_unidadedificaciontipo extends Model {
- 
-    static associate(models) {
-       
-    }
-  }
-  col_unidadedificaciontipo.init({
+const col_unidadedificaciontipo=sequelize.define('penol.col_unidadedificaciontipo',{
     t_id: {
       type: DataTypes.INTEGER,
       allowNull: false,
@@ -45,10 +39,18 @@ module.exports = (sequelize, DataTypes) => {
     description: {
         type: DataTypes.STRING,
         allowNull: true
+      },
+      createdAt: {
+        type: DataTypes.DATE,
+        allowNull: true
+      },
+      updatedAt: {
+        type: DataTypes.DATE,
+        allowNull: true
       }
   }, {
-    sequelize,
-    modelName: 'col_unidadedificaciontipo',
+    freezeTableName: true,
+    schema: 'penol',
+    tableName: 'col_unidadedificaciontipo',
   });
-  return col_unidadedificaciontipo;
-};
+  export default col_unidadedificaciontipo;

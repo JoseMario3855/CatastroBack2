@@ -1,16 +1,13 @@
-const { Model, DataTypes } = require('sequelize');
+import { DataTypes } from 'sequelize';
+import { sequelize } from '../database/database.js';
+import col_unidadedificaciontipo from './col_unidadedificaciontipo.js';
+import col_dimensiontipo from './col_dimensiontipo.js';
+import col_relacionsuperficietipo from './col_relacionsuperficietipo.js';
+import lc_nu_nivel from './lc_nu_nivel.js';
+   
 
-module.exports = (sequelize, DataTypes) => {
-  class lc_nu_espaciojuridicounidadedificacion extends Model {
-    
-    static associate(models) {
-        lc_nu_espaciojuridicounidadedificacion.belongsTo(models.col_unidadedificaciontipo,{foreignKey:'tipo',targetKey:'t_id'});
-        lc_nu_espaciojuridicounidadedificacion.belongsTo(models.col_dimensiontipo,{foreignKey:'dimension',targetKey:'t_id'});
-        lc_nu_espaciojuridicounidadedificacion.belongsTo(models.col_relacionsuperficietipo,{foreignKey:'relacion_superficie',targetKey:'t_id'});
-        lc_nu_espaciojuridicounidadedificacion.belongsTo(models.lc_nu_nivel,{foreignKey:'nivel',targetKey:'t_id'});
-    }
-  }
-  lc_nu_espaciojuridicounidadedificacion.init({
+
+ const  lc_nu_espaciojuridicounidadedificacion=sequelize.define('penol.lc_nu_espaciojuridicounidadedificacion',{
     t_id: {
         type: DataTypes.INTEGER,
         allowNull: false,
@@ -63,8 +60,20 @@ module.exports = (sequelize, DataTypes) => {
       },
       
   }, {
-    sequelize,
-    modelName: 'lc_nu_espaciojuridicounidadedificacion',
+    freezeTableName: true,
+    schema: 'penol',
+    tableName:'lc_nu_espaciojuridicounidadedificacion',
   });
-  return lc_nu_espaciojuridicounidadedificacion;
-};
+  lc_nu_espaciojuridicounidadedificacion.hasMany(col_unidadedificaciontipo,{foreignKey:'tipo',sourceKey:'t_id'});
+  col_unidadedificaciontipo.belongsTo(lc_nu_espaciojuridicounidadedificacion,{foreignKey:'tipo',targetKey:'t_id'});
+  
+  lc_nu_espaciojuridicounidadedificacion.hasMany(col_dimensiontipo,{foreignKey:'dimension',sourceKey:'t_id'});
+  col_dimensiontipo.belongsTo(lc_nu_espaciojuridicounidadedificacion,{foreignKey:'dimension',targetKey:'t_id'});
+  
+  lc_nu_espaciojuridicounidadedificacion.hasMany(col_relacionsuperficietipo,{foreignKey:'relacion_superficie',sourceKey:'t_id'});
+  col_relacionsuperficietipo.belongsTo(lc_nu_espaciojuridicounidadedificacion,{foreignKey:'relacion_superficie',targetKey:'t_id'});
+  
+  lc_nu_espaciojuridicounidadedificacion.hasMany(lc_nu_nivel,{foreignKey:'nivel',sourceKey:'t_id'});
+  lc_nu_nivel.belongsTo(lc_nu_espaciojuridicounidadedificacion,{foreignKey:'nivel',targetKey:'t_id'});
+
+  export default lc_nu_espaciojuridicounidadedificacion;

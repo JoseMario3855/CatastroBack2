@@ -1,13 +1,7 @@
-const { Model, DataTypes } = require('sequelize');
+import {DataTypes} from 'sequelize'
+import {sequelize} from '../database/database.js';
 
-module.exports = (sequelize, DataTypes) => {
-  class lc_interesadodocumentotipo extends Model {
-    
-    static associate(models) {
-      
-    }
-  }
-  lc_interesadodocumentotipo.init({
+export const lc_interesadodocumentotipo= sequelize.define ("lc_interesadodocumentotipo",{
     t_id: {
       type: DataTypes.INTEGER,
       allowNull: false,
@@ -51,5 +45,3 @@ module.exports = (sequelize, DataTypes) => {
     sequelize,
     modelName: 'lc_interesadodocumentotipo',
   });
-  return lc_interesadodocumentotipo;
-};

@@ -1,13 +1,7 @@
-const { Model, DataTypes } = require('sequelize');
+import { DataTypes } from 'sequelize';
+import { sequelize } from '../database/database.js';
 
-module.exports = (sequelize, DataTypes) => {
-  class col_estructuratipo extends Model {
- 
-    static associate(models) {
-       
-    }
-  }
-  col_estructuratipo.init({
+const col_estructuratipo= sequelize.define('penol.col_estructuratipo',{
     t_id: {
       type: DataTypes.INTEGER,
       allowNull: false,
@@ -45,10 +39,19 @@ module.exports = (sequelize, DataTypes) => {
     description: {
         type: DataTypes.STRING,
         allowNull: true
-      }
+      },
+     
+  createdAt: {
+    type: DataTypes.DATE,
+    allowNull: true
+  },
+  updatedAt: {
+    type: DataTypes.DATE,
+    allowNull: true
+  }
   }, {
-    sequelize,
-    modelName: 'col_estructuratipo',
+    freezeTableName: true,
+    schema: 'penol',
+    tableName: 'col_estructuratipo',
   });
-  return col_estructuratipo;
-};
+  export default col_estructuratipo;

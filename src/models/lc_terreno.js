@@ -1,17 +1,7 @@
-const { Model, DataTypes } = require('sequelize');
+import { DataTypes } from 'sequelize';
+import { sequelize } from '../database/database.js';
 
-module.exports = (sequelize, DataTypes) => {
-  class lc_terreno extends Model {
-    /**
-     * Helper method for defining associations.
-     * This method is not a part of Sequelize lifecycle.
-     * The `models/index` file will call this method automatically.
-     */
-    static associate(models) {
-      // define association here
-    }
-  }
-  lc_terreno.init({
+const lc_terreno= sequelize.define('penol.lc_terreno',{
       t_id: {
           type: DataTypes.INTEGER,
           allowNull: false,
@@ -62,9 +52,17 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.STRING,
             allowNull: true
         },
+        createdAt: {
+            type: DataTypes.DATE,
+            allowNull: true
+          },
+          updatedAt: {
+            type: DataTypes.DATE,
+            allowNull: true
+          }
     }, {
-        sequelize,
-        modelName: 'lc_terreno',
+        freezeTableName: true,
+        schema: 'penol',
+        tableName: 'lc_terreno',
       });
-      return lc_terreno;
-};
+      export default lc_terreno;

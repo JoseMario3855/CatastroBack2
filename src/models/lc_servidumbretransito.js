@@ -1,17 +1,7 @@
-const { Model, DataTypes } = require('sequelize');
+import { DataTypes } from 'sequelize';
+import { sequelize } from '../database/database.js';
 
-module.exports = (sequelize, DataTypes) => {
-  class lc_servidumbretransito extends Model {
-    /**
-     * Helper method for defining associations.
-     * This method is not a part of Sequelize lifecycle.
-     * The `models/index` file will call this method automatically.
-     */
-    static associate(models) {
-      // define association here
-    }
-  }
-  lc_servidumbretransito.init({
+const lc_servidumbretransito= sequelize.define('penol.lc_servidumbretransito',{
     t_id: {
         type: DataTypes.INTEGER,
         allowNull: false,
@@ -68,8 +58,8 @@ module.exports = (sequelize, DataTypes) => {
       },
       
   }, {
-    sequelize,
-    modelName: 'lc_servidumbretransito',
+    freezeTableName: true,
+    schema: 'penol',
+    tableName:'lc_servidumbretransito',
   });
-  return lc_servidumbretransito;
-};
+  export default lc_servidumbretransito;

@@ -1,9 +1,8 @@
 // controllers/col_baunitcomointeresadoController.js
-const db = require('../../../models/col_baunitcomointeresado');
-const col_baunitcomointeresado = db.col_baunitcomointeresado;
+import col_baunitcomointeresado from "../../models/col_baunitcomointeresado.js";
 
 //Obtener todos los registros de col_baunitcomointeresado
-exports.getAllcol_baunitcomointeresado = async (req, res) => {
+export const getAllcol_baunitcomointeresado = async (req, res) => {
     try {
         const data = await col_baunitcomointeresado.findAll();
         res.json(data);
@@ -14,7 +13,7 @@ exports.getAllcol_baunitcomointeresado = async (req, res) => {
 };
 
 // Crear un nuevo registro en col_baunitcomointeresado
-exports.createcol_baunitcomointeresado = async (req, res) => {
+export const createcol_baunitcomointeresado = async (req, res) => {
     try {
         const nuevoRegistro = await col_baunitcomointeresado.create(req.body);
         return res.json(nuevoRegistro);
@@ -25,7 +24,7 @@ exports.createcol_baunitcomointeresado = async (req, res) => {
 };
 
 // Obtener un registro de col_baunitcomointeresado por ID
-exports.col_baunitcomointeresadoById = async (req, res) => {
+export const col_baunitcomointeresadoById = async (req, res) => {
     const { id } = req.params;
     try {
         const registro = await col_baunitcomointeresado.findByPk(id);
@@ -40,7 +39,7 @@ exports.col_baunitcomointeresadoById = async (req, res) => {
 };
 
 // Actualizar un registro de col_baunitcomointeresado por ID
-exports.ACcol_baunitcomointeresadoById = async (req, res) => {
+export const ACcol_baunitcomointeresadoById = async (req, res) => {
     const { id } = req.params;
     const { body } = req;
     try {
@@ -57,7 +56,7 @@ exports.ACcol_baunitcomointeresadoById = async (req, res) => {
 };
 
 // Eliminar un registro de col_baunitcomointeresado por ID
-exports.col_baunitcomointeresadodeleteById = async (req, res) => {
+export const col_baunitcomointeresadodeleteById = async (req, res) => {
     const { id } = req.params;
     try {
         const registro = await col_baunitcomointeresado.findByPk(id);

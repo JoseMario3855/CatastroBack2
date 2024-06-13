@@ -1,16 +1,13 @@
-const { Model, DataTypes } = require('sequelize');
+import { DataTypes } from 'sequelize';
+import { sequelize } from '../database/database.js';
+import { lc_interesadodocumentotipo } from './lc_interesadodocumentotipo.js';
+import { lc_sexotipo } from './lc_sexotipo.js';
+import { lc_grupoetnicotipo } from './lc_grupoetnicotipo.js';
+import { lc_estadociviltipo } from './lc_estadociviltipo.js';
+ 
 
-module.exports = (sequelize, DataTypes) => {
-  class lc_interesado extends Model {
-   
-    static associate(models) {
-      lc_interesado.belongsTo(models.lc_interesadodocumentotipo,{foreignKey:'tipo_documento',targetKey:'t_id'});
-      lc_interesado.belongsTo(models.lc_sexotipo,{foreignKey:'sexo',targetKey:'t_id'});
-      lc_interesado.belongsTo(models.lc_grupoetnicotipo,{foreignKey:'grupo_etnico',targetKey:'t_id'});
-      lc_interesado.belongsTo(models.lc_estadociviltipo,{foreignKey:'estado_civil',targetKey:'t_id'});
-    }
-  }
-  lc_interesado.init({
+  const lc_interesado = sequelize.define('penol.lc_interesado', {
+
     t_id: {
       type: DataTypes.INTEGER,
       allowNull: false,
@@ -35,19 +32,19 @@ module.exports = (sequelize, DataTypes) => {
     },
     primer_nombre: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: true
     },
     segundo_nombre: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: true
     },
     primer_apellido: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: true
     },
     segundo_apellido: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: true
     },
     sexo: {
       type: DataTypes.INTEGER,
@@ -59,7 +56,7 @@ module.exports = (sequelize, DataTypes) => {
     },
     razon_social: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: true
     },
     nombre: {
       type: DataTypes.STRING,
@@ -71,7 +68,7 @@ module.exports = (sequelize, DataTypes) => {
       },
     fin_vida_util_version: {
     type:DataTypes.DATE,
-    allowNull: false
+    allowNull: true
     },
     espacio_de_nombres: {
       type: DataTypes.STRING,
@@ -82,9 +79,29 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       allowNull: false
     },
+    createdAt: {
+      type: DataTypes.DATE,
+      allowNull: true
+    },
+    updatedAt: {
+      type: DataTypes.DATE,
+      allowNull: true
+    }
   }, {
-    sequelize,
-    modelName: 'lc_interesado',
+    freezeTableName: true,
+    schema: 'penol',
+    tableName: 'lc_interesado',
   });
-  return lc_interesado;
-};
+  lc_interesado.hasMany(lc_interesadodocumentotipo, { foreignKey: 'tipo_documento', sourceKey: 't_id' });
+  lc_interesadodocumentotipo.belongsTo(lc_interesado, { foreignKey: 'tipo_documento', targetKey: 't_id' });
+ 
+lc_interesado.hasMany(lc_sexotipo, { foreignKey: 'sexo', sourceKey: 't_id' });
+lc_sexotipo.belongsTo(lc_interesado, { foreignKey: 'sexo', targetKey: 't_id' });
+ 
+lc_interesado.hasMany(lc_grupoetnicotipo, { foreignKey: 'grupo_etnico', sourceKey: 't_id' });
+lc_grupoetnicotipo.belongsTo(lc_interesado, { foreignKey: 'grupo_etnico', targetKey: 't_id' });
+ 
+lc_interesado.hasMany(lc_estadociviltipo, { foreignKey: 'estado_civil', sourceKey: 't_id' });
+lc_estadociviltipo.belongsTo(lc_interesado, { foreignKey: 'estado_civil', targetKey: 't_id' });
+ 
+  export default lc_interesado;
